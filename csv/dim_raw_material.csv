@@ -1,0 +1,21 @@
+material_id,material_name,material_class,base_cost_per_tonne,hazard_class
+RM-01,Ethylene,Feedstock,820,Flammable
+RM-02,Propylene,Feedstock,790,Flammable
+RM-03,Benzene,Feedstock,960,Carcinogen
+RM-04,Caustic Soda,Base,410,Corrosive
+RM-05,Sulphuric Acid,Acid,180,Corrosive
+RM-06,Titanium Dioxide,Pigment,3100,Irritant
+RM-07,Platinum Catalyst,Catalyst,28500,Oxidiser
+RM-08,Toluene,Solvent,720,Flammable
+RM-09,Acetone,Solvent,640,Flammable
+RM-10,Phenol,Intermed,1180,Toxic
+RM-11,Epoxy Resin Base,Intermed,2250,Irritant
+RM-12,Silica Filler,Filler,260,Inert
+RM-13,Chlorine,Halogen,340,Toxic Gas
+RM-14,Ammonia,Base,380,Toxic Gas
+RM-15,Butadiene,Feedstock,880,Flammable
+RM-16,Methanol,Solvent,430,Flammable
+RM-17,Stabiliser Blend,Additive,1650,Irritant
+RM-18,Antioxidant AO-7,Additive,2400,Irritant
+RM-19,Urea,Base,290,Inert
+RM-20,Specialty Surfactant,Additive,1950,Irritant

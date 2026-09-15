@@ -1,0 +1,16 @@
+customer_id,customer_name,region,segment
+CUS-01,Bayerische Coatings,EMEA,Coatings
+CUS-02,Midwest AgriCorp,AMER,Agriculture
+CUS-03,Shenzhen Electronics,APAC,Electronics
+CUS-04,TotalPack Plastics,EMEA,Packaging
+CUS-05,Rio Agro Insumos,LATAM,Agriculture
+CUS-06,Detroit AutoParts,AMER,Automotive
+CUS-07,Tata Polymers,APAC,Polymers
+CUS-08,Nordic Paints AS,EMEA,Coatings
+CUS-09,Gulf Industrial,AMER,Industrial
+CUS-10,Osaka Chemicals KK,APAC,Distribution
+CUS-11,Iberia Solventes,EMEA,Distribution
+CUS-12,Andina Pinturas,LATAM,Coatings
+CUS-13,Great Lakes Auto,AMER,Automotive
+CUS-14,Pune Speciality,APAC,Specialty
+CUS-15,Benelux Traders,EMEA,Distribution

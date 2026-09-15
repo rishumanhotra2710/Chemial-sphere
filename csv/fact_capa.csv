@@ -1,0 +1,210 @@
+capa_id,batch_id,period,period_idx,plant_id,formula_id,product_family,root_cause,recurring,closed_on_time,cs_active
+CAPA-00001,BAT-001814,2025-06,8,PLT-01,FRM-08,Surfactants,Raw material variance,0,1,0
+CAPA-00002,BAT-001993,2025-07,9,PLT-01,FRM-04,Agrochem,Equipment calibration,1,1,0
+CAPA-00003,BAT-004509,2026-06,20,PLT-03,FRM-12,Solvents,Contamination,1,1,1
+CAPA-00004,BAT-004503,2026-06,20,PLT-06,FRM-05,Coatings,Operator deviation,0,1,1
+CAPA-00005,BAT-002395,2025-08,10,PLT-03,FRM-04,Agrochem,Raw material variance,0,0,0
+CAPA-00006,BAT-003069,2025-11,13,PLT-04,FRM-05,Coatings,Process parameter drift,1,1,0
+CAPA-00007,BAT-005258,2026-09,23,PLT-03,FRM-12,Solvents,Equipment calibration,0,1,1
+CAPA-00008,BAT-000978,2025-02,4,PLT-04,FRM-10,Agrochem,Operator deviation,1,0,0
+CAPA-00009,BAT-004436,2026-06,20,PLT-02,FRM-09,Specialty,Equipment calibration,0,1,1
+CAPA-00010,BAT-001897,2025-06,8,PLT-06,FRM-07,Catalysts,Documentation gap,0,0,0
+CAPA-00011,BAT-005176,2026-09,23,PLT-06,FRM-01,Polymers,Process parameter drift,0,1,1
+CAPA-00012,BAT-003242,2025-12,14,PLT-06,FRM-09,Specialty,Equipment calibration,0,0,0
+CAPA-00013,BAT-001857,2025-06,8,PLT-02,FRM-10,Agrochem,Operator deviation,0,1,0
+CAPA-00014,BAT-001817,2025-06,8,PLT-04,FRM-04,Agrochem,Process parameter drift,1,1,0
+CAPA-00015,BAT-002694,2025-10,12,PLT-02,FRM-11,Polymers,Contamination,1,0,0
+CAPA-00016,BAT-002676,2025-10,12,PLT-01,FRM-04,Agrochem,Raw material variance,1,1,0
+CAPA-00017,BAT-001555,2025-05,7,PLT-05,FRM-04,Agrochem,Contamination,1,0,0
+CAPA-00018,BAT-003420,2026-01,15,PLT-03,FRM-04,Agrochem,Raw material variance,0,1,0
+CAPA-00019,BAT-001634,2025-05,7,PLT-04,FRM-09,Specialty,Equipment calibration,0,0,0
+CAPA-00020,BAT-002561,2025-09,11,PLT-03,FRM-10,Agrochem,Raw material variance,0,1,0
+CAPA-00021,BAT-001329,2025-04,6,PLT-06,FRM-02,Polymers,Equipment calibration,0,1,0
+CAPA-00022,BAT-000437,2024-11,1,PLT-02,FRM-07,Catalysts,Process parameter drift,0,0,0
+CAPA-00023,BAT-000475,2024-12,2,PLT-05,FRM-07,Catalysts,Contamination,1,1,0
+CAPA-00024,BAT-002336,2025-08,10,PLT-04,FRM-09,Specialty,Process parameter drift,0,0,0
+CAPA-00025,BAT-002291,2025-08,10,PLT-04,FRM-09,Specialty,Process parameter drift,1,1,0
+CAPA-00026,BAT-002358,2025-08,10,PLT-04,FRM-08,Surfactants,Equipment calibration,0,1,0
+CAPA-00027,BAT-003638,2026-02,16,PLT-05,FRM-10,Agrochem,Process parameter drift,0,1,0
+CAPA-00028,BAT-002893,2025-11,13,PLT-02,FRM-09,Specialty,Process parameter drift,0,1,0
+CAPA-00029,BAT-002992,2025-11,13,PLT-04,FRM-09,Specialty,Process parameter drift,0,0,0
+CAPA-00030,BAT-000053,2024-10,0,PLT-06,FRM-01,Polymers,Raw material variance,0,1,0
+CAPA-00031,BAT-001198,2025-03,5,PLT-04,FRM-02,Polymers,Process parameter drift,1,0,0
+CAPA-00032,BAT-005135,2026-09,23,PLT-04,FRM-04,Agrochem,Operator deviation,1,1,1
+CAPA-00033,BAT-000930,2025-02,4,PLT-06,FRM-09,Specialty,Raw material variance,0,1,0
+CAPA-00034,BAT-004194,2026-05,19,PLT-03,FRM-07,Catalysts,Equipment calibration,0,1,1
+CAPA-00035,BAT-001086,2025-02,4,PLT-04,FRM-02,Polymers,Contamination,1,1,0
+CAPA-00036,BAT-004561,2026-06,20,PLT-06,FRM-11,Polymers,Raw material variance,0,1,1
+CAPA-00037,BAT-002792,2025-10,12,PLT-03,FRM-11,Polymers,Raw material variance,0,1,0
+CAPA-00038,BAT-001571,2025-05,7,PLT-03,FRM-09,Specialty,Raw material variance,0,1,0
+CAPA-00039,BAT-002071,2025-07,9,PLT-04,FRM-04,Agrochem,Documentation gap,1,1,0
+CAPA-00040,BAT-002739,2025-10,12,PLT-06,FRM-05,Coatings,Equipment calibration,1,1,0
+CAPA-00041,BAT-002448,2025-09,11,PLT-02,FRM-09,Specialty,Documentation gap,1,1,0
+CAPA-00042,BAT-004795,2026-07,21,PLT-03,FRM-07,Catalysts,Operator deviation,1,1,1
+CAPA-00043,BAT-003073,2025-11,13,PLT-03,FRM-02,Polymers,Contamination,0,1,0
+CAPA-00044,BAT-002580,2025-09,11,PLT-06,FRM-07,Catalysts,Operator deviation,0,1,0
+CAPA-00045,BAT-004662,2026-07,21,PLT-06,FRM-11,Polymers,Process parameter drift,0,1,1
+CAPA-00046,BAT-005061,2026-09,23,PLT-06,FRM-09,Specialty,Equipment calibration,0,1,1
+CAPA-00047,BAT-004012,2026-04,18,PLT-03,FRM-03,Solvents,Equipment calibration,0,0,1
+CAPA-00048,BAT-000934,2025-02,4,PLT-03,FRM-02,Polymers,Process parameter drift,0,1,0
+CAPA-00049,BAT-001946,2025-06,8,PLT-04,FRM-06,Coatings,Operator deviation,0,0,0
+CAPA-00050,BAT-001565,2025-05,7,PLT-01,FRM-02,Polymers,Raw material variance,0,1,0
+CAPA-00051,BAT-005138,2026-09,23,PLT-02,FRM-03,Solvents,Raw material variance,0,1,1
+CAPA-00052,BAT-001401,2025-04,6,PLT-03,FRM-06,Coatings,Raw material variance,0,0,0
+CAPA-00053,BAT-000275,2024-11,1,PLT-03,FRM-01,Polymers,Documentation gap,0,1,0
+CAPA-00054,BAT-004126,2026-04,18,PLT-05,FRM-08,Surfactants,Raw material variance,0,1,1
+CAPA-00055,BAT-003295,2025-12,14,PLT-01,FRM-01,Polymers,Documentation gap,0,1,0
+CAPA-00056,BAT-004505,2026-06,20,PLT-03,FRM-04,Agrochem,Contamination,0,1,1
+CAPA-00057,BAT-001354,2025-04,6,PLT-03,FRM-03,Solvents,Process parameter drift,0,1,0
+CAPA-00058,BAT-001222,2025-03,5,PLT-03,FRM-07,Catalysts,Process parameter drift,0,1,0
+CAPA-00059,BAT-000655,2024-12,2,PLT-06,FRM-04,Agrochem,Equipment calibration,1,1,0
+CAPA-00060,BAT-000035,2024-10,0,PLT-04,FRM-08,Surfactants,Raw material variance,0,0,0
+CAPA-00061,BAT-003480,2026-01,15,PLT-06,FRM-08,Surfactants,Raw material variance,0,0,0
+CAPA-00062,BAT-000266,2024-11,1,PLT-02,FRM-09,Specialty,Process parameter drift,0,1,0
+CAPA-00063,BAT-003665,2026-02,16,PLT-03,FRM-07,Catalysts,Raw material variance,0,0,0
+CAPA-00064,BAT-003778,2026-03,17,PLT-03,FRM-08,Surfactants,Equipment calibration,0,1,0
+CAPA-00065,BAT-001415,2025-04,6,PLT-04,FRM-02,Polymers,Equipment calibration,1,1,0
+CAPA-00066,BAT-004159,2026-04,18,PLT-05,FRM-11,Polymers,Equipment calibration,0,1,1
+CAPA-00067,BAT-001087,2025-02,4,PLT-01,FRM-01,Polymers,Raw material variance,0,1,0
+CAPA-00068,BAT-001414,2025-04,6,PLT-06,FRM-07,Catalysts,Operator deviation,0,0,0
+CAPA-00069,BAT-002629,2025-09,11,PLT-02,FRM-10,Agrochem,Raw material variance,1,1,0
+CAPA-00070,BAT-002032,2025-07,9,PLT-03,FRM-09,Specialty,Process parameter drift,1,0,0
+CAPA-00071,BAT-000986,2025-02,4,PLT-03,FRM-11,Polymers,Operator deviation,0,1,0
+CAPA-00072,BAT-001806,2025-06,8,PLT-01,FRM-09,Specialty,Process parameter drift,1,1,0
+CAPA-00073,BAT-002160,2025-07,9,PLT-05,FRM-01,Polymers,Contamination,1,1,0
+CAPA-00074,BAT-004752,2026-07,21,PLT-02,FRM-04,Agrochem,Contamination,1,1,1
+CAPA-00075,BAT-003869,2026-03,17,PLT-03,FRM-06,Coatings,Raw material variance,0,1,0
+CAPA-00076,BAT-003279,2025-12,14,PLT-03,FRM-06,Coatings,Equipment calibration,0,1,0
+CAPA-00077,BAT-001042,2025-02,4,PLT-02,FRM-11,Polymers,Process parameter drift,0,1,0
+CAPA-00078,BAT-001704,2025-05,7,PLT-03,FRM-09,Specialty,Equipment calibration,0,1,0
+CAPA-00079,BAT-002860,2025-10,12,PLT-02,FRM-10,Agrochem,Contamination,0,1,0
+CAPA-00080,BAT-002064,2025-07,9,PLT-04,FRM-04,Agrochem,Equipment calibration,0,1,0
+CAPA-00081,BAT-003599,2026-02,16,PLT-04,FRM-09,Specialty,Process parameter drift,0,0,0
+CAPA-00082,BAT-005182,2026-09,23,PLT-02,FRM-07,Catalysts,Operator deviation,1,1,1
+CAPA-00083,BAT-000780,2025-01,3,PLT-03,FRM-09,Specialty,Contamination,1,1,0
+CAPA-00084,BAT-004035,2026-04,18,PLT-06,FRM-12,Solvents,Contamination,0,0,1
+CAPA-00085,BAT-001775,2025-06,8,PLT-06,FRM-07,Catalysts,Operator deviation,0,1,0
+CAPA-00086,BAT-000313,2024-11,1,PLT-03,FRM-05,Coatings,Process parameter drift,0,1,0
+CAPA-00087,BAT-004034,2026-04,18,PLT-04,FRM-05,Coatings,Equipment calibration,0,0,1
+CAPA-00088,BAT-004528,2026-06,20,PLT-03,FRM-03,Solvents,Raw material variance,1,1,1
+CAPA-00089,BAT-000330,2024-11,1,PLT-06,FRM-02,Polymers,Equipment calibration,0,1,0
+CAPA-00090,BAT-000891,2025-02,4,PLT-02,FRM-04,Agrochem,Process parameter drift,1,1,0
+CAPA-00091,BAT-002190,2025-07,9,PLT-01,FRM-06,Coatings,Contamination,0,0,0
+CAPA-00092,BAT-002853,2025-10,12,PLT-03,FRM-05,Coatings,Contamination,1,1,0
+CAPA-00093,BAT-004304,2026-05,19,PLT-01,FRM-09,Specialty,Equipment calibration,0,1,1
+CAPA-00094,BAT-002534,2025-09,11,PLT-02,FRM-09,Specialty,Process parameter drift,1,1,0
+CAPA-00095,BAT-000848,2025-01,3,PLT-02,FRM-10,Agrochem,Process parameter drift,0,1,0
+CAPA-00096,BAT-002751,2025-10,12,PLT-03,FRM-06,Coatings,Process parameter drift,0,1,0
+CAPA-00097,BAT-000367,2024-11,1,PLT-03,FRM-06,Coatings,Contamination,0,0,0
+CAPA-00098,BAT-002974,2025-11,13,PLT-04,FRM-09,Specialty,Documentation gap,1,1,0
+CAPA-00099,BAT-002516,2025-09,11,PLT-02,FRM-11,Polymers,Raw material variance,0,0,0
+CAPA-00100,BAT-003569,2026-02,16,PLT-02,FRM-09,Specialty,Raw material variance,0,1,0
+CAPA-00101,BAT-000831,2025-01,3,PLT-04,FRM-11,Polymers,Raw material variance,0,1,0
+CAPA-00102,BAT-002318,2025-08,10,PLT-01,FRM-12,Solvents,Documentation gap,0,1,0
+CAPA-00103,BAT-001538,2025-04,6,PLT-03,FRM-05,Coatings,Process parameter drift,0,0,0
+CAPA-00104,BAT-002537,2025-09,11,PLT-02,FRM-06,Coatings,Raw material variance,1,1,0
+CAPA-00105,BAT-003425,2026-01,15,PLT-03,FRM-05,Coatings,Documentation gap,0,0,0
+CAPA-00106,BAT-000282,2024-11,1,PLT-01,FRM-07,Catalysts,Process parameter drift,0,1,0
+CAPA-00107,BAT-002735,2025-10,12,PLT-05,FRM-09,Specialty,Raw material variance,0,1,0
+CAPA-00108,BAT-004500,2026-06,20,PLT-03,FRM-10,Agrochem,Process parameter drift,0,1,1
+CAPA-00109,BAT-004419,2026-06,20,PLT-01,FRM-09,Specialty,Contamination,0,1,1
+CAPA-00110,BAT-001445,2025-04,6,PLT-04,FRM-07,Catalysts,Process parameter drift,1,0,0
+CAPA-00111,BAT-003297,2025-12,14,PLT-03,FRM-08,Surfactants,Process parameter drift,0,1,0
+CAPA-00112,BAT-002524,2025-09,11,PLT-02,FRM-09,Specialty,Contamination,0,0,0
+CAPA-00113,BAT-001613,2025-05,7,PLT-06,FRM-09,Specialty,Equipment calibration,0,1,0
+CAPA-00114,BAT-005110,2026-09,23,PLT-05,FRM-06,Coatings,Contamination,0,0,1
+CAPA-00115,BAT-001417,2025-04,6,PLT-03,FRM-01,Polymers,Raw material variance,0,1,0
+CAPA-00116,BAT-002835,2025-10,12,PLT-03,FRM-09,Specialty,Raw material variance,0,1,0
+CAPA-00117,BAT-004170,2026-04,18,PLT-06,FRM-08,Surfactants,Contamination,0,1,1
+CAPA-00118,BAT-002742,2025-10,12,PLT-06,FRM-10,Agrochem,Documentation gap,1,1,0
+CAPA-00119,BAT-002076,2025-07,9,PLT-05,FRM-09,Specialty,Equipment calibration,1,1,0
+CAPA-00120,BAT-003489,2026-01,15,PLT-01,FRM-01,Polymers,Operator deviation,1,1,0
+CAPA-00121,BAT-002225,2025-08,10,PLT-06,FRM-07,Catalysts,Equipment calibration,0,1,0
+CAPA-00122,BAT-004175,2026-04,18,PLT-03,FRM-11,Polymers,Equipment calibration,0,1,1
+CAPA-00123,BAT-000401,2024-11,1,PLT-03,FRM-05,Coatings,Equipment calibration,0,1,0
+CAPA-00124,BAT-002213,2025-08,10,PLT-02,FRM-08,Surfactants,Raw material variance,0,1,0
+CAPA-00125,BAT-002907,2025-11,13,PLT-03,FRM-09,Specialty,Equipment calibration,0,0,0
+CAPA-00126,BAT-004077,2026-04,18,PLT-04,FRM-11,Polymers,Raw material variance,0,1,1
+CAPA-00127,BAT-002639,2025-09,11,PLT-02,FRM-09,Specialty,Documentation gap,1,0,0
+CAPA-00128,BAT-000946,2025-02,4,PLT-03,FRM-11,Polymers,Process parameter drift,1,0,0
+CAPA-00129,BAT-001972,2025-06,8,PLT-06,FRM-03,Solvents,Raw material variance,0,1,0
+CAPA-00130,BAT-003992,2026-04,18,PLT-03,FRM-10,Agrochem,Documentation gap,0,1,1
+CAPA-00131,BAT-001157,2025-03,5,PLT-03,FRM-04,Agrochem,Raw material variance,1,1,0
+CAPA-00132,BAT-002773,2025-10,12,PLT-02,FRM-05,Coatings,Process parameter drift,0,1,0
+CAPA-00133,BAT-004299,2026-05,19,PLT-01,FRM-02,Polymers,Process parameter drift,0,1,1
+CAPA-00134,BAT-003045,2025-11,13,PLT-03,FRM-05,Coatings,Equipment calibration,0,1,0
+CAPA-00135,BAT-000940,2025-02,4,PLT-05,FRM-05,Coatings,Process parameter drift,0,1,0
+CAPA-00136,BAT-002962,2025-11,13,PLT-01,FRM-09,Specialty,Operator deviation,0,1,0
+CAPA-00137,BAT-003223,2025-12,14,PLT-04,FRM-05,Coatings,Raw material variance,1,1,0
+CAPA-00138,BAT-002772,2025-10,12,PLT-06,FRM-08,Surfactants,Process parameter drift,0,1,0
+CAPA-00139,BAT-001031,2025-02,4,PLT-04,FRM-06,Coatings,Documentation gap,0,1,0
+CAPA-00140,BAT-000648,2024-12,2,PLT-02,FRM-01,Polymers,Operator deviation,0,1,0
+CAPA-00141,BAT-000688,2025-01,3,PLT-05,FRM-01,Polymers,Raw material variance,1,0,0
+CAPA-00142,BAT-004089,2026-04,18,PLT-01,FRM-09,Specialty,Raw material variance,1,1,1
+CAPA-00143,BAT-000143,2024-10,0,PLT-03,FRM-04,Agrochem,Raw material variance,1,1,0
+CAPA-00144,BAT-004656,2026-07,21,PLT-06,FRM-09,Specialty,Equipment calibration,0,1,1
+CAPA-00145,BAT-001981,2025-07,9,PLT-04,FRM-06,Coatings,Contamination,0,1,0
+CAPA-00146,BAT-000737,2025-01,3,PLT-03,FRM-05,Coatings,Raw material variance,0,1,0
+CAPA-00147,BAT-002586,2025-09,11,PLT-03,FRM-10,Agrochem,Process parameter drift,1,1,0
+CAPA-00148,BAT-005057,2026-08,22,PLT-01,FRM-05,Coatings,Process parameter drift,0,1,1
+CAPA-00149,BAT-001986,2025-07,9,PLT-06,FRM-01,Polymers,Contamination,0,0,0
+CAPA-00150,BAT-002693,2025-10,12,PLT-02,FRM-04,Agrochem,Operator deviation,0,1,0
+CAPA-00151,BAT-000111,2024-10,0,PLT-01,FRM-03,Solvents,Operator deviation,0,1,0
+CAPA-00152,BAT-004294,2026-05,19,PLT-01,FRM-08,Surfactants,Operator deviation,0,1,1
+CAPA-00153,BAT-002553,2025-09,11,PLT-06,FRM-09,Specialty,Contamination,1,1,0
+CAPA-00154,BAT-003614,2026-02,16,PLT-01,FRM-09,Specialty,Process parameter drift,0,1,0
+CAPA-00155,BAT-003383,2026-01,15,PLT-03,FRM-09,Specialty,Raw material variance,0,0,0
+CAPA-00156,BAT-000112,2024-10,0,PLT-02,FRM-01,Polymers,Raw material variance,0,1,0
+CAPA-00157,BAT-000432,2024-11,1,PLT-04,FRM-08,Surfactants,Operator deviation,0,1,0
+CAPA-00158,BAT-004391,2026-05,19,PLT-05,FRM-05,Coatings,Documentation gap,0,0,1
+CAPA-00159,BAT-000932,2025-02,4,PLT-03,FRM-04,Agrochem,Operator deviation,0,1,0
+CAPA-00160,BAT-003268,2025-12,14,PLT-03,FRM-04,Agrochem,Process parameter drift,0,1,0
+CAPA-00161,BAT-003244,2025-12,14,PLT-06,FRM-06,Coatings,Equipment calibration,0,1,0
+CAPA-00162,BAT-002288,2025-08,10,PLT-06,FRM-12,Solvents,Equipment calibration,0,1,0
+CAPA-00163,BAT-000748,2025-01,3,PLT-05,FRM-06,Coatings,Equipment calibration,0,1,0
+CAPA-00164,BAT-002579,2025-09,11,PLT-01,FRM-09,Specialty,Raw material variance,1,1,0
+CAPA-00165,BAT-000520,2024-12,2,PLT-05,FRM-09,Specialty,Process parameter drift,1,1,0
+CAPA-00166,BAT-000024,2024-10,0,PLT-01,FRM-07,Catalysts,Contamination,0,1,0
+CAPA-00167,BAT-005263,2026-09,23,PLT-03,FRM-01,Polymers,Operator deviation,0,1,1
+CAPA-00168,BAT-000171,2024-10,0,PLT-06,FRM-04,Agrochem,Operator deviation,1,1,0
+CAPA-00169,BAT-000118,2024-10,0,PLT-02,FRM-09,Specialty,Contamination,0,1,0
+CAPA-00170,BAT-002185,2025-07,9,PLT-05,FRM-09,Specialty,Operator deviation,0,1,0
+CAPA-00171,BAT-004759,2026-07,21,PLT-06,FRM-01,Polymers,Contamination,0,1,1
+CAPA-00172,BAT-001465,2025-04,6,PLT-06,FRM-09,Specialty,Raw material variance,0,0,0
+CAPA-00173,BAT-000592,2024-12,2,PLT-05,FRM-11,Polymers,Contamination,0,1,0
+CAPA-00174,BAT-001473,2025-04,6,PLT-04,FRM-05,Coatings,Process parameter drift,0,1,0
+CAPA-00175,BAT-005140,2026-09,23,PLT-06,FRM-04,Agrochem,Process parameter drift,1,1,1
+CAPA-00176,BAT-003759,2026-03,17,PLT-06,FRM-09,Specialty,Process parameter drift,0,1,0
+CAPA-00177,BAT-003357,2026-01,15,PLT-03,FRM-11,Polymers,Documentation gap,0,0,0
+CAPA-00178,BAT-003880,2026-03,17,PLT-04,FRM-03,Solvents,Operator deviation,0,1,0
+CAPA-00179,BAT-003044,2025-11,13,PLT-02,FRM-02,Polymers,Contamination,0,1,0
+CAPA-00180,BAT-002482,2025-09,11,PLT-01,FRM-10,Agrochem,Process parameter drift,0,1,0
+CAPA-00181,BAT-000733,2025-01,3,PLT-06,FRM-09,Specialty,Equipment calibration,0,0,0
+CAPA-00182,BAT-002418,2025-08,10,PLT-06,FRM-04,Agrochem,Equipment calibration,0,1,0
+CAPA-00183,BAT-003596,2026-02,16,PLT-06,FRM-10,Agrochem,Process parameter drift,0,1,0
+CAPA-00184,BAT-000529,2024-12,2,PLT-06,FRM-03,Solvents,Process parameter drift,1,1,0
+CAPA-00185,BAT-001141,2025-03,5,PLT-05,FRM-12,Solvents,Raw material variance,0,1,0
+CAPA-00186,BAT-003844,2026-03,17,PLT-05,FRM-03,Solvents,Contamination,0,0,0
+CAPA-00187,BAT-002046,2025-07,9,PLT-04,FRM-08,Surfactants,Equipment calibration,0,0,0
+CAPA-00188,BAT-002092,2025-07,9,PLT-02,FRM-04,Agrochem,Operator deviation,1,0,0
+CAPA-00189,BAT-002325,2025-08,10,PLT-05,FRM-08,Surfactants,Contamination,0,1,0
+CAPA-00190,BAT-000967,2025-02,4,PLT-03,FRM-03,Solvents,Process parameter drift,1,1,0
+CAPA-00191,BAT-001269,2025-03,5,PLT-05,FRM-04,Agrochem,Documentation gap,0,0,0
+CAPA-00192,BAT-000933,2025-02,4,PLT-05,FRM-07,Catalysts,Process parameter drift,0,1,0
+CAPA-00193,BAT-003679,2026-02,16,PLT-03,FRM-02,Polymers,Equipment calibration,0,1,0
+CAPA-00194,BAT-002090,2025-07,9,PLT-03,FRM-04,Agrochem,Process parameter drift,1,1,0
+CAPA-00195,BAT-000690,2025-01,3,PLT-04,FRM-02,Polymers,Process parameter drift,0,1,0
+CAPA-00196,BAT-002667,2025-10,12,PLT-03,FRM-11,Polymers,Operator deviation,0,1,0
+CAPA-00197,BAT-002788,2025-10,12,PLT-06,FRM-05,Coatings,Documentation gap,0,1,0
+CAPA-00198,BAT-002461,2025-09,11,PLT-06,FRM-10,Agrochem,Contamination,0,0,0
+CAPA-00199,BAT-001707,2025-05,7,PLT-04,FRM-06,Coatings,Process parameter drift,0,0,0
+CAPA-00200,BAT-005221,2026-09,23,PLT-06,FRM-09,Specialty,Operator deviation,0,1,1
+CAPA-00201,BAT-002072,2025-07,9,PLT-01,FRM-12,Solvents,Equipment calibration,0,1,0
+CAPA-00202,BAT-001893,2025-06,8,PLT-03,FRM-07,Catalysts,Operator deviation,1,1,0
+CAPA-00203,BAT-004724,2026-07,21,PLT-03,FRM-10,Agrochem,Process parameter drift,0,0,1
+CAPA-00204,BAT-000804,2025-01,3,PLT-06,FRM-04,Agrochem,Operator deviation,0,1,0
+CAPA-00205,BAT-000904,2025-02,4,PLT-04,FRM-04,Agrochem,Raw material variance,0,1,0
+CAPA-00206,BAT-003912,2026-03,17,PLT-03,FRM-03,Solvents,Raw material variance,0,1,0
+CAPA-00207,BAT-002350,2025-08,10,PLT-03,FRM-09,Specialty,Raw material variance,1,0,0
+CAPA-00208,BAT-001346,2025-04,6,PLT-02,FRM-09,Specialty,Raw material variance,0,1,0
+CAPA-00209,BAT-001891,2025-06,8,PLT-02,FRM-05,Coatings,Contamination,0,1,0

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ChemicalSphere&trade; &mdash; Decision Intelligence Cockpit</title>
+<style>
+:root{
+  --navy:#0B1E3D; --navy2:#122B52; --oracle:#C74634; --maroon:#770107;
+  --amber:#E8A25C; --ink:#1A1A1A; --grey:#5B5B5B; --line:#E4E8EF;
+  --bg:#F5F7FA; --card:#FFFFFF;
+  --d1:#770107; --d2:#D9531E; --d3:#3C6B2A; --d4:#154C8C; --d5:#5B2A86; --d6:#1E7A73;
+  --crit:#B3261E; --high:#D9531E; --med:#8A6D1F; --good:#1E7A4A;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);font-size:14px;line-height:1.45}
+/* ---------- top bar ---------- */
+header{background:var(--navy);color:#fff;padding:0 26px;position:sticky;top:0;z-index:50;box-shadow:0 2px 12px rgba(11,30,61,.22)}
+.hrow{display:flex;align-items:center;gap:18px;height:62px}
+.brand{font-size:19px;font-weight:600;letter-spacing:.2px}
+.brand span{color:var(--amber)}
+.tag{font-size:11px;color:#B9C6DA;border-left:1px solid #2C4570;padding-left:16px;letter-spacing:.4px;text-transform:uppercase}
+.oracle{margin-left:auto;color:var(--oracle);font-weight:700;letter-spacing:2px;font-size:13px}
+.chain{display:flex;gap:6px;align-items:center;padding:0 0 10px;flex-wrap:wrap}
+.chain b{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.14);color:#DCE6F3;font-size:9.5px;font-weight:600;letter-spacing:1.1px;padding:3px 9px;border-radius:3px}
+.chain i{color:var(--amber);font-style:normal;font-size:11px}
+/* ---------- persona ---------- */
+.personabar{background:var(--navy2);padding:9px 26px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;border-top:1px solid #1D3760}
+.personabar label{font-size:10px;color:#9FB2CE;letter-spacing:1px;text-transform:uppercase;margin-right:6px}
+.chip{background:transparent;border:1px solid #33507E;color:#C7D6EA;padding:5px 13px;border-radius:14px;font-size:12px;cursor:pointer;transition:.15s;font-family:inherit}
+.chip:hover{border-color:var(--amber);color:#fff}
+.chip.on{background:var(--amber);border-color:var(--amber);color:var(--navy);font-weight:600}
+/* ---------- layout ---------- */
+main{padding:20px 26px 50px;max-width:1560px;margin:0 auto}
+.sec{margin-bottom:26px}
+.sechead{display:flex;align-items:baseline;gap:12px;margin-bottom:11px;border-bottom:1px solid var(--line);padding-bottom:7px}
+.sechead h2{font-size:13px;letter-spacing:1.3px;text-transform:uppercase;color:var(--maroon);font-weight:700}
+.sechead p{font-size:12px;color:var(--grey)}
+/* ---------- kpi tiles ---------- */
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:12px}
+.tile{background:var(--card);border-radius:7px;padding:15px 16px;border-top:3px solid var(--d1);box-shadow:0 1px 3px rgba(11,30,61,.09);min-height:118px;display:flex;flex-direction:column}
+.tile .dom{font-size:9px;letter-spacing:1.1px;text-transform:uppercase;color:var(--grey);font-weight:600}
+.tile .lbl{font-size:12.5px;color:var(--ink);margin:5px 0 auto;font-weight:600}
+.tile .val{font-size:29px;font-weight:600;color:var(--navy);letter-spacing:-.6px;line-height:1.1}
+.tile .dl{font-size:11.5px;margin-top:3px;font-weight:600}
+.up{color:var(--good)} .dn{color:var(--crit)} .fl{color:var(--grey)}
+.tile .def{font-size:10px;color:#8A93A3;margin-top:6px;border-top:1px dotted var(--line);padding-top:5px;line-height:1.3}
+/* ---------- agents ---------- */
+.agrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(390px,1fr));gap:12px}
+.agent{background:var(--card);border-radius:7px;box-shadow:0 1px 3px rgba(11,30,61,.09);border-left:4px solid var(--high);overflow:hidden}
+.agent.Critical{border-left-color:var(--crit)} .agent.High{border-left-color:var(--high)} .agent.Medium{border-left-color:var(--med)}
+.ahead{display:flex;align-items:center;gap:9px;padding:11px 15px 8px}
+.ahead .nm{font-weight:700;font-size:13px;color:var(--navy)}
+.sev{font-size:9px;font-weight:700;letter-spacing:.9px;text-transform:uppercase;padding:2px 7px;border-radius:9px;color:#fff;margin-left:auto}
+.sev.Critical{background:var(--crit)} .sev.High{background:var(--high)} .sev.Medium{background:var(--med)}
+.abody{padding:0 15px 13px}
+.ent{font-size:12px;font-weight:600;color:var(--d4);margin-bottom:5px}
+.sig{font-family:Consolas,monospace;font-size:11px;background:#F2F5F9;border:1px solid var(--line);border-radius:4px;padding:5px 8px;color:var(--navy);margin-bottom:7px;display:inline-block}
+.find{font-size:12.5px;color:var(--grey);margin-bottom:8px}
+.act{font-size:12.5px;background:#FBF6EF;border-left:2px solid var(--amber);padding:7px 10px;border-radius:0 4px 4px 0;margin-bottom:7px}
+.act b{color:var(--maroon);font-size:10px;letter-spacing:.8px;text-transform:uppercase;display:block;margin-bottom:2px}
+.imp{font-size:12px;color:var(--good);font-weight:600}
+.imp::before{content:"\25B2  ";font-size:9px}
+/* ---------- tables ---------- */
+.card{background:var(--card);border-radius:7px;box-shadow:0 1px 3px rgba(11,30,61,.09);padding:15px 17px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.three{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:14px}
+h3.ct{font-size:12px;font-weight:700;color:var(--navy);margin-bottom:10px;letter-spacing:.3px}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th{text-align:left;font-size:9.5px;letter-spacing:.8px;text-transform:uppercase;color:var(--grey);border-bottom:1px solid var(--line);padding:0 8px 6px;font-weight:600}
+td{padding:7px 8px;border-bottom:1px solid #F0F2F6}
+tr:last-child td{border-bottom:none}
+tr.alert td{background:#FDF3F1}
+td.n{text-align:right;font-variant-numeric:tabular-nums}
+.bar{height:5px;border-radius:3px;background:var(--line);overflow:hidden;min-width:56px}
+.bar i{display:block;height:100%;border-radius:3px}
+.pill{font-size:9.5px;font-weight:700;padding:2px 7px;border-radius:9px;color:#fff;letter-spacing:.4px}
+/* ---------- outcome ---------- */
+.ogrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:12px}
+.out{background:var(--card);border-radius:7px;padding:13px 15px;box-shadow:0 1px 3px rgba(11,30,61,.09)}
+.out .ol{font-size:12.5px;font-weight:600;color:var(--navy)}
+.out .ot{font-size:10px;color:var(--amber);font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-bottom:8px}
+.ov{display:flex;align-items:baseline;gap:9px;margin-bottom:6px}
+.ov .b{font-size:12px;color:var(--grey);text-decoration:line-through}
+.ov .a{font-size:21px;font-weight:600;color:var(--navy)}
+.ov .d{font-size:12px;font-weight:700;margin-left:auto}
+/* ---------- graph ---------- */
+.kg{display:flex;gap:7px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+.node{background:var(--navy);color:#fff;font-size:11px;font-weight:600;padding:6px 12px;border-radius:4px}
+.node.hl{background:var(--oracle)}
+.arw{color:var(--grey)}
+.gcol{background:#F8FAFC;border:1px solid var(--line);border-radius:5px;padding:10px 12px}
+.gcol h4{font-size:10px;letter-spacing:.9px;text-transform:uppercase;color:var(--maroon);margin-bottom:6px}
+.gcol div{font-size:12px;color:var(--ink);padding:2px 0}
+.gcol small{color:var(--grey)}
+footer{text-align:center;color:var(--grey);font-size:11px;padding:22px;border-top:1px solid var(--line);margin-top:10px}
+.hide{display:none!important}
+@media(max-width:900px){.two{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hrow">
+    <div class="brand">Chemical<span>Sphere</span>&trade;</div>
+    <div class="tag">Decision Intelligence Cockpit &middot; Oracle AI Data Platform</div>
+    <div class="oracle">ORACLE</div>
+  </div>
+  <div class="chain">
+    <b>DATA</b><i>&rarr;</i><b>KNOWLEDGE</b><i>&rarr;</i><b>INTELLIGENCE</b><i>&rarr;</i>
+    <b>DECISION</b><i>&rarr;</i><b>ACTION</b><i>&rarr;</i><b>OUTCOME</b>
+  </div>
+</header>
+
+<div class="personabar">
+  <label>Executive view</label>
+  <button class="chip on" data-p="ALL">All Domains</button>
+  <button class="chip" data-p="CEO">CEO</button>
+  <button class="chip" data-p="COO">COO</button>
+  <button class="chip" data-p="CFO">CFO</button>
+  <button class="chip" data-p="CSCO">Chief Supply Chain Officer</button>
+  <button class="chip" data-p="CCO">Chief Compliance Officer</button>
+</div>
+
+<main>
+  <div class="sec">
+    <div class="sechead"><h2>Executive Cockpit</h2><p id="ctx"></p></div>
+    <div class="tiles" id="tiles"></div>
+  </div>
+
+  <div class="sec" id="sec-agents">
+    <div class="sechead"><h2>Agent Recommendations &mdash; What To Do Next</h2><p id="agentctx"></p></div>
+    <div class="agrid" id="agents"></div>
+  </div>
+
+  <div class="sec">
+    <div class="sechead"><h2>Decision Signals</h2><p>24-month trend &middot; shaded band = ChemicalSphere&trade; active</p></div>
+    <div class="three">
+      <div class="card"><h3 class="ct">Plant Yield %</h3><div id="c1"></div></div>
+      <div class="card"><h3 class="ct">Gross Margin %</h3><div id="c2"></div></div>
+      <div class="card"><h3 class="ct">Supplier OTIF</h3><div id="c3"></div></div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sechead"><h2>Entity Scorecards</h2><p>Latest rolling 6 months &middot; rows in red breach agent thresholds</p></div>
+    <div class="two">
+      <div class="card" data-dom="Supply Chain"><h3 class="ct">Supplier Risk Ranking</h3><div id="tsup"></div></div>
+      <div class="card" data-dom="Manufacturing"><h3 class="ct">Plant Performance</h3><div id="tpl"></div></div>
+    </div>
+    <div style="height:14px"></div>
+    <div class="two">
+      <div class="card" data-dom="Formula"><h3 class="ct">Formula Profitability</h3><div id="tfm"></div></div>
+      <div class="card" data-dom="Financial"><h3 class="ct">Inventory &amp; Shelf-Life Exposure</h3><div id="tinv"></div></div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sechead"><h2>Chemical Knowledge Graph &mdash; Batch Genealogy</h2><p>Traversal behind every recommendation &middot; recall simulation path</p></div>
+    <div class="card">
+      <div class="kg" id="kgchain"></div>
+      <div class="three" id="kg"></div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sechead"><h2>Outcome Tracker</h2><p>Baseline (months 1&ndash;18) vs ChemicalSphere&trade; active (months 19&ndash;24)</p></div>
+    <div class="ogrid" id="outcomes"></div>
+  </div>
+</main>
+
+<footer id="foot"></footer>
+
+<script src="data.js"></script>
+<script>
+const D = window.CS_DATA;
+const C = {Manufacturing:'#770107','Supply Chain':'#D9531E',Formula:'#3C6B2A',Quality:'#154C8C',Logistics:'#5B2A86',Financial:'#1E7A73'};
+const PERSONA = {
+  ALL:  ['Manufacturing','Supply Chain','Formula','Quality','Logistics','Financial'],
+  CEO:  ['Financial','Formula','Manufacturing'],
+  COO:  ['Manufacturing','Logistics','Quality'],
+  CFO:  ['Financial','Formula'],
+  CSCO: ['Supply Chain','Logistics','Financial'],
+  CCO:  ['Quality','Manufacturing']
+};
+let persona = 'ALL';
+
+const pct=v=>(v*100).toFixed(1)+'%';
+const pct0=v=>(v*100).toFixed(0)+'%';
+const num=(v,d=0)=>v.toLocaleString(undefined,{minimumFractionDigits:d,maximumFractionDigits:d});
+const usd=v=>'$'+(Math.abs(v)>=1e6?(v/1e6).toFixed(1)+'M':Math.abs(v)>=1e3?(v/1e3).toFixed(0)+'K':v.toFixed(0));
+
+/* ---------- KPI tiles ---------- */
+const TILES=[
+ {dom:'Manufacturing',lbl:'Overall Equipment Effectiveness',k:'oee',f:pct,def:D.kpi_defs['OEE']},
+ {dom:'Manufacturing',lbl:'Plant Yield',k:'yield_pct',f:pct,def:D.kpi_defs['Yield %']},
+ {dom:'Manufacturing',lbl:'Batch Success Rate',k:'batch_success',f:pct,def:D.kpi_defs['Batch Success Rate']},
+ {dom:'Supply Chain',lbl:'Supplier OTIF',k:'supplier_otif',f:pct,def:D.kpi_defs['Supplier OTIF']},
+ {dom:'Supply Chain',lbl:'Lead Time Variance',k:'lead_time_var',f:v=>v.toFixed(1)+' d',inv:1,def:D.kpi_defs['Lead Time Variance']},
+ {dom:'Formula',lbl:'Cost per Batch',k:'cost_per_batch',f:usd,inv:1,def:D.kpi_defs['Cost per Batch']},
+ {dom:'Quality',lbl:'Batch Rejection Rate',k:'rejection_rate',f:pct,inv:1,def:D.kpi_defs['Batch Rejection Rate']},
+ {dom:'Quality',lbl:'CAPA Effectiveness',k:'capa_effectiveness',f:pct,def:D.kpi_defs['CAPA Effectiveness']},
+ {dom:'Quality',lbl:'Audit Compliance Score',k:'audit_score',f:v=>v.toFixed(0)+'/100',def:D.kpi_defs['Audit Compliance Score']},
+ {dom:'Quality',lbl:'Recall Readiness',k:'recall_readiness',f:v=>v.toFixed(0)+'/100',def:D.kpi_defs['Recall Readiness']},
+ {dom:'Logistics',lbl:'Logistics OTIF',k:'logistics_otif',f:pct,def:D.kpi_defs['Logistics OTIF']},
+ {dom:'Logistics',lbl:'Freight Cost per Tonne',k:'freight_per_t',f:v=>'$'+v.toFixed(0),inv:1,def:D.kpi_defs['Freight Cost per Tonne']},
+ {dom:'Financial',lbl:'Gross Margin',k:'gross_margin_pct',f:pct,def:D.kpi_defs['Gross Margin %']},
+ {dom:'Financial',lbl:'Inventory Turns',k:'inventory_turns',f:v=>v.toFixed(1)+'x',def:D.kpi_defs['Inventory Turns']},
+ {dom:'Financial',lbl:'Working Capital Days',k:'working_capital_days',f:v=>v.toFixed(0)+' d',inv:1,def:D.kpi_defs['Working Capital Days']},
+];
+
+function renderTiles(){
+  const doms=PERSONA[persona];
+  document.getElementById('tiles').innerHTML=TILES.filter(t=>doms.includes(t.dom)).map(t=>{
+    const cur=D.current[t.k], pri=D.prior[t.k];
+    const d=pri?(cur-pri)/Math.abs(pri):0;
+    const good=t.inv? d<0 : d>0;
+    const cls=Math.abs(d)<0.004?'fl':(good?'up':'dn');
+    const arrow=Math.abs(d)<0.004?'\u2013':(d>0?'\u25B2':'\u25BC');
+    return `<div class="tile" style="border-top-color:${C[t.dom]}">
+      <div class="dom" style="color:${C[t.dom]}">${t.dom}</div>
+      <div class="lbl">${t.lbl}</div>
+      <div class="val">${t.f(cur)}</div>
+      <div class="dl ${cls}">${arrow} ${(Math.abs(d)*100).toFixed(1)}% vs prior quarter</div>
+      <div class="def">${t.def}</div></div>`;
+  }).join('');
+}
+
+/* ---------- agents ---------- */
+function renderAgents(){
+  const doms=PERSONA[persona];
+  const list=D.agents.filter(a=>doms.includes(a.domain));
+  document.getElementById('agents').innerHTML=list.map(a=>`
+    <div class="agent ${a.severity}">
+      <div class="ahead">
+        <span style="width:8px;height:8px;border-radius:50%;background:${C[a.domain]}"></span>
+        <span class="nm">${a.agent}</span>
+        <span class="sev ${a.severity}">${a.severity}</span>
+      </div>
+      <div class="abody">
+        <div class="ent">${a.entity}</div>
+        <div class="sig">${a.signal}</div>
+        <div class="find">${a.finding}</div>
+        <div class="act"><b>Recommended action</b>${a.action}</div>
+        <div class="imp">${a.impact}</div>
+      </div></div>`).join('');
+  const crit=list.filter(a=>a.severity==='Critical').length;
+  document.getElementById('agentctx').textContent=
+    `${list.length} open recommendations \u00B7 ${crit} critical \u00B7 rule layer fired against ${num(D.meta.batches)} batches`;
+}
+
+/* ---------- sparkline charts ---------- */
+function chart(el,key,fmt,color){
+  const t=D.trend, W=380,H=132,P={l:38,r:8,t:10,b:20};
+  const vs=t.map(r=>r[key]), mn=Math.min(...vs), mx=Math.max(...vs), pad=(mx-mn)*0.18||0.01;
+  const lo=mn-pad, hi=mx+pad;
+  const x=i=>P.l+i*(W-P.l-P.r)/(t.length-1);
+  const y=v=>P.t+(1-(v-lo)/(hi-lo))*(H-P.t-P.b);
+  const pts=vs.map((v,i)=>`${x(i)},${y(v)}`).join(' ');
+  const bx=x(D.meta.baseline_months), bw=W-P.r-bx;
+  const grid=[0,.25,.5,.75,1].map(f=>{const v=lo+f*(hi-lo);
+    return `<line x1="${P.l}" y1="${y(v)}" x2="${W-P.r}" y2="${y(v)}" stroke="#EEF1F6"/>
+            <text x="${P.l-5}" y="${y(v)+3}" font-size="8.5" fill="#8A93A3" text-anchor="end">${fmt(v)}</text>`}).join('');
+  const dots=vs.map((v,i)=>i%4===0||i===vs.length-1?`<circle cx="${x(i)}" cy="${y(v)}" r="2.2" fill="${color}"/>`:'').join('');
+  const labs=t.map((r,i)=>i%6===0||i===t.length-1?`<text x="${x(i)}" y="${H-5}" font-size="8" fill="#8A93A3" text-anchor="middle">${r.period.slice(2)}</text>`:'').join('');
+  el.innerHTML=`<svg viewBox="0 0 ${W} ${H}" width="100%">
+    <rect x="${bx}" y="${P.t}" width="${bw}" height="${H-P.t-P.b}" fill="${color}" opacity=".07"/>
+    <text x="${bx+4}" y="${P.t+10}" font-size="8" fill="${color}" font-weight="600">CS ACTIVE</text>
+    ${grid}<polyline points="${pts}" fill="none" stroke="${color}" stroke-width="2" stroke-linejoin="round"/>${dots}${labs}</svg>`;
+}
+
+/* ---------- tables ---------- */
+function bar(v,max,col){return `<div class="bar"><i style="width:${Math.min(100,v/max*100)}%;background:${col}"></i></div>`;}
+
+function renderTables(){
+  document.getElementById('tsup').innerHTML=`<table><tr><th>Supplier</th><th>Geo</th><th class="n">OTIF</th><th class="n">Lead Var</th><th class="n">Risk</th><th></th></tr>`+
+    D.suppliers.map(s=>`<tr class="${s.risk_score>D.thresholds.risk_ceiling?'alert':''}">
+      <td><b>${s.supplier_name}</b><br><small style="color:#8A93A3">${s.supplier_id}</small></td>
+      <td><span class="pill" style="background:${s.geo_risk==='High'?'#B3261E':s.geo_risk==='Medium'?'#8A6D1F':'#1E7A4A'}">${s.geo_risk}</span></td>
+      <td class="n">${pct0(s.otif)}</td><td class="n">${s.ltv>0?'+':''}${s.ltv.toFixed(1)}d</td>
+      <td class="n"><b>${s.risk_score.toFixed(0)}</b></td>
+      <td>${bar(s.risk_score,60,s.risk_score>28?'#B3261E':'#D9531E')}</td></tr>`).join('')+`</table>`;
+
+  document.getElementById('tpl').innerHTML=`<table><tr><th>Plant</th><th>Region</th><th class="n">OEE</th><th class="n">Yield</th><th class="n">Reject</th><th class="n">Margin</th></tr>`+
+    D.plants.map(p=>`<tr class="${p.oee<D.thresholds.oee_floor?'alert':''}">
+      <td><b>${p.plant_name}</b><br><small style="color:#8A93A3">${p.plant_id}</small></td>
+      <td>${p.region}</td><td class="n">${pct(p.oee)}</td><td class="n">${pct(p.yld)}</td>
+      <td class="n">${pct(p.rej)}</td><td class="n">${pct(p.margin_pct)}</td></tr>`).join('')+`</table>`;
+
+  document.getElementById('tfm').innerHTML=`<table><tr><th>Formula</th><th>Family</th><th class="n">Yield</th><th class="n">RM Var</th><th class="n">Margin</th></tr>`+
+    D.formulas.slice(0,8).map(f=>`<tr class="${f.margin_pct<D.thresholds.margin_floor||f.rm_var>D.thresholds.rm_var_ceiling?'alert':''}">
+      <td><b>${f.formula_name}</b><br><small style="color:#8A93A3">${f.formula_id}</small></td>
+      <td>${f.product_family}</td><td class="n">${pct(f.yld)}</td>
+      <td class="n" style="color:${f.rm_var>0.15?'#B3261E':'#5B5B5B'}">${f.rm_var>0?'+':''}${pct(f.rm_var)}</td>
+      <td class="n"><b>${pct(f.margin_pct)}</b></td></tr>`).join('')+`</table>`;
+
+  const mx=Math.max(...D.inventory.map(i=>i.value));
+  document.getElementById('tinv').innerHTML=`<table><tr><th>Plant</th><th class="n">Value</th><th class="n">Avg Age</th><th class="n">Shelf Risk</th><th></th></tr>`+
+    D.inventory.map(i=>`<tr class="${i.risk>D.thresholds.shelf_risk_ceiling?'alert':''}">
+      <td><b>${i.plant_name}</b></td><td class="n">${usd(i.value)}</td>
+      <td class="n">${i.age.toFixed(0)} d</td><td class="n">${pct0(i.risk)}</td>
+      <td>${bar(i.value,mx,'#1E7A73')}</td></tr>`).join('')+`</table>`;
+}
+
+/* ---------- knowledge graph ---------- */
+function renderKG(){
+  const g=D.genealogy;
+  document.getElementById('kgchain').innerHTML=
+    ['Raw Material','Supplier','Purchase Order','Batch','Formula','Finished Product','Customer','Revenue','Margin','Profitability']
+    .map(n=>`<span class="node ${n==='Batch'?'hl':''}">${n}</span>`).join('<span class="arw">&rarr;</span>');
+  document.getElementById('kg').innerHTML=`
+   <div class="gcol"><h4>Batch under investigation</h4>
+     <div><b>${g.batch_id}</b></div><div>${g.plant}</div><div>Formula: ${g.formula}</div>
+     <div><small>QC failed &middot; traced upstream and downstream</small></div></div>
+   <div class="gcol"><h4>Ingredients &amp; hazard class</h4>
+     ${g.materials.map(m=>`<div>${m.material_name} <small>&middot; ${(m.proportion*100).toFixed(0)}% &middot; ${m.hazard_class}</small></div>`).join('')}</div>
+   <div class="gcol"><h4>Suppliers implicated</h4>
+     ${g.suppliers.map(s=>`<div>${s.supplier_name} <small>&middot; ${s.geo_risk} risk</small></div>`).join('')}</div>
+   <div class="gcol"><h4>Shipments affected</h4>
+     ${g.shipments.map(s=>`<div>${s.shipment_id} <small>&middot; ${s.qty_t.toFixed(1)} t &middot; ${s.mode}</small></div>`).join('')}</div>
+   <div class="gcol"><h4>Customers in recall scope</h4>
+     ${g.customers.map(c=>`<div>${c.customer_name} <small>&middot; ${c.region}</small></div>`).join('')}</div>
+   <div class="gcol"><h4>Decision memory</h4>
+     <div>Prior similar events: 4</div><div>Recommended play: contain &amp; re-qualify</div>
+     <div><small>Vector-search match on CAPA history</small></div></div>`;
+}
+
+/* ---------- outcomes ---------- */
+function renderOutcomes(){
+  document.getElementById('outcomes').innerHTML=D.outcomes.map(o=>{
+    const f=v=>o.unit==='$'?usd(v):o.unit==='%'?pct(v):o.unit==='days'?v.toFixed(0)+' d':o.unit==='x'?v.toFixed(1)+'x':v.toFixed(0);
+    const g=o.delta_pct>0;
+    return `<div class="out"><div class="ol">${o.label}</div><div class="ot">${o.target}</div>
+      <div class="ov"><span class="b">${f(o.baseline)}</span><span class="a">${f(o.live)}</span>
+      <span class="d ${g?'up':'dn'}">${g?'\u25B2':'\u25BC'} ${(Math.abs(o.delta_pct)*100).toFixed(1)}%</span></div>
+      ${bar(Math.min(Math.abs(o.delta_pct)*100,100),20,g?'#1E7A4A':'#B3261E')}</div>`;
+  }).join('');
+}
+
+/* ---------- persona filtering of scorecards ---------- */
+function filterCards(){
+  const doms=PERSONA[persona];
+  document.querySelectorAll('[data-dom]').forEach(c=>c.classList.toggle('hide',!doms.includes(c.dataset.dom)));
+}
+
+function render(){
+  renderTiles(); renderAgents(); filterCards();
+  document.getElementById('ctx').textContent =
+    `Latest quarter vs prior \u00B7 ${D.meta.plants} plants \u00B7 ${D.meta.formulas} formulas \u00B7 ${D.meta.suppliers} suppliers \u00B7 view: ${persona}`;
+}
+
+document.querySelectorAll('.chip').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('.chip').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on'); persona=b.dataset.p; render();
+});
+
+render(); renderTables(); renderKG(); renderOutcomes();
+chart(document.getElementById('c1'),'yield',pct0,'#770107');
+chart(document.getElementById('c2'),'margin',pct0,'#1E7A73');
+chart(document.getElementById('c3'),'otif',pct0,'#D9531E');
+document.getElementById('foot').innerHTML =
+  `ChemicalSphere&trade; &mdash; Sutherland's Oracle-powered Decision Intelligence Accelerator for Chemical Enterprises &middot; `+
+  `Simulated data: ${num(D.meta.batches)} batches, ${num(D.meta.pos)} PO lines, ${num(D.meta.shipments)} shipments, ${num(D.meta.capa)} CAPA records across ${D.meta.months} months`;
+</script>
+</body>
+</html>

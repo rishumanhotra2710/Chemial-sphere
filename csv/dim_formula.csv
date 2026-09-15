@@ -1,0 +1,13 @@
+formula_id,formula_name,product_family,target_yield,margin_grade
+FRM-01,PolyBond 200,Polymers,0.94,1.0
+FRM-02,PolyBond 400HD,Polymers,0.92,1.0
+FRM-03,SolvClear X,Solvents,0.96,1.0
+FRM-04,AgriNute N40,Agrochem,0.91,1.0
+FRM-05,CoatPrime TiO,Coatings,0.89,1.0
+FRM-06,EpoxSeal 7,Coatings,0.9,1.0
+FRM-07,CatalystPro Pt,Catalysts,0.87,1.0
+FRM-08,SurfActa 900,Surfactants,0.93,1.0
+FRM-09,SpecialtyBlend Z,Specialty,0.82,0.74
+FRM-10,AgriNute K25,Agrochem,0.92,1.0
+FRM-11,PolyFlex LD,Polymers,0.93,1.0
+FRM-12,PureSolve 99,Solvents,0.95,1.0
