@@ -1,0 +1,13 @@
+product_id,product_name,formula_id,product_family,price_per_tonne,batch_scale,target_margin
+PRD-01,PolyBond 200,FRM-01,Polymers,1760,1.25,0.41
+PRD-02,PolyBond 400HD,FRM-02,Polymers,1995,1.103,0.39
+PRD-03,SolvClear X,FRM-03,Solvents,1330,1.6,0.43
+PRD-04,AgriNute N40,FRM-04,Agrochem,1185,1.6,0.37
+PRD-05,CoatPrime TiO,FRM-05,Coatings,3010,0.731,0.4
+PRD-06,EpoxSeal 7,FRM-06,Coatings,3380,0.651,0.42
+PRD-07,CatalystPro Pt,FRM-07,Catalysts,36500,0.06,0.44
+PRD-08,SurfActa 900,FRM-08,Surfactants,2310,0.952,0.38
+PRD-09,SpecialtyBlend Z,FRM-09,Specialty,2620,0.84,0.255
+PRD-10,AgriNute K25,FRM-10,Agrochem,1235,1.6,0.36
+PRD-11,PolyFlex LD,FRM-11,Polymers,1665,1.321,0.4
+PRD-12,PureSolve 99,FRM-12,Solvents,1440,1.528,0.42

@@ -1,0 +1,6 @@
+carrier_id,carrier_name,mode,base_otif
+CAR-01,GlobalTank Logistics,Bulk Liquid,0.94
+CAR-02,EuroHaz Transport,Hazmat Road,0.91
+CAR-03,OceanChem Lines,Ocean Bulk,0.88
+CAR-04,RailChem Freight,Rail,0.93
+CAR-05,AirExpress Spec,Air,0.96
