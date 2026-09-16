@@ -3,80 +3,144 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ChemicalSphere&trade; &mdash; Decision Intelligence Cockpit</title>
+<title>ChemicalSphere&trade; &mdash; Decision Intelligence Platform</title>
 <style>
 :root{
-  --navy:#0B1E3D; --navy2:#122B52; --oracle:#C74634; --maroon:#770107;
+  --navy:#0B1E3D; --navy2:#122B52; --navy3:#1A3A6B; --oracle:#C74634; --maroon:#770107;
   --amber:#E8A25C; --ink:#1A1A1A; --grey:#5B5B5B; --line:#E4E8EF;
   --bg:#F5F7FA; --card:#FFFFFF;
   --d1:#770107; --d2:#D9531E; --d3:#3C6B2A; --d4:#154C8C; --d5:#5B2A86; --d6:#1E7A73;
   --crit:#B3261E; --high:#D9531E; --med:#8A6D1F; --good:#1E7A4A;
+  --sidebar-w:250px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);font-size:14px;line-height:1.45}
-/* ---------- top bar ---------- */
-header{background:var(--navy);color:#fff;padding:0 26px;position:sticky;top:0;z-index:50;box-shadow:0 2px 12px rgba(11,30,61,.22)}
-.hrow{display:flex;align-items:center;gap:18px;height:62px}
-.brand{font-size:19px;font-weight:600;letter-spacing:.2px}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+
+/* ---------- layout shell ---------- */
+.shell{display:flex;min-height:100vh}
+.sidebar{width:var(--sidebar-w);background:var(--navy);color:#fff;flex-shrink:0;position:sticky;top:0;height:100vh;overflow-y:auto;padding-bottom:20px}
+.sidebar::-webkit-scrollbar{width:6px}
+.sidebar::-webkit-scrollbar-thumb{background:#1D3760;border-radius:3px}
+.brand-block{padding:20px 20px 16px;border-bottom:1px solid #1D3760}
+.brand{font-size:18px;font-weight:700;letter-spacing:.2px}
 .brand span{color:var(--amber)}
-.tag{font-size:11px;color:#B9C6DA;border-left:1px solid #2C4570;padding-left:16px;letter-spacing:.4px;text-transform:uppercase}
-.oracle{margin-left:auto;color:var(--oracle);font-weight:700;letter-spacing:2px;font-size:13px}
-.chain{display:flex;gap:6px;align-items:center;padding:0 0 10px;flex-wrap:wrap}
-.chain b{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.14);color:#DCE6F3;font-size:9.5px;font-weight:600;letter-spacing:1.1px;padding:3px 9px;border-radius:3px}
-.chain i{color:var(--amber);font-style:normal;font-size:11px}
-/* ---------- persona ---------- */
-.personabar{background:var(--navy2);padding:9px 26px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;border-top:1px solid #1D3760}
-.personabar label{font-size:10px;color:#9FB2CE;letter-spacing:1px;text-transform:uppercase;margin-right:6px}
-.chip{background:transparent;border:1px solid #33507E;color:#C7D6EA;padding:5px 13px;border-radius:14px;font-size:12px;cursor:pointer;transition:.15s;font-family:inherit}
-.chip:hover{border-color:var(--amber);color:#fff}
-.chip.on{background:var(--amber);border-color:var(--amber);color:var(--navy);font-weight:600}
-/* ---------- layout ---------- */
-main{padding:20px 26px 50px;max-width:1560px;margin:0 auto}
+.brand-sub{font-size:10.5px;color:#8FA3C4;margin-top:4px;line-height:1.4}
+.navgroup{padding:14px 0 4px}
+.navgroup-label{font-size:9.5px;letter-spacing:1.1px;text-transform:uppercase;color:#6C86AE;padding:6px 20px;font-weight:700}
+.navitem{display:block;padding:8px 20px;font-size:12.8px;color:#C7D6EA;border-left:3px solid transparent;cursor:pointer;transition:.12s}
+.navitem:hover{background:rgba(255,255,255,.05);color:#fff}
+.navitem.active{background:rgba(232,162,92,.13);border-left-color:var(--amber);color:#fff;font-weight:600}
+.main{flex:1;min-width:0}
+.topbar{background:#fff;border-bottom:1px solid var(--line);padding:18px 30px 14px;position:sticky;top:0;z-index:20}
+.topbar h1{font-size:21px;color:var(--navy);font-weight:700;letter-spacing:-.2px}
+.topbar .sub{font-size:12.5px;color:var(--grey);margin-top:2px}
+.topbar-row{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.filters{display:flex;gap:7px;align-items:center;flex-wrap:wrap}
+.chip{background:#fff;border:1px solid var(--line);color:var(--grey);padding:6px 13px;border-radius:14px;font-size:11.8px;cursor:pointer;transition:.12s;font-family:inherit}
+.chip:hover{border-color:var(--amber)}
+.chip.on{background:var(--navy);border-color:var(--navy);color:#fff;font-weight:600}
+.selfilter{border:1px solid var(--line);border-radius:14px;padding:6px 11px;font-size:11.8px;color:var(--grey);background:#fff;font-family:inherit}
+.scopeline{font-size:11.5px;color:#8A93A3;margin-top:9px}
+.scopeline b{color:var(--grey);font-weight:600}
+.page-body{padding:20px 30px 60px}
+.page{display:none}
+.page.active{display:block}
+
+/* ---------- sections/cards ---------- */
 .sec{margin-bottom:26px}
-.sechead{display:flex;align-items:baseline;gap:12px;margin-bottom:11px;border-bottom:1px solid var(--line);padding-bottom:7px}
-.sechead h2{font-size:13px;letter-spacing:1.3px;text-transform:uppercase;color:var(--maroon);font-weight:700}
+.sechead{display:flex;align-items:baseline;gap:12px;margin-bottom:11px;justify-content:space-between}
+.sechead h2{font-size:13px;letter-spacing:1.1px;text-transform:uppercase;color:var(--maroon);font-weight:700}
 .sechead p{font-size:12px;color:var(--grey)}
-/* ---------- kpi tiles ---------- */
-.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:12px}
-.tile{background:var(--card);border-radius:7px;padding:15px 16px;border-top:3px solid var(--d1);box-shadow:0 1px 3px rgba(11,30,61,.09);min-height:118px;display:flex;flex-direction:column}
-.tile .dom{font-size:9px;letter-spacing:1.1px;text-transform:uppercase;color:var(--grey);font-weight:600}
-.tile .lbl{font-size:12.5px;color:var(--ink);margin:5px 0 auto;font-weight:600}
-.tile .val{font-size:29px;font-weight:600;color:var(--navy);letter-spacing:-.6px;line-height:1.1}
-.tile .dl{font-size:11.5px;margin-top:3px;font-weight:600}
-.up{color:var(--good)} .dn{color:var(--crit)} .fl{color:var(--grey)}
-.tile .def{font-size:10px;color:#8A93A3;margin-top:6px;border-top:1px dotted var(--line);padding-top:5px;line-height:1.3}
-/* ---------- agents ---------- */
-.agrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(390px,1fr));gap:12px}
-.agent{background:var(--card);border-radius:7px;box-shadow:0 1px 3px rgba(11,30,61,.09);border-left:4px solid var(--high);overflow:hidden}
-.agent.Critical{border-left-color:var(--crit)} .agent.High{border-left-color:var(--high)} .agent.Medium{border-left-color:var(--med)}
-.ahead{display:flex;align-items:center;gap:9px;padding:11px 15px 8px}
-.ahead .nm{font-weight:700;font-size:13px;color:var(--navy)}
-.sev{font-size:9px;font-weight:700;letter-spacing:.9px;text-transform:uppercase;padding:2px 7px;border-radius:9px;color:#fff;margin-left:auto}
-.sev.Critical{background:var(--crit)} .sev.High{background:var(--high)} .sev.Medium{background:var(--med)}
-.abody{padding:0 15px 13px}
-.ent{font-size:12px;font-weight:600;color:var(--d4);margin-bottom:5px}
-.sig{font-family:Consolas,monospace;font-size:11px;background:#F2F5F9;border:1px solid var(--line);border-radius:4px;padding:5px 8px;color:var(--navy);margin-bottom:7px;display:inline-block}
-.find{font-size:12.5px;color:var(--grey);margin-bottom:8px}
-.act{font-size:12.5px;background:#FBF6EF;border-left:2px solid var(--amber);padding:7px 10px;border-radius:0 4px 4px 0;margin-bottom:7px}
-.act b{color:var(--maroon);font-size:10px;letter-spacing:.8px;text-transform:uppercase;display:block;margin-bottom:2px}
-.imp{font-size:12px;color:var(--good);font-weight:600}
-.imp::before{content:"\25B2  ";font-size:9px}
-/* ---------- tables ---------- */
-.card{background:var(--card);border-radius:7px;box-shadow:0 1px 3px rgba(11,30,61,.09);padding:15px 17px}
+.card{background:var(--card);border-radius:8px;box-shadow:0 1px 3px rgba(11,30,61,.09);padding:16px 18px}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.three{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:14px}
-h3.ct{font-size:12px;font-weight:700;color:var(--navy);margin-bottom:10px;letter-spacing:.3px}
+.three{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+h3.ct{font-size:12px;font-weight:700;color:var(--navy);margin-bottom:10px;letter-spacing:.2px}
+h3.ct .note{font-size:11px;color:var(--grey);font-weight:400;display:block;margin-top:2px}
 table{width:100%;border-collapse:collapse;font-size:12.5px}
-th{text-align:left;font-size:9.5px;letter-spacing:.8px;text-transform:uppercase;color:var(--grey);border-bottom:1px solid var(--line);padding:0 8px 6px;font-weight:600}
+th{text-align:left;font-size:9.5px;letter-spacing:.7px;text-transform:uppercase;color:var(--grey);border-bottom:1px solid var(--line);padding:0 8px 6px;font-weight:600}
 td{padding:7px 8px;border-bottom:1px solid #F0F2F6}
 tr:last-child td{border-bottom:none}
 tr.alert td{background:#FDF3F1}
+tr.hlrow td{background:#FBF0DC!important;transition:background 1.4s}
 td.n{text-align:right;font-variant-numeric:tabular-nums}
 .bar{height:5px;border-radius:3px;background:var(--line);overflow:hidden;min-width:56px}
 .bar i{display:block;height:100%;border-radius:3px}
-.pill{font-size:9.5px;font-weight:700;padding:2px 7px;border-radius:9px;color:#fff;letter-spacing:.4px}
+.pill{font-size:9.5px;font-weight:700;padding:2px 7px;border-radius:9px;color:#fff;letter-spacing:.3px}
+@media(max-width:1000px){.two{grid-template-columns:1fr}}
+
+/* ---------- KPI tile v2 ---------- */
+.tiles2{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+.kpi2{background:var(--card);border-radius:8px;padding:14px 16px;box-shadow:0 1px 3px rgba(11,30,61,.09)}
+.kpi2-label{font-size:9.5px;letter-spacing:.9px;text-transform:uppercase;color:var(--grey);font-weight:700;margin-bottom:8px}
+.kpi2-row{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.kpi2-value{font-size:24px;font-weight:700;color:var(--navy);letter-spacing:-.5px}
+.pill2{font-size:11px;font-weight:700;padding:2px 8px;border-radius:10px}
+.pill2.up{background:#E4F3EA;color:var(--good)}
+.pill2.dn{background:#FBE9E7;color:var(--crit)}
+.pill2.fl{background:#EEF1F6;color:var(--grey)}
+.kpi2-spark{margin-top:8px}
+
+/* ---------- insight card v2 ---------- */
+.icards2{display:grid;grid-template-columns:repeat(auto-fit,minmax(400px,1fr));gap:12px}
+.icard2{background:var(--card);border-radius:8px;box-shadow:0 1px 3px rgba(11,30,61,.09);border-left:4px solid var(--high);padding:14px 16px}
+.icard2-head{display:flex;align-items:center;gap:7px;margin-bottom:9px;flex-wrap:wrap}
+.cat-pill{font-size:9.5px;font-weight:700;letter-spacing:.6px;padding:3px 9px;border-radius:4px}
+.sev-pill{font-size:9px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;padding:3px 9px;border-radius:4px}
+.sev-pill.Critical{background:#FBE0DD;color:var(--crit)}
+.sev-pill.High{background:#FBE9E1;color:var(--high)}
+.sev-pill.Medium{background:#F3E9CE;color:var(--med)}
+.icard2-value{margin-left:auto;font-size:14px;font-weight:700;color:var(--navy)}
+.icard2-title{font-size:13.5px;font-weight:700;color:var(--ink);margin-bottom:6px;line-height:1.35}
+.icard2-body{font-size:12.5px;color:var(--grey);margin-bottom:9px;line-height:1.5}
+.icard2-route{font-size:12px;color:var(--ink);margin-bottom:10px;padding:7px 10px;background:#F7F5EF;border-left:2px solid var(--amber);border-radius:0 4px 4px 0}
+.icard2-route b{color:var(--maroon)}
+.icard2-actions{display:flex;gap:8px}
+.btn-outline{background:#fff;border:1px solid var(--line);color:var(--navy);padding:6px 12px;border-radius:5px;font-size:11.5px;font-weight:600}
+.btn-outline:hover{border-color:var(--navy)}
+.btn-dark{background:var(--navy);border:1px solid var(--navy);color:#fff;padding:6px 12px;border-radius:5px;font-size:11.5px;font-weight:600}
+.btn-dark:hover{background:var(--navy2)}
+.icard2-workings{margin-top:10px;padding:10px 12px;background:#F2F5F9;border-radius:5px;font-size:11.8px;color:var(--grey);display:none}
+.icard2-workings.show{display:block}
+.icard2-workings code{font-family:Consolas,monospace;color:var(--navy);background:#fff;padding:1px 4px;border-radius:3px}
+
+/* ---------- decomposition widget ---------- */
+.decomp-stats{display:flex;gap:26px;margin:10px 0 14px;flex-wrap:wrap}
+.decomp-stat .dv{font-size:20px;font-weight:700;color:var(--good)}
+.decomp-stat .dl{font-size:10.5px;color:var(--grey);text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+.decomp-bars{display:flex;flex-direction:column;gap:10px}
+.decomp-barrow{display:grid;grid-template-columns:90px 1fr;align-items:center;gap:10px}
+.decomp-barrow .bl{font-size:12px;color:var(--grey);text-align:right}
+.decomp-track{position:relative;height:22px;background:#F0F2F6;border-radius:4px;overflow:hidden}
+.decomp-fill{position:absolute;top:0;left:0;height:100%;border-radius:4px;display:flex;align-items:center;padding-left:8px;font-size:11px;font-weight:700;color:#fff}
+.decomp-axis{display:flex;justify-content:space-between;font-size:10px;color:#8A93A3;margin-top:4px}
+.decomp-foot{font-size:12px;color:var(--grey);margin-top:12px;padding-top:10px;border-top:1px dotted var(--line)}
+
+/* ---------- combo chart with tooltip ---------- */
+.combo-wrap{position:relative}
+.combo-tooltip{position:absolute;background:var(--navy);color:#fff;font-size:11px;padding:7px 10px;border-radius:5px;pointer-events:none;opacity:0;transition:opacity .1s;white-space:nowrap;z-index:5;line-height:1.5}
+.combo-tooltip b{color:var(--amber)}
+
+/* ---------- what-if slider ---------- */
+.whatif-grid{display:grid;grid-template-columns:280px 1fr;gap:20px}
+.whatif-controls label{display:block;font-size:11px;color:var(--grey);text-transform:uppercase;letter-spacing:.5px;font-weight:700;margin:14px 0 6px}
+.whatif-controls select{width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;font-size:12.5px;font-family:inherit}
+.whatif-controls input[type=range]{width:100%}
+.whatif-controls .rangeval{font-size:12px;color:var(--navy);font-weight:700;float:right}
+.whatif-result{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px}
+.whatif-result .box{background:#F7FAFC;border-radius:6px;padding:12px 14px;text-align:center}
+.whatif-result .box .v{font-size:20px;font-weight:700;color:var(--navy)}
+.whatif-result .box .l{font-size:10px;color:var(--grey);text-transform:uppercase;letter-spacing:.4px;margin-top:3px}
+@media(max-width:900px){.whatif-grid{grid-template-columns:1fr}}
+
+/* ---------- pareto / concentration bar ---------- */
+.pareto-row{display:grid;grid-template-columns:140px 1fr 60px;align-items:center;gap:10px;margin-bottom:6px}
+.pareto-row .pn{font-size:11.5px;color:var(--ink)}
+.pareto-row .pv{font-size:11.5px;color:var(--grey);text-align:right}
+
 /* ---------- outcome ---------- */
-.ogrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:12px}
+.ogrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
 .out{background:var(--card);border-radius:7px;padding:13px 15px;box-shadow:0 1px 3px rgba(11,30,61,.09)}
 .out .ol{font-size:12.5px;font-weight:600;color:var(--navy)}
 .out .ot{font-size:10px;color:var(--amber);font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-bottom:8px}
@@ -84,7 +148,17 @@ td.n{text-align:right;font-variant-numeric:tabular-nums}
 .ov .b{font-size:12px;color:var(--grey);text-decoration:line-through}
 .ov .a{font-size:21px;font-weight:600;color:var(--navy)}
 .ov .d{font-size:12px;font-weight:700;margin-left:auto}
-/* ---------- graph ---------- */
+.up{color:var(--good)} .dn{color:var(--crit)} .fl{color:var(--grey)}
+
+/* ---------- overview quicklinks ---------- */
+.qgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.qcard{background:var(--card);border-radius:8px;padding:15px 16px;box-shadow:0 1px 3px rgba(11,30,61,.09);cursor:pointer;border-top:3px solid var(--navy3);transition:.12s}
+.qcard:hover{box-shadow:0 4px 12px rgba(11,30,61,.14)}
+.qcard .qt{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:5px}
+.qcard .qd{font-size:11.8px;color:var(--grey);line-height:1.4}
+.qcard .qa{font-size:11px;color:var(--oracle);font-weight:700;margin-top:9px}
+
+/* ---------- knowledge graph ---------- */
 .kg{display:flex;gap:7px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
 .node{background:var(--navy);color:#fff;font-size:11px;font-weight:600;padding:6px 12px;border-radius:4px}
 .node.hl{background:var(--oracle)}
@@ -93,271 +167,284 @@ td.n{text-align:right;font-variant-numeric:tabular-nums}
 .gcol h4{font-size:10px;letter-spacing:.9px;text-transform:uppercase;color:var(--maroon);margin-bottom:6px}
 .gcol div{font-size:12px;color:var(--ink);padding:2px 0}
 .gcol small{color:var(--grey)}
+
 footer{text-align:center;color:var(--grey);font-size:11px;padding:22px;border-top:1px solid var(--line);margin-top:10px}
+.badge-hazard{font-size:9px;padding:1px 6px;border-radius:8px;background:#EEF1F6;color:var(--grey)}
 .hide{display:none!important}
-@media(max-width:900px){.two{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 
-<header>
-  <div class="hrow">
-    <div class="brand">Chemical<span>Sphere</span>&trade;</div>
-    <div class="tag">Decision Intelligence Cockpit &middot; Oracle AI Data Platform</div>
-    <div class="oracle">ORACLE</div>
-  </div>
-  <div class="chain">
-    <b>DATA</b><i>&rarr;</i><b>KNOWLEDGE</b><i>&rarr;</i><b>INTELLIGENCE</b><i>&rarr;</i>
-    <b>DECISION</b><i>&rarr;</i><b>ACTION</b><i>&rarr;</i><b>OUTCOME</b>
-  </div>
-</header>
+<div class="shell">
+  <nav class="sidebar" id="sidebar">
+    <div class="brand-block">
+      <div class="brand">Chemical<span>Sphere</span>&trade;</div>
+      <div class="brand-sub">Decision intelligence on the Oracle AI Data Platform</div>
+    </div>
+    <div id="navlist"></div>
+  </nav>
 
-<div class="personabar">
-  <label>Executive view</label>
-  <button class="chip on" data-p="ALL">All Domains</button>
-  <button class="chip" data-p="CEO">CEO</button>
-  <button class="chip" data-p="COO">COO</button>
-  <button class="chip" data-p="CFO">CFO</button>
-  <button class="chip" data-p="CSCO">Chief Supply Chain Officer</button>
-  <button class="chip" data-p="CCO">Chief Compliance Officer</button>
+  <div class="main">
+    <div id="topbars"></div>
+    <div class="page-body">
+      <div id="pages"></div>
+    </div>
+    <footer id="foot"></footer>
+  </div>
 </div>
-
-<main>
-  <div class="sec">
-    <div class="sechead"><h2>Executive Cockpit</h2><p id="ctx"></p></div>
-    <div class="tiles" id="tiles"></div>
-  </div>
-
-  <div class="sec" id="sec-agents">
-    <div class="sechead"><h2>Agent Recommendations &mdash; What To Do Next</h2><p id="agentctx"></p></div>
-    <div class="agrid" id="agents"></div>
-  </div>
-
-  <div class="sec">
-    <div class="sechead"><h2>Decision Signals</h2><p>24-month trend &middot; shaded band = ChemicalSphere&trade; active</p></div>
-    <div class="three">
-      <div class="card"><h3 class="ct">Plant Yield %</h3><div id="c1"></div></div>
-      <div class="card"><h3 class="ct">Gross Margin %</h3><div id="c2"></div></div>
-      <div class="card"><h3 class="ct">Supplier OTIF</h3><div id="c3"></div></div>
-    </div>
-  </div>
-
-  <div class="sec">
-    <div class="sechead"><h2>Entity Scorecards</h2><p>Latest rolling 6 months &middot; rows in red breach agent thresholds</p></div>
-    <div class="two">
-      <div class="card" data-dom="Supply Chain"><h3 class="ct">Supplier Risk Ranking</h3><div id="tsup"></div></div>
-      <div class="card" data-dom="Manufacturing"><h3 class="ct">Plant Performance</h3><div id="tpl"></div></div>
-    </div>
-    <div style="height:14px"></div>
-    <div class="two">
-      <div class="card" data-dom="Formula"><h3 class="ct">Formula Profitability</h3><div id="tfm"></div></div>
-      <div class="card" data-dom="Financial"><h3 class="ct">Inventory &amp; Shelf-Life Exposure</h3><div id="tinv"></div></div>
-    </div>
-  </div>
-
-  <div class="sec">
-    <div class="sechead"><h2>Chemical Knowledge Graph &mdash; Batch Genealogy</h2><p>Traversal behind every recommendation &middot; recall simulation path</p></div>
-    <div class="card">
-      <div class="kg" id="kgchain"></div>
-      <div class="three" id="kg"></div>
-    </div>
-  </div>
-
-  <div class="sec">
-    <div class="sechead"><h2>Outcome Tracker</h2><p>Baseline (months 1&ndash;18) vs ChemicalSphere&trade; active (months 19&ndash;24)</p></div>
-    <div class="ogrid" id="outcomes"></div>
-  </div>
-</main>
-
-<footer id="foot"></footer>
 
 <script src="data.js"></script>
 <script>
 const D = window.CS_DATA;
 const C = {Manufacturing:'#770107','Supply Chain':'#D9531E',Formula:'#3C6B2A',Quality:'#154C8C',Logistics:'#5B2A86',Financial:'#1E7A73'};
-const PERSONA = {
-  ALL:  ['Manufacturing','Supply Chain','Formula','Quality','Logistics','Financial'],
-  CEO:  ['Financial','Formula','Manufacturing'],
-  COO:  ['Manufacturing','Logistics','Quality'],
-  CFO:  ['Financial','Formula'],
-  CSCO: ['Supply Chain','Logistics','Financial'],
-  CCO:  ['Quality','Manufacturing']
-};
-let persona = 'ALL';
+const GEO_COL = {Low:'#1E7A4A',Medium:'#8A6D1F',High:'#B3261E'};
 
+/* ---------- formatters ---------- */
 const pct=v=>(v*100).toFixed(1)+'%';
 const pct0=v=>(v*100).toFixed(0)+'%';
 const num=(v,d=0)=>v.toLocaleString(undefined,{minimumFractionDigits:d,maximumFractionDigits:d});
-const usd=v=>'$'+(Math.abs(v)>=1e6?(v/1e6).toFixed(1)+'M':Math.abs(v)>=1e3?(v/1e3).toFixed(0)+'K':v.toFixed(0));
+const usd=v=>(v<0?'-':'')+'$'+(Math.abs(v)>=1e6?(Math.abs(v)/1e6).toFixed(1)+'M':Math.abs(v)>=1e3?(Math.abs(v)/1e3).toFixed(0)+'K':Math.abs(v).toFixed(0));
+const usd2=v=>'$'+v.toFixed(2);
 
-/* ---------- KPI tiles ---------- */
-const TILES=[
- {dom:'Manufacturing',lbl:'Overall Equipment Effectiveness',k:'oee',f:pct,def:D.kpi_defs['OEE']},
- {dom:'Manufacturing',lbl:'Plant Yield',k:'yield_pct',f:pct,def:D.kpi_defs['Yield %']},
- {dom:'Manufacturing',lbl:'Batch Success Rate',k:'batch_success',f:pct,def:D.kpi_defs['Batch Success Rate']},
- {dom:'Supply Chain',lbl:'Supplier OTIF',k:'supplier_otif',f:pct,def:D.kpi_defs['Supplier OTIF']},
- {dom:'Supply Chain',lbl:'Lead Time Variance',k:'lead_time_var',f:v=>v.toFixed(1)+' d',inv:1,def:D.kpi_defs['Lead Time Variance']},
- {dom:'Formula',lbl:'Cost per Batch',k:'cost_per_batch',f:usd,inv:1,def:D.kpi_defs['Cost per Batch']},
- {dom:'Quality',lbl:'Batch Rejection Rate',k:'rejection_rate',f:pct,inv:1,def:D.kpi_defs['Batch Rejection Rate']},
- {dom:'Quality',lbl:'CAPA Effectiveness',k:'capa_effectiveness',f:pct,def:D.kpi_defs['CAPA Effectiveness']},
- {dom:'Quality',lbl:'Audit Compliance Score',k:'audit_score',f:v=>v.toFixed(0)+'/100',def:D.kpi_defs['Audit Compliance Score']},
- {dom:'Quality',lbl:'Recall Readiness',k:'recall_readiness',f:v=>v.toFixed(0)+'/100',def:D.kpi_defs['Recall Readiness']},
- {dom:'Logistics',lbl:'Logistics OTIF',k:'logistics_otif',f:pct,def:D.kpi_defs['Logistics OTIF']},
- {dom:'Logistics',lbl:'Freight Cost per Tonne',k:'freight_per_t',f:v=>'$'+v.toFixed(0),inv:1,def:D.kpi_defs['Freight Cost per Tonne']},
- {dom:'Financial',lbl:'Gross Margin',k:'gross_margin_pct',f:pct,def:D.kpi_defs['Gross Margin %']},
- {dom:'Financial',lbl:'Inventory Turns',k:'inventory_turns',f:v=>v.toFixed(1)+'x',def:D.kpi_defs['Inventory Turns']},
- {dom:'Financial',lbl:'Working Capital Days',k:'working_capital_days',f:v=>v.toFixed(0)+' d',inv:1,def:D.kpi_defs['Working Capital Days']},
+/* ---------- page registry ---------- */
+const PAGES = [
+  {id:'overview', label:'Overview', group:null,
+   title:'Overview', sub:'What has ChemicalSphere™ changed since it went live?'},
+  {id:'exec', label:'Executive Command Center', group:'BUSINESS INTELLIGENCE',
+   title:'Executive Command Center', sub:'How is the estate performing?', chips:['3','6','12'], defaultChip:'6'},
+  {id:'plant', label:'Plant Performance', group:'BUSINESS INTELLIGENCE',
+   title:'Plant Performance', sub:'Where is production capacity being lost?', region:true},
+  {id:'formula', label:'Formula & Product Mix', group:'BUSINESS INTELLIGENCE',
+   title:'Formula & Product Mix', sub:'Which recipes and families are carrying (or costing) the portfolio?'},
+  {id:'supplychain', label:'Supply Chain', group:'BUSINESS INTELLIGENCE',
+   title:'Supply Chain', sub:'Which suppliers are putting continuity of supply at risk?', region:true},
+  {id:'inventory', label:'Inventory & Waste', group:'BUSINESS INTELLIGENCE',
+   title:'Inventory & Waste', sub:'Where is working capital ageing past the safe-resale window?'},
+  {id:'customer', label:'Loyalty & Guest', group:'BUSINESS INTELLIGENCE',
+   title:'Customer & Revenue', sub:'Who is the estate’s revenue actually coming from?', region:true},
+  {id:'demand', label:'Demand Forecasting', group:'PREDICTIVE',
+   title:'Demand Forecasting', sub:'Where is throughput and revenue headed next quarter?'},
+  {id:'labour', label:'Labour Optimiser', group:'PREDICTIVE',
+   title:'Production Scheduling Optimiser', sub:'How much OEE is recoverable by rebalancing volume across plants?'},
+  {id:'waste', label:'Waste & Shelf-Life Risk', group:'PREDICTIVE',
+   title:'Waste & Shelf-Life Risk', sub:'Is shelf-life exposure trending up or down, and where does it land next?'},
+  {id:'marginwhatif', label:'Margin What-If', group:'PREDICTIVE',
+   title:'Margin What-If', sub:'If raw-material cost or yield moves, what happens to formula margin?'},
+  {id:'supplydep', label:'Supply Dependency', group:'PREDICTIVE',
+   title:'Supply Dependency', sub:'Which raw materials would hurt most if their top supplier failed tomorrow?'},
+  {id:'menuimpact', label:'Menu Change Impact', group:'PREDICTIVE',
+   title:'Formula Change Impact', sub:'Which ingredient in a recipe has the most leverage over its cost?'},
+  {id:'docintel', label:'Document Intelligence', group:'PREDICTIVE',
+   title:'Document Intelligence', sub:'Is the batch genealogy behind every recall claim actually traceable?'},
+  {id:'loyalty', label:'Loyalty Economics', group:'PREDICTIVE',
+   title:'Customer Economics', sub:'How concentrated is revenue in the top accounts?'},
+  {id:'access', label:'Access & Governance', group:'PREDICTIVE',
+   title:'Access & Governance', sub:'Who sees what, by role?'},
+  {id:'trust', label:'Data Trust', group:'PREDICTIVE',
+   title:'Data Trust', sub:'Where does each fact table originate, and how much of it is there?'},
+  {id:'grain', label:'Decision Grain', group:'PREDICTIVE',
+   title:'Decision Grain', sub:'The full audit log of every recommendation the rule layer fired.'},
+  {id:'reconciliation', label:'Margin Reconciliation', group:'PREDICTIVE',
+   title:'Margin Reconciliation', sub:'Walking the bridge from baseline margin to where the estate sits today.'},
+  {id:'modelintel', label:'Model Intelligence', group:'PREDICTIVE',
+   title:'Model Intelligence', sub:'What is each agent watching, and at what threshold does it fire?'},
 ];
+let ACTIVE_PAGE='exec';
 
-function renderTiles(){
-  const doms=PERSONA[persona];
-  document.getElementById('tiles').innerHTML=TILES.filter(t=>doms.includes(t.dom)).map(t=>{
-    const cur=D.current[t.k], pri=D.prior[t.k];
-    const d=pri?(cur-pri)/Math.abs(pri):0;
-    const good=t.inv? d<0 : d>0;
-    const cls=Math.abs(d)<0.004?'fl':(good?'up':'dn');
-    const arrow=Math.abs(d)<0.004?'\u2013':(d>0?'\u25B2':'\u25BC');
-    return `<div class="tile" style="border-top-color:${C[t.dom]}">
-      <div class="dom" style="color:${C[t.dom]}">${t.dom}</div>
-      <div class="lbl">${t.lbl}</div>
-      <div class="val">${t.f(cur)}</div>
-      <div class="dl ${cls}">${arrow} ${(Math.abs(d)*100).toFixed(1)}% vs prior quarter</div>
-      <div class="def">${t.def}</div></div>`;
-  }).join('');
+function buildNav(){
+  let html='';
+  let lastGroup=undefined;
+  for(const p of PAGES){
+    if(p.group!==lastGroup){
+      if(p.group) html+=`<div class="navgroup"><div class="navgroup-label">${p.group}</div>`;
+      else html+='<div class="navgroup" style="padding-top:8px">';
+      lastGroup=p.group;
+    }
+    html+=`<a class="navitem" data-nav="${p.id}">${p.label}</a>`;
+  }
+  document.getElementById('navlist').innerHTML=html;
+  document.querySelectorAll('.navitem').forEach(el=>el.onclick=()=>navigate(el.dataset.nav));
 }
 
-/* ---------- agents ---------- */
-function renderAgents(){
-  const doms=PERSONA[persona];
-  const list=D.agents.filter(a=>doms.includes(a.domain));
-  document.getElementById('agents').innerHTML=list.map(a=>`
-    <div class="agent ${a.severity}">
-      <div class="ahead">
-        <span style="width:8px;height:8px;border-radius:50%;background:${C[a.domain]}"></span>
-        <span class="nm">${a.agent}</span>
-        <span class="sev ${a.severity}">${a.severity}</span>
+function buildTopbars(){
+  document.getElementById('topbars').innerHTML = PAGES.map(p=>`
+    <div class="topbar" id="topbar-${p.id}" style="display:none">
+      <div class="topbar-row">
+        <div><h1>${p.title}</h1><div class="sub">${p.sub}</div></div>
+        <div class="filters" id="filters-${p.id}">
+          ${p.chips?p.chips.map(c=>`<button class="chip ${c===p.defaultChip?'on':''}" data-months="${c}" onclick="setMonths('${p.id}',${c},this)">Last ${c} Months</button>`).join(''):''}
+          ${p.region?`<select class="selfilter" id="regionsel-${p.id}" onchange="setRegion('${p.id}',this.value)">
+            <option value="ALL">All Regions</option><option>EMEA</option><option>AMER</option><option>APAC</option><option>LATAM</option>
+          </select>`:''}
+        </div>
       </div>
-      <div class="abody">
-        <div class="ent">${a.entity}</div>
-        <div class="sig">${a.signal}</div>
-        <div class="find">${a.finding}</div>
-        <div class="act"><b>Recommended action</b>${a.action}</div>
-        <div class="imp">${a.impact}</div>
-      </div></div>`).join('');
-  const crit=list.filter(a=>a.severity==='Critical').length;
-  document.getElementById('agentctx').textContent=
-    `${list.length} open recommendations \u00B7 ${crit} critical \u00B7 rule layer fired against ${num(D.meta.batches)} batches`;
+      <div class="scopeline" id="scope-${p.id}"></div>
+    </div>`).join('');
 }
 
-/* ---------- sparkline charts ---------- */
-function chart(el,key,fmt,color){
-  const t=D.trend, W=380,H=132,P={l:38,r:8,t:10,b:20};
-  const vs=t.map(r=>r[key]), mn=Math.min(...vs), mx=Math.max(...vs), pad=(mx-mn)*0.18||0.01;
+function buildPageShells(){
+  document.getElementById('pages').innerHTML = PAGES.map(p=>`<section class="page" id="page-${p.id}"></section>`).join('');
+}
+
+function navigate(id){
+  ACTIVE_PAGE=id;
+  document.querySelectorAll('.navitem').forEach(el=>el.classList.toggle('active', el.dataset.nav===id));
+  document.querySelectorAll('.topbar').forEach(el=>el.style.display='none');
+  document.querySelectorAll('.page').forEach(el=>el.classList.remove('active'));
+  document.getElementById('topbar-'+id).style.display='block';
+  document.getElementById('page-'+id).classList.add('active');
+  window.scrollTo(0,0);
+}
+
+/* ---------- shared: sparkline ---------- */
+function spark(series,color){
+  const W=100,H=30;
+  const vs=series; const mn=Math.min(...vs), mx=Math.max(...vs); const pad=(mx-mn)*0.18||Math.abs(mn)*0.05||1;
   const lo=mn-pad, hi=mx+pad;
-  const x=i=>P.l+i*(W-P.l-P.r)/(t.length-1);
-  const y=v=>P.t+(1-(v-lo)/(hi-lo))*(H-P.t-P.b);
+  const x=i=>i*(W/(vs.length-1||1));
+  const y=v=>H-((v-lo)/(hi-lo||1))*H;
   const pts=vs.map((v,i)=>`${x(i)},${y(v)}`).join(' ');
-  const bx=x(D.meta.baseline_months), bw=W-P.r-bx;
-  const grid=[0,.25,.5,.75,1].map(f=>{const v=lo+f*(hi-lo);
+  const lx=x(vs.length-1), ly=y(vs[vs.length-1]);
+  return `<svg viewBox="0 0 ${W} ${H}" width="90" height="26" preserveAspectRatio="none">
+    <polyline points="${pts}" fill="none" stroke="${color}" stroke-width="2" stroke-linejoin="round"/>
+    <circle cx="${lx}" cy="${ly}" r="2.4" fill="${color}"/></svg>`;
+}
+
+/* ---------- shared: KPI tile v2 ---------- */
+function kpiTile2(label,valueStr,deltaPct,invert,sparkSeries){
+  const good = invert? deltaPct<0 : deltaPct>0;
+  const cls = Math.abs(deltaPct)<0.004 ? 'fl' : (good?'up':'dn');
+  const arrow = Math.abs(deltaPct)<0.004 ? '–' : (deltaPct>0?'▲':'▼');
+  const color = cls==='up' ? '#1E7A4A' : cls==='dn' ? '#B3261E' : '#8A93A3';
+  return `<div class="kpi2">
+    <div class="kpi2-label">${label}</div>
+    <div class="kpi2-row"><div class="kpi2-value">${valueStr}</div>
+      <span class="pill2 ${cls}">${arrow} ${(Math.abs(deltaPct)*100).toFixed(1)}%</span></div>
+    <div class="kpi2-spark">${spark(sparkSeries,color)}</div>
+  </div>`;
+}
+
+function trendSlice(months, key){
+  return D.trend.slice(-months).map(t=>t[key]);
+}
+
+/* ---------- shared: insight card v2 (agents) ---------- */
+let workingsOpen={};
+function extractCode(entity){ const m=entity.match(/\(([A-Z]{2,5}-\d+)\)/); return m?m[1]:null; }
+const DOMAIN_PAGE = {Manufacturing:'plant', 'Supply Chain':'supplychain', Formula:'formula'};
+function extractDollar(str){ const m=str.match(/\$[\d,\.]+[MK]?/); return m?m[0]:''; }
+
+function insightCard2(a, idx){
+  const code = extractCode(a.entity);
+  const page = DOMAIN_PAGE[a.domain];
+  const canOpen = code && page;
+  const rule = D.agent_rules.find(r=>r.agent===a.agent);
+  const thVal = rule ? D.thresholds[rule.threshold_key] : null;
+  return `<div class="icard2" style="border-left-color:${C[a.domain]}">
+    <div class="icard2-head">
+      <span class="cat-pill" style="background:${C[a.domain]}1a;color:${C[a.domain]}">${a.domain.toUpperCase()}</span>
+      <span class="sev-pill ${a.severity}">${a.severity}</span>
+      <span class="icard2-value">${extractDollar(a.impact)}</span>
+    </div>
+    <div class="icard2-title">${a.entity} — ${a.signal}</div>
+    <div class="icard2-body">${a.finding}</div>
+    <div class="icard2-route"><b>${a.domain} →</b> ${a.action}</div>
+    <div class="icard2-actions">
+      <button class="btn-outline" onclick="toggleWorkings(${idx})">Show workings</button>
+      ${canOpen?`<button class="btn-dark" onclick="openEntity('${page}','${code}')">Open ${a.domain==='Formula'?'formula':a.domain==='Manufacturing'?'plant':'supplier'}</button>`:''}
+    </div>
+    <div class="icard2-workings" id="workings-${idx}">
+      Detection is arithmetic: <code>${a.agent}</code> watches <b>${rule?rule.watches:a.domain}</b>.
+      Rule fires when the value breaches <code>${rule?rule.threshold_key:'—'} = ${thVal!=null?(thVal<1?pct0(thVal):thVal):'—'}</code>.
+      Estimated impact: <b>${a.impact}</b>.
+    </div>
+  </div>`;
+}
+function toggleWorkings(idx){
+  const el=document.getElementById('workings-'+idx);
+  el.classList.toggle('show');
+}
+function openEntity(page, code){
+  navigate(page);
+  setTimeout(()=>{
+    document.querySelectorAll('.navitem').forEach(el=>el.classList.toggle('active', el.dataset.nav===page));
+    const row=document.querySelector(`tr[data-code="${code}"]`);
+    if(row){ row.scrollIntoView({behavior:'smooth',block:'center'}); row.classList.add('hlrow');
+      setTimeout(()=>row.classList.remove('hlrow'),1800); }
+  },60);
+}
+function agentGrid(list){
+  return `<div class="icards2">${list.map((a,i)=>insightCard2(a,i)).join('')}</div>`;
+}
+
+/* ---------- shared: decomposition widget ---------- */
+function decompWidget(el, title, sub, stats, bars, footer){
+  const maxAbs = Math.max(...bars.map(b=>Math.abs(b.dollars)), 1);
+  el.innerHTML = `<h3 class="ct">${title}<span class="note">${sub}</span></h3>
+    <div class="decomp-stats">${stats.map(s=>`<div class="decomp-stat"><div class="dv">${s.v}</div><div class="dl">${s.l}</div></div>`).join('')}</div>
+    <div class="decomp-bars">${bars.map(b=>`
+      <div class="decomp-barrow"><div class="bl">${b.label}</div>
+        <div class="decomp-track"><div class="decomp-fill" style="width:${Math.max(2,Math.abs(b.dollars)/maxAbs*100)}%;background:${b.dollars>=0?'#3C6B2A':'#B3261E'}">${usd(b.dollars)}</div></div>
+      </div>`).join('')}
+    </div>
+    <div class="decomp-foot">${footer}</div>`;
+}
+
+/* ---------- shared: combo chart (bars + moving avg line + tooltip) ---------- */
+function comboChart(el, periods, bars, ma, opts){
+  opts = opts||{};
+  const W=440,H=170,P={l:44,r:10,t:14,b:22};
+  const allVals = bars.concat(ma);
+  const dataMin=Math.min(...allVals), dataMax=Math.max(...allVals);
+  const pad=(dataMax-dataMin)*0.12||Math.abs(dataMax)*0.05||1;
+  let lo=dataMin-pad, hi=dataMax+pad;
+  if(dataMin>=0) lo=Math.max(0,lo);
+  const n=periods.length;
+  const x=i=>P.l+i*(W-P.l-P.r)/(n-1||1);
+  const y=v=>P.t+(1-(v-lo)/(hi-lo))*(H-P.t-P.b);
+  const bw=Math.max(2,(W-P.l-P.r)/n*0.62);
+  const barsSvg = bars.map((v,i)=>`<rect x="${x(i)-bw/2}" y="${y(v)}" width="${bw}" height="${y(0)-y(v)>=0?y(0)-y(v):0.001}" fill="#C9D2DF"/>`).join('');
+  const maPts = ma.map((v,i)=>`${x(i)},${y(v)}`).join(' ');
+  const grid=[0,.5,1].map(f=>{const v=lo+f*(hi-lo);
     return `<line x1="${P.l}" y1="${y(v)}" x2="${W-P.r}" y2="${y(v)}" stroke="#EEF1F6"/>
-            <text x="${P.l-5}" y="${y(v)+3}" font-size="8.5" fill="#8A93A3" text-anchor="end">${fmt(v)}</text>`}).join('');
-  const dots=vs.map((v,i)=>i%4===0||i===vs.length-1?`<circle cx="${x(i)}" cy="${y(v)}" r="2.2" fill="${color}"/>`:'').join('');
-  const labs=t.map((r,i)=>i%6===0||i===t.length-1?`<text x="${x(i)}" y="${H-5}" font-size="8" fill="#8A93A3" text-anchor="middle">${r.period.slice(2)}</text>`:'').join('');
-  el.innerHTML=`<svg viewBox="0 0 ${W} ${H}" width="100%">
-    <rect x="${bx}" y="${P.t}" width="${bw}" height="${H-P.t-P.b}" fill="${color}" opacity=".07"/>
-    <text x="${bx+4}" y="${P.t+10}" font-size="8" fill="${color}" font-weight="600">CS ACTIVE</text>
-    ${grid}<polyline points="${pts}" fill="none" stroke="${color}" stroke-width="2" stroke-linejoin="round"/>${dots}${labs}</svg>`;
+      <text x="${P.l-5}" y="${y(v)+3}" font-size="8.5" fill="#8A93A3" text-anchor="end">${opts.fmt?opts.fmt(v):v.toFixed(0)}</text>`}).join('');
+  const labs = periods.map((p,i)=>(i%Math.ceil(n/7)===0||i===n-1)?`<text x="${x(i)}" y="${H-6}" font-size="8" fill="#8A93A3" text-anchor="middle">${p.slice(2)}</text>`:'').join('');
+  const id='combo-'+Math.random().toString(36).slice(2,8);
+  el.innerHTML=`<div class="combo-wrap">
+    <svg viewBox="0 0 ${W} ${H}" width="100%" id="${id}">
+      ${grid}${barsSvg}
+      <polyline points="${maPts}" fill="none" stroke="${opts.lineColor||'#0B1E3D'}" stroke-width="2.2" stroke-linejoin="round"/>
+      <line id="${id}-guide" x1="0" y1="${P.t}" x2="0" y2="${H-P.b}" stroke="#B9C6DA" stroke-width="1" style="display:none"/>
+      ${labs}
+      <rect x="${P.l}" y="0" width="${W-P.l-P.r}" height="${H}" fill="transparent" id="${id}-hit"/>
+    </svg>
+    <div class="combo-tooltip" id="${id}-tip"></div>
+  </div>`;
+  const svg=document.getElementById(id), hit=document.getElementById(id+'-hit'),
+        guide=document.getElementById(id+'-guide'), tip=document.getElementById(id+'-tip');
+  hit.addEventListener('mousemove', e=>{
+    const rect=svg.getBoundingClientRect();
+    const mx=(e.clientX-rect.left)*(W/rect.width);
+    let i=Math.round((mx-P.l)/((W-P.l-P.r)/(n-1||1)));
+    i=Math.max(0,Math.min(n-1,i));
+    guide.style.display='block'; guide.setAttribute('x1',x(i)); guide.setAttribute('x2',x(i));
+    tip.style.opacity=1;
+    tip.style.left=Math.min(rect.width-140, Math.max(0,(x(i)/W)*rect.width+8))+'px';
+    tip.style.top=(y(bars[i])/H)*rect.height-46+'px';
+    tip.innerHTML=`${periods[i]}<br>${opts.barLabel||'Value'}: <b>${opts.fmt?opts.fmt(bars[i]):bars[i]}</b><br>${opts.maLabel||'Moving avg'}: <b>${opts.fmt?opts.fmt(ma[i]):ma[i]}</b>`;
+  });
+  hit.addEventListener('mouseleave', ()=>{guide.style.display='none'; tip.style.opacity=0;});
+}
+function movingAvg(arr,w){
+  return arr.map((_,i)=>{const s=Math.max(0,i-w+1); const seg=arr.slice(s,i+1); return seg.reduce((a,b)=>a+b,0)/seg.length;});
 }
 
-/* ---------- tables ---------- */
-function bar(v,max,col){return `<div class="bar"><i style="width:${Math.min(100,v/max*100)}%;background:${col}"></i></div>`;}
-
-function renderTables(){
-  document.getElementById('tsup').innerHTML=`<table><tr><th>Supplier</th><th>Geo</th><th class="n">OTIF</th><th class="n">Lead Var</th><th class="n">Risk</th><th></th></tr>`+
-    D.suppliers.map(s=>`<tr class="${s.risk_score>D.thresholds.risk_ceiling?'alert':''}">
-      <td><b>${s.supplier_name}</b><br><small style="color:#8A93A3">${s.supplier_id}</small></td>
-      <td><span class="pill" style="background:${s.geo_risk==='High'?'#B3261E':s.geo_risk==='Medium'?'#8A6D1F':'#1E7A4A'}">${s.geo_risk}</span></td>
-      <td class="n">${pct0(s.otif)}</td><td class="n">${s.ltv>0?'+':''}${s.ltv.toFixed(1)}d</td>
-      <td class="n"><b>${s.risk_score.toFixed(0)}</b></td>
-      <td>${bar(s.risk_score,60,s.risk_score>28?'#B3261E':'#D9531E')}</td></tr>`).join('')+`</table>`;
-
-  document.getElementById('tpl').innerHTML=`<table><tr><th>Plant</th><th>Region</th><th class="n">OEE</th><th class="n">Yield</th><th class="n">Reject</th><th class="n">Margin</th></tr>`+
-    D.plants.map(p=>`<tr class="${p.oee<D.thresholds.oee_floor?'alert':''}">
-      <td><b>${p.plant_name}</b><br><small style="color:#8A93A3">${p.plant_id}</small></td>
-      <td>${p.region}</td><td class="n">${pct(p.oee)}</td><td class="n">${pct(p.yld)}</td>
-      <td class="n">${pct(p.rej)}</td><td class="n">${pct(p.margin_pct)}</td></tr>`).join('')+`</table>`;
-
-  document.getElementById('tfm').innerHTML=`<table><tr><th>Formula</th><th>Family</th><th class="n">Yield</th><th class="n">RM Var</th><th class="n">Margin</th></tr>`+
-    D.formulas.slice(0,8).map(f=>`<tr class="${f.margin_pct<D.thresholds.margin_floor||f.rm_var>D.thresholds.rm_var_ceiling?'alert':''}">
-      <td><b>${f.formula_name}</b><br><small style="color:#8A93A3">${f.formula_id}</small></td>
-      <td>${f.product_family}</td><td class="n">${pct(f.yld)}</td>
-      <td class="n" style="color:${f.rm_var>0.15?'#B3261E':'#5B5B5B'}">${f.rm_var>0?'+':''}${pct(f.rm_var)}</td>
-      <td class="n"><b>${pct(f.margin_pct)}</b></td></tr>`).join('')+`</table>`;
-
-  const mx=Math.max(...D.inventory.map(i=>i.value));
-  document.getElementById('tinv').innerHTML=`<table><tr><th>Plant</th><th class="n">Value</th><th class="n">Avg Age</th><th class="n">Shelf Risk</th><th></th></tr>`+
-    D.inventory.map(i=>`<tr class="${i.risk>D.thresholds.shelf_risk_ceiling?'alert':''}">
-      <td><b>${i.plant_name}</b></td><td class="n">${usd(i.value)}</td>
-      <td class="n">${i.age.toFixed(0)} d</td><td class="n">${pct0(i.risk)}</td>
-      <td>${bar(i.value,mx,'#1E7A73')}</td></tr>`).join('')+`</table>`;
-}
-
-/* ---------- knowledge graph ---------- */
-function renderKG(){
-  const g=D.genealogy;
-  document.getElementById('kgchain').innerHTML=
-    ['Raw Material','Supplier','Purchase Order','Batch','Formula','Finished Product','Customer','Revenue','Margin','Profitability']
-    .map(n=>`<span class="node ${n==='Batch'?'hl':''}">${n}</span>`).join('<span class="arw">&rarr;</span>');
-  document.getElementById('kg').innerHTML=`
-   <div class="gcol"><h4>Batch under investigation</h4>
-     <div><b>${g.batch_id}</b></div><div>${g.plant}</div><div>Formula: ${g.formula}</div>
-     <div><small>QC failed &middot; traced upstream and downstream</small></div></div>
-   <div class="gcol"><h4>Ingredients &amp; hazard class</h4>
-     ${g.materials.map(m=>`<div>${m.material_name} <small>&middot; ${(m.proportion*100).toFixed(0)}% &middot; ${m.hazard_class}</small></div>`).join('')}</div>
-   <div class="gcol"><h4>Suppliers implicated</h4>
-     ${g.suppliers.map(s=>`<div>${s.supplier_name} <small>&middot; ${s.geo_risk} risk</small></div>`).join('')}</div>
-   <div class="gcol"><h4>Shipments affected</h4>
-     ${g.shipments.map(s=>`<div>${s.shipment_id} <small>&middot; ${s.qty_t.toFixed(1)} t &middot; ${s.mode}</small></div>`).join('')}</div>
-   <div class="gcol"><h4>Customers in recall scope</h4>
-     ${g.customers.map(c=>`<div>${c.customer_name} <small>&middot; ${c.region}</small></div>`).join('')}</div>
-   <div class="gcol"><h4>Decision memory</h4>
-     <div>Prior similar events: 4</div><div>Recommended play: contain &amp; re-qualify</div>
-     <div><small>Vector-search match on CAPA history</small></div></div>`;
-}
-
-/* ---------- outcomes ---------- */
-function renderOutcomes(){
-  document.getElementById('outcomes').innerHTML=D.outcomes.map(o=>{
-    const f=v=>o.unit==='$'?usd(v):o.unit==='%'?pct(v):o.unit==='days'?v.toFixed(0)+' d':o.unit==='x'?v.toFixed(1)+'x':v.toFixed(0);
-    const g=o.delta_pct>0;
-    return `<div class="out"><div class="ol">${o.label}</div><div class="ot">${o.target}</div>
-      <div class="ov"><span class="b">${f(o.baseline)}</span><span class="a">${f(o.live)}</span>
-      <span class="d ${g?'up':'dn'}">${g?'\u25B2':'\u25BC'} ${(Math.abs(o.delta_pct)*100).toFixed(1)}%</span></div>
-      ${bar(Math.min(Math.abs(o.delta_pct)*100,100),20,g?'#1E7A4A':'#B3261E')}</div>`;
-  }).join('');
-}
-
-/* ---------- persona filtering of scorecards ---------- */
-function filterCards(){
-  const doms=PERSONA[persona];
-  document.querySelectorAll('[data-dom]').forEach(c=>c.classList.toggle('hide',!doms.includes(c.dataset.dom)));
-}
-
-function render(){
-  renderTiles(); renderAgents(); filterCards();
-  document.getElementById('ctx').textContent =
-    `Latest quarter vs prior \u00B7 ${D.meta.plants} plants \u00B7 ${D.meta.formulas} formulas \u00B7 ${D.meta.suppliers} suppliers \u00B7 view: ${persona}`;
-}
-
-document.querySelectorAll('.chip').forEach(b=>b.onclick=()=>{
-  document.querySelectorAll('.chip').forEach(x=>x.classList.remove('on'));
-  b.classList.add('on'); persona=b.dataset.p; render();
-});
-
-render(); renderTables(); renderKG(); renderOutcomes();
-chart(document.getElementById('c1'),'yield',pct0,'#770107');
-chart(document.getElementById('c2'),'margin',pct0,'#1E7A73');
-chart(document.getElementById('c3'),'otif',pct0,'#D9531E');
+/* ---------- render bootstrap ---------- */
+buildNav(); buildTopbars(); buildPageShells();
+</script>
+<script src="pages.js"></script>
+<script>
+navigate('exec');
 document.getElementById('foot').innerHTML =
   `ChemicalSphere&trade; &mdash; Sutherland's Oracle-powered Decision Intelligence Accelerator for Chemical Enterprises &middot; `+
   `Simulated data: ${num(D.meta.batches)} batches, ${num(D.meta.pos)} PO lines, ${num(D.meta.shipments)} shipments, ${num(D.meta.capa)} CAPA records across ${D.meta.months} months`;

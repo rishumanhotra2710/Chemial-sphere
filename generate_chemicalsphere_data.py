@@ -367,6 +367,11 @@ def kpi_block(bdf, pdf, sdf, idf, cdf):
         "inventory_turns": cogs / max(inv_avg, 1) * (12 / max(bdf.period.nunique(), 1)),
         "working_capital_days": inv_avg / max(cogs / (30.4 * bdf.period.nunique()), 1),
         "shelf_life_risk_pct": idf.shelf_life_risk.mean(),
+        "batches": len(bdf),
+        "sold_qty": bdf.sold_qty_t.sum(),
+        "avg_batch_value": bdf.revenue.sum() / max(len(bdf), 1),
+        "avg_price": bdf.revenue.sum() / max(bdf.sold_qty_t.sum(), 1),
+        "prime_cost_pct": bdf.total_cost.sum() / max(bdf.revenue.sum(), 1),
     }
 
 def slice_all(pidx_from=None, pidx_to=None):
@@ -389,7 +394,12 @@ for i, per in enumerate(PERIODS):
                   "otif": round(k["supplier_otif"], 4),
                   "rejection": round(k["rejection_rate"], 4),
                   "inventory": round(k["inventory_value"], 0),
-                  "throughput": round(k["throughput"], 0)})
+                  "throughput": round(k["throughput"], 0),
+                  "revenue": round(k["revenue"], 0),
+                  "batches": k["batches"],
+                  "avg_batch_value": round(k["avg_batch_value"], 2),
+                  "prime_cost_pct": round(k["prime_cost_pct"], 4),
+                  "shelf_life_risk": round(k["shelf_life_risk_pct"], 4)})
 
 # ----------------------------------------------------------------------------
 # 4. ENTITY SCORECARDS
@@ -411,10 +421,14 @@ plant_sc = plant_sc.merge(plants[["plant_id", "plant_name", "region"]], on="plan
 plant_sc["margin_pct"] = plant_sc.margin / plant_sc.rev
 plant_sc = plant_sc.sort_values("oee")
 
+batches["conv_cost_per_t_calc"] = batches.total_cost / batches.planned_qty_t - batches.rm_cost_per_t
+
 form_sc = batches[batches.period_idx >= MONTHS - 6].groupby(["formula_id", "product_family"]).agg(
-    yld=("yield_pct", "mean"), rmc=("rm_cost_per_t", "mean"), rev=("revenue", "sum"),
+    yld=("yield_pct", "mean"), rmc=("rm_cost_per_t", "mean"),
+    convc=("conv_cost_per_t_calc", "mean"), rev=("revenue", "sum"),
     cost=("total_cost", "sum"), rej=("qc_failed", "mean"), vol=("actual_qty_t", "sum")).reset_index()
 form_sc = form_sc.merge(formulas[["formula_id", "formula_name"]], on="formula_id")
+form_sc = form_sc.merge(products[["formula_id", "price_per_tonne"]], on="formula_id")
 form_sc["margin_pct"] = (form_sc.rev - form_sc.cost) / form_sc.rev
 base_rmc = batches[batches.period_idx < 6].groupby("formula_id").rm_cost_per_t.mean()
 form_sc["rm_var"] = form_sc.formula_id.map(base_rmc)
@@ -424,7 +438,166 @@ form_sc = form_sc.sort_values("margin_pct")
 inv_sc = inventory[inventory.period_idx == MONTHS - 1].groupby("plant_id").agg(
     value=("inventory_value", "sum"), risk=("shelf_life_risk", "mean"),
     age=("age_days", "mean")).reset_index().merge(plants[["plant_id", "plant_name"]], on="plant_id")
+inv_sc["value_at_risk"] = inv_sc.value * inv_sc.risk
 inv_sc = inv_sc.sort_values("value", ascending=False)
+
+# ----------------------------------------------------------------------------
+# 4b. DERIVED ANALYTICS - decomposition, forecasts, concentration, what-if base
+# ----------------------------------------------------------------------------
+def decompose(cur_qty, cur_price, cur_rev, prior_qty, prior_price, prior_rev):
+    """Volume-vs-price decomposition of a revenue change; components reconcile exactly."""
+    growth = (cur_rev - prior_rev) / abs(prior_rev) if prior_rev else 0.0
+    volume_effect = (cur_qty - prior_qty) * prior_price
+    price_effect = cur_qty * (cur_price - prior_price)
+    denom = abs(prior_rev) if prior_rev else 1.0
+    return {
+        "revenue_growth_pct": growth,
+        "volume_effect_pct": volume_effect / denom,
+        "price_effect_pct": price_effect / denom,
+        "volume_effect_dollars": volume_effect,
+        "price_effect_dollars": price_effect,
+    }
+
+revenue_decomposition = decompose(
+    current["sold_qty"], current["avg_price"], current["revenue"],
+    prior["sold_qty"], prior["avg_price"], prior["revenue"])
+
+baseline_month_n, live_month_n = BASELINE_MONTHS, MONTHS - BASELINE_MONTHS
+margin_bridge_growth = decompose(
+    live["sold_qty"] / live_month_n, live["avg_price"], live["revenue"] / live_month_n,
+    baseline["sold_qty"] / baseline_month_n, baseline["avg_price"], baseline["revenue"] / baseline_month_n)
+margin_dollars_baseline = (baseline["revenue"] / baseline_month_n) * baseline["gross_margin_pct"]
+margin_dollars_live = (live["revenue"] / live_month_n) * live["gross_margin_pct"]
+margin_bridge = {
+    "unit": "avg_dollars_per_month",
+    "baseline_margin_dollars": margin_dollars_baseline,
+    "live_margin_dollars": margin_dollars_live,
+    "volume_effect": margin_bridge_growth["volume_effect_dollars"] * baseline["gross_margin_pct"],
+    "price_mix_effect": margin_bridge_growth["price_effect_dollars"] * baseline["gross_margin_pct"],
+}
+margin_bridge["cost_efficiency_effect"] = (margin_dollars_live - margin_dollars_baseline
+    - margin_bridge["volume_effect"] - margin_bridge["price_mix_effect"])
+
+def forecast_series(history, horizon=3, noise_floor=0.02):
+    """Linear trend extrapolation with a naive residual-based confidence band."""
+    x = np.arange(len(history))
+    y = np.array(history, dtype=float)
+    slope, intercept = np.polyfit(x, y, 1)
+    fitted = slope * x + intercept
+    resid_std = max(float(np.std(y - fitted)), abs(float(np.mean(y))) * noise_floor)
+    out = []
+    for h in range(1, horizon + 1):
+        val = float(slope * (len(history) - 1 + h) + intercept)
+        band = resid_std * (1 + 0.35 * h)
+        out.append({"forecast": round(val, 2), "low": round(val - band, 2), "high": round(val + band, 2)})
+    return out
+
+FORECAST_WINDOW = 12
+future_periods = [str(p) for p in pd.period_range(start=PERIODS[-1] + 1, periods=3, freq="M")]
+throughput_hist = [t["throughput"] for t in trend[-FORECAST_WINDOW:]]
+revenue_hist = [t["revenue"] for t in trend[-FORECAST_WINDOW:]]
+shelf_risk_hist = [t["shelf_life_risk"] for t in trend[-FORECAST_WINDOW:]]
+demand_forecast = {
+    "history": trend[-FORECAST_WINDOW:],
+    "future_periods": future_periods,
+    "throughput": forecast_series(throughput_hist),
+    "revenue": forecast_series(revenue_hist),
+}
+shelf_life_forecast = {
+    "history": [{"period": t["period"], "risk": t["shelf_life_risk"]} for t in trend[-FORECAST_WINDOW:]],
+    "future_periods": future_periods,
+    "risk": forecast_series(shelf_risk_hist, noise_floor=0.05),
+}
+
+margin_whatif = form_sc.assign(
+    conv_cost_per_t=lambda d: d.convc,
+).rename(columns={"rmc": "rm_cost_per_t", "yld": "yield_pct", "price_per_tonne": "price",
+                   "margin_pct": "margin_pct_baseline", "vol": "volume_t", "rev": "revenue"})[
+    ["formula_id", "formula_name", "product_family", "price", "rm_cost_per_t", "conv_cost_per_t",
+     "yield_pct", "margin_pct_baseline", "volume_t", "revenue"]
+].round(4).to_dict("records")
+
+pos_recent = pos[pos.period_idx >= MONTHS - 12]
+mat_spend = pos_recent.groupby(["material_id", "supplier_id"]).po_value.sum().reset_index()
+supplier_concentration = []
+for mat_id, g in mat_spend.groupby("material_id"):
+    total = g.po_value.sum()
+    shares = (g.po_value / total).values
+    hhi = round(float(np.sum(shares ** 2) * 10000), 0)
+    top = g.sort_values("po_value", ascending=False).iloc[0]
+    mat_name = raw_materials.set_index("material_id").loc[mat_id, "material_name"]
+    top_supplier_name = suppliers.set_index("supplier_id").loc[top.supplier_id, "supplier_name"]
+    supplier_concentration.append({
+        "material_id": mat_id, "material_name": mat_name, "total_spend": round(float(total), 0),
+        "supplier_count": int(g.supplier_id.nunique()), "hhi": hhi,
+        "top_supplier_id": top.supplier_id, "top_supplier_name": top_supplier_name,
+        "top_supplier_share": round(float(top.po_value / total), 4),
+        "concentrated": bool(hhi > 3500 or (top.po_value / total) > 0.55),
+    })
+supplier_concentration = sorted(supplier_concentration, key=lambda r: -r["hhi"])
+
+recipe_detail = recipe.merge(raw_materials, on="material_id").merge(
+    formulas[["formula_id", "formula_name"]], on="formula_id")
+recipe_detail["cost_weight"] = recipe_detail.proportion * recipe_detail.base_cost_per_tonne
+weight_totals = recipe_detail.groupby("formula_id").cost_weight.sum().rename("weight_total")
+recipe_detail = recipe_detail.merge(weight_totals, on="formula_id")
+recipe_detail["cost_share"] = recipe_detail.cost_weight / recipe_detail.weight_total
+recipe_detail = recipe_detail[["formula_id", "formula_name", "material_id", "material_name",
+                                "proportion", "hazard_class", "base_cost_per_tonne", "cost_share"]] \
+    .round(4).sort_values(["formula_id", "cost_share"], ascending=[True, False]).to_dict("records")
+
+ship_rev = shipments.merge(batches[["batch_id", "revenue", "product_family", "formula_id"]], on="batch_id")
+cust_sc = ship_rev[ship_rev.period_idx >= MONTHS - 6].groupby("customer_id").agg(
+    revenue=("revenue", "sum"), shipment_ct=("shipment_id", "count"),
+    otif=("on_time_in_full", "mean"), qty=("qty_t", "sum")).reset_index()
+cust_sc = cust_sc.merge(customers, on="customer_id").sort_values("revenue", ascending=False)
+top_family = ship_rev[ship_rev.period_idx >= MONTHS - 6].groupby(
+    ["customer_id", "product_family"]).size().reset_index(name="n")
+top_family = top_family.sort_values("n", ascending=False).drop_duplicates("customer_id")
+cust_sc = cust_sc.merge(top_family[["customer_id", "product_family"]], on="customer_id", how="left")
+customer_total_rev = cust_sc.revenue.sum()
+customer_concentration = round(float(cust_sc.head(5).revenue.sum() / max(customer_total_rev, 1)), 4)
+cust_sc = cust_sc.round(4).to_dict("records")
+
+family_mix = batches[batches.period_idx >= MONTHS - 6].groupby("product_family").agg(
+    revenue=("revenue", "sum"), cost=("total_cost", "sum"), volume=("actual_qty_t", "sum"),
+    rejection=("qc_failed", "mean")).reset_index()
+family_mix["margin_pct"] = (family_mix.revenue - family_mix.cost) / family_mix.revenue
+family_mix["revenue_share"] = family_mix.revenue / family_mix.revenue.sum()
+family_mix = family_mix.round(4).sort_values("revenue", ascending=False).to_dict("records")
+
+AGENT_RULES = [
+    {"agent": "Production Optimization Agent", "domain": "Manufacturing", "watches": "Plant OEE",
+     "threshold_key": "oee_floor", "logic": "Fires when 6-month plant OEE falls below the floor."},
+    {"agent": "Formula Intelligence Agent", "domain": "Formula", "watches": "Formula margin % / RM cost variance",
+     "threshold_key": "margin_floor", "logic": "Fires when margin % drops below the floor or RM cost variance exceeds its ceiling."},
+    {"agent": "Supplier Risk Agent", "domain": "Supply Chain", "watches": "Supplier risk score / OTIF",
+     "threshold_key": "risk_ceiling", "logic": "Fires when the composite risk score exceeds the ceiling or OTIF drops below its floor."},
+    {"agent": "Compliance Agent", "domain": "Quality", "watches": "CAPA recurrence by product family",
+     "threshold_key": "capa_recur_ceiling", "logic": "Fires when recurring-CAPA rate for a product family exceeds the ceiling."},
+    {"agent": "Inventory Intelligence Agent", "domain": "Financial", "watches": "Shelf-life risk by plant",
+     "threshold_key": "shelf_risk_ceiling", "logic": "Fires when shelf-life risk share at a plant exceeds the ceiling."},
+    {"agent": "CFO Agent", "domain": "Financial", "watches": "Enterprise gross margin %",
+     "threshold_key": "margin_floor", "logic": "Runs every period; escalates severity when margin % is below the floor."},
+]
+
+DATA_LINEAGE = [
+    {"table": "fact_batch", "rows": len(batches), "source": "JDE (Process Manufacturing) / MES", "grain": "One row per production batch"},
+    {"table": "fact_purchase_order", "rows": len(pos), "source": "JDE Procurement / OIC", "grain": "One row per PO line"},
+    {"table": "fact_shipment", "rows": len(shipments), "source": "OTM (Oracle Transportation Management)", "grain": "One row per outbound shipment"},
+    {"table": "fact_inventory", "rows": len(inventory), "source": "JDE Inventory / EPM", "grain": "One row per plant x product x month snapshot"},
+    {"table": "fact_capa", "rows": len(capa), "source": "Quality/CAPA system (OCC)", "grain": "One row per corrective action"},
+    {"table": "dim_plant", "rows": len(plants), "source": "JDE Master Data", "grain": "One row per plant"},
+    {"table": "dim_supplier", "rows": len(suppliers), "source": "Sales Cloud / Supplier Master", "grain": "One row per supplier"},
+    {"table": "dim_customer", "rows": len(customers), "source": "Sales Cloud / CPQ", "grain": "One row per customer"},
+    {"table": "dim_formula", "rows": len(formulas), "source": "JDE Formula Management", "grain": "One row per formula"},
+    {"table": "bridge_recipe", "rows": len(recipe), "source": "JDE Formula Management (BOM)", "grain": "One row per formula x ingredient"},
+]
+
+capa_document_log = capa.merge(plants[["plant_id", "plant_name"]], on="plant_id") \
+    .sort_values("period_idx", ascending=False).head(25)[
+    ["capa_id", "batch_id", "period", "plant_name", "formula_id", "product_family",
+     "root_cause", "recurring", "closed_on_time"]].to_dict("records")
 
 # ----------------------------------------------------------------------------
 # 5. AGENT RULE LAYER - thresholds -> recommendations (the "what to do next")
@@ -566,6 +739,19 @@ payload = {
     "agents": agents,
     "outcomes": outcomes,
     "genealogy": genealogy,
+    "revenue_decomposition": revenue_decomposition,
+    "margin_bridge": margin_bridge,
+    "demand_forecast": demand_forecast,
+    "shelf_life_forecast": shelf_life_forecast,
+    "margin_whatif": margin_whatif,
+    "supplier_concentration": supplier_concentration,
+    "recipe_detail": recipe_detail,
+    "customers": cust_sc,
+    "customer_concentration": customer_concentration,
+    "family_mix": family_mix,
+    "agent_rules": AGENT_RULES,
+    "data_lineage": DATA_LINEAGE,
+    "capa_recent": capa_document_log,
 }
 
 with open(os.path.join(OUT, "data.js"), "w") as f:
