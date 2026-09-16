@@ -1,4 +1,4 @@
-# ChemicalSphere(TM) - Decision Intelligence Layer (Initial Build)
+# ChemicalSphere(TM) - Decision Intelligence Platform
 
 ## Run it
 Open `index.html` directly in a browser. No server, no CDN, no install.
@@ -7,15 +7,26 @@ Open `index.html` directly in a browser. No server, no CDN, no install.
 ```
 python generate_chemicalsphere_data.py
 ```
-Rewrites `data.js` (the cockpit reads this) and `csv/*.csv` (OTBI / modelling extracts).
+Rewrites `data.js` (the platform reads this) and `csv/*.csv` (OTBI / modelling extracts).
 
 ## What's in here
 | File | Purpose |
 |---|---|
-| `index.html` | Executive Cockpit - KPI tiles, agent feed, trends, scorecards, knowledge graph, outcome tracker |
-| `generate_chemicalsphere_data.py` | Batch-spine star schema simulator + KPI layer + agent rule layer |
-| `data.js` | Pre-computed payload consumed by the cockpit |
+| `index.html` | App shell - sidebar nav, topbar/filters, shared components (KPI tiles, insight cards, decomposition widget, combo charts), page routing |
+| `pages.js` | Render logic for all 20 pages (Overview, 6 Business Intelligence pages, 13 Predictive/Governance pages) |
+| `generate_chemicalsphere_data.py` | Batch-spine star schema simulator + KPI layer + agent rule layer + forecasting/decomposition/concentration analytics |
+| `data.js` | Pre-computed payload consumed by the platform |
 | `csv/` | 13 tables - 8 dimensions, 1 bridge, 5 facts |
+
+## Pages
+- **Overview** - headline KPIs, quick links, Outcome Tracker (baseline vs ChemicalSphere-active)
+- **Business Intelligence**: Executive Command Center, Plant Performance, Formula & Product Mix, Supply Chain, Inventory & Waste, Customer & Revenue
+- **Predictive**: Demand Forecasting, Production Scheduling Optimiser, Waste & Shelf-Life Risk, Margin What-If (interactive), Supply Dependency, Formula Change Impact, Document Intelligence, Customer Economics, Access & Governance, Data Trust, Decision Grain, Margin Reconciliation, Model Intelligence
+
+Interactive features that are actually wired up (not decorative): period-window chips and hover tooltips on
+Executive Command Center's trend chart, region filters on Plant/Supply Chain/Customer pages, "Show workings" /
+"Open <entity>" drill-down on every agent insight card, and live sliders on Margin What-If (calibrated to
+reconcile exactly with the true baseline margin at zero delta).
 
 ## Star schema (batch is the spine)
 Dimensions: plant, supplier, raw_material, formula, product, customer, carrier

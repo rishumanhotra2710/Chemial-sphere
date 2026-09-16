@@ -92,7 +92,12 @@ window.CS_DATA = {
   "inventory_value": 85316564.50666666,
   "inventory_turns": 1.6504629905602552,
   "working_capital_days": 221.02888830979927,
-  "shelf_life_risk_pct": 0.25925925925925924
+  "shelf_life_risk_pct": 0.25925925925925924,
+  "batches": 660,
+  "sold_qty": 26461.879999999997,
+  "avg_batch_value": 77270.82695454545,
+  "avg_price": 1927.2533089107806,
+  "prime_cost_pct": 0.6902710548011695
  },
  "prior": {
   "oee": 0.8284583333333332,
@@ -114,7 +119,12 @@ window.CS_DATA = {
   "inventory_value": 73063493.28333335,
   "inventory_turns": 1.87116096995031,
   "working_capital_days": 194.9591755377879,
-  "shelf_life_risk_pct": 0.24074074074074073
+  "shelf_life_risk_pct": 0.24074074074074073,
+  "batches": 660,
+  "sold_qty": 25465.61,
+  "avg_batch_value": 73134.4111969697,
+  "avg_price": 1895.4468944588407,
+  "prime_cost_pct": 0.7080858024952548
  },
  "baseline": {
   "oee": 0.8085388888888888,
@@ -136,7 +146,12 @@ window.CS_DATA = {
   "inventory_value": 90144679.75277777,
   "inventory_turns": 1.5184464119464443,
   "working_capital_days": 240.2455543573483,
-  "shelf_life_risk_pct": 0.2646604938271605
+  "shelf_life_risk_pct": 0.2646604938271605,
+  "batches": 3960,
+  "sold_qty": 143810.78,
+  "avg_batch_value": 68951.60702020202,
+  "avg_price": 1898.664090411025,
+  "prime_cost_pct": 0.751953959483862
  },
  "live": {
   "oee": 0.8317259848484849,
@@ -158,7 +173,12 @@ window.CS_DATA = {
   "inventory_value": 79190028.89500001,
   "inventory_turns": 1.7522748320244816,
   "working_capital_days": 208.18652036366362,
-  "shelf_life_risk_pct": 0.25
+  "shelf_life_risk_pct": 0.25,
+  "batches": 1320,
+  "sold_qty": 51927.490000000005,
+  "avg_batch_value": 75202.61907575758,
+  "avg_price": 1911.6552173039752,
+  "prime_cost_pct": 0.6989334597761677
  },
  "trend": [
   {
@@ -171,7 +191,12 @@ window.CS_DATA = {
    "otif": 0.8831,
    "rejection": 0.0636,
    "inventory": 96024392.0,
-   "throughput": 8942.0
+   "throughput": 8942.0,
+   "revenue": 15279607.0,
+   "batches": 220,
+   "avg_batch_value": 69452.76,
+   "prime_cost_pct": 0.7347,
+   "shelf_life_risk": 0.2778
   },
   {
    "period": "2024-11",
@@ -183,7 +208,12 @@ window.CS_DATA = {
    "otif": 0.9205,
    "rejection": 0.0682,
    "inventory": 90530839.0,
-   "throughput": 8736.0
+   "throughput": 8736.0,
+   "revenue": 15300170.0,
+   "batches": 220,
+   "avg_batch_value": 69546.23,
+   "prime_cost_pct": 0.7356,
+   "shelf_life_risk": 0.2778
   },
   {
    "period": "2024-12",
@@ -195,7 +225,12 @@ window.CS_DATA = {
    "otif": 0.9412,
    "rejection": 0.0409,
    "inventory": 86750128.0,
-   "throughput": 8818.0
+   "throughput": 8818.0,
+   "revenue": 16006661.0,
+   "batches": 220,
+   "avg_batch_value": 72757.55,
+   "prime_cost_pct": 0.722,
+   "shelf_life_risk": 0.2639
   },
   {
    "period": "2025-01",
@@ -207,7 +242,12 @@ window.CS_DATA = {
    "otif": 0.8736,
    "rejection": 0.0773,
    "inventory": 101995348.0,
-   "throughput": 8069.0
+   "throughput": 8069.0,
+   "revenue": 14223164.0,
+   "batches": 220,
+   "avg_batch_value": 64650.74,
+   "prime_cost_pct": 0.7766,
+   "shelf_life_risk": 0.25
   },
   {
    "period": "2025-02",
@@ -219,7 +259,12 @@ window.CS_DATA = {
    "otif": 0.9375,
    "rejection": 0.0909,
    "inventory": 97452300.0,
-   "throughput": 8812.0
+   "throughput": 8812.0,
+   "revenue": 14770188.0,
+   "batches": 220,
+   "avg_batch_value": 67137.22,
+   "prime_cost_pct": 0.7803,
+   "shelf_life_risk": 0.2222
   },
   {
    "period": "2025-03",
@@ -231,7 +276,12 @@ window.CS_DATA = {
    "otif": 0.9556,
    "rejection": 0.0409,
    "inventory": 101138604.0,
-   "throughput": 8573.0
+   "throughput": 8573.0,
+   "revenue": 15687298.0,
+   "batches": 220,
+   "avg_batch_value": 71305.9,
+   "prime_cost_pct": 0.7397,
+   "shelf_life_risk": 0.25
   },
   {
    "period": "2025-04",
@@ -243,7 +293,12 @@ window.CS_DATA = {
    "otif": 0.925,
    "rejection": 0.0636,
    "inventory": 89850128.0,
-   "throughput": 8812.0
+   "throughput": 8812.0,
+   "revenue": 15091866.0,
+   "batches": 220,
+   "avg_batch_value": 68599.39,
+   "prime_cost_pct": 0.7616,
+   "shelf_life_risk": 0.3056
   },
   {
    "period": "2025-05",
@@ -255,7 +310,12 @@ window.CS_DATA = {
    "otif": 0.9195,
    "rejection": 0.0591,
    "inventory": 73082840.0,
-   "throughput": 8442.0
+   "throughput": 8442.0,
+   "revenue": 15409814.0,
+   "batches": 220,
+   "avg_batch_value": 70044.61,
+   "prime_cost_pct": 0.7514,
+   "shelf_life_risk": 0.2083
   },
   {
    "period": "2025-06",
@@ -267,7 +327,12 @@ window.CS_DATA = {
    "otif": 0.8902,
    "rejection": 0.0727,
    "inventory": 97434315.0,
-   "throughput": 8929.0
+   "throughput": 8929.0,
+   "revenue": 15152273.0,
+   "batches": 220,
+   "avg_batch_value": 68873.97,
+   "prime_cost_pct": 0.7361,
+   "shelf_life_risk": 0.2778
   },
   {
    "period": "2025-07",
@@ -279,7 +344,12 @@ window.CS_DATA = {
    "otif": 0.9167,
    "rejection": 0.0955,
    "inventory": 76365773.0,
-   "throughput": 8575.0
+   "throughput": 8575.0,
+   "revenue": 15025611.0,
+   "batches": 220,
+   "avg_batch_value": 68298.23,
+   "prime_cost_pct": 0.7469,
+   "shelf_life_risk": 0.2361
   },
   {
    "period": "2025-08",
@@ -291,7 +361,12 @@ window.CS_DATA = {
    "otif": 0.9487,
    "rejection": 0.0636,
    "inventory": 89893647.0,
-   "throughput": 8297.0
+   "throughput": 8297.0,
+   "revenue": 15107772.0,
+   "batches": 220,
+   "avg_batch_value": 68671.69,
+   "prime_cost_pct": 0.7314,
+   "shelf_life_risk": 0.1667
   },
   {
    "period": "2025-09",
@@ -303,7 +378,12 @@ window.CS_DATA = {
    "otif": 0.8987,
    "rejection": 0.1045,
    "inventory": 81291529.0,
-   "throughput": 8875.0
+   "throughput": 8875.0,
+   "revenue": 14515017.0,
+   "batches": 220,
+   "avg_batch_value": 65977.35,
+   "prime_cost_pct": 0.7794,
+   "shelf_life_risk": 0.25
   },
   {
    "period": "2025-10",
@@ -315,7 +395,12 @@ window.CS_DATA = {
    "otif": 0.9036,
    "rejection": 0.1318,
    "inventory": 87476972.0,
-   "throughput": 8377.0
+   "throughput": 8377.0,
+   "revenue": 14164982.0,
+   "batches": 220,
+   "avg_batch_value": 64386.28,
+   "prime_cost_pct": 0.8223,
+   "shelf_life_risk": 0.2778
   },
   {
    "period": "2025-11",
@@ -327,7 +412,12 @@ window.CS_DATA = {
    "otif": 0.9368,
    "rejection": 0.0818,
    "inventory": 82437552.0,
-   "throughput": 8554.0
+   "throughput": 8554.0,
+   "revenue": 15043274.0,
+   "batches": 220,
+   "avg_batch_value": 68378.52,
+   "prime_cost_pct": 0.778,
+   "shelf_life_risk": 0.2778
   },
   {
    "period": "2025-12",
@@ -339,7 +429,12 @@ window.CS_DATA = {
    "otif": 0.9146,
    "rejection": 0.05,
    "inventory": 94930645.0,
-   "throughput": 8002.0
+   "throughput": 8002.0,
+   "revenue": 15279346.0,
+   "batches": 220,
+   "avg_batch_value": 69451.57,
+   "prime_cost_pct": 0.7373,
+   "shelf_life_risk": 0.3333
   },
   {
    "period": "2026-01",
@@ -351,7 +446,12 @@ window.CS_DATA = {
    "otif": 0.9186,
    "rejection": 0.0364,
    "inventory": 80141071.0,
-   "throughput": 8516.0
+   "throughput": 8516.0,
+   "revenue": 15630407.0,
+   "batches": 220,
+   "avg_batch_value": 71047.3,
+   "prime_cost_pct": 0.7294,
+   "shelf_life_risk": 0.3472
   },
   {
    "period": "2026-02",
@@ -363,7 +463,12 @@ window.CS_DATA = {
    "otif": 0.9012,
    "rejection": 0.0545,
    "inventory": 95633334.0,
-   "throughput": 9201.0
+   "throughput": 9201.0,
+   "revenue": 16041288.0,
+   "batches": 220,
+   "avg_batch_value": 72914.95,
+   "prime_cost_pct": 0.7464,
+   "shelf_life_risk": 0.2639
   },
   {
    "period": "2026-03",
@@ -375,7 +480,12 @@ window.CS_DATA = {
    "otif": 0.8659,
    "rejection": 0.0409,
    "inventory": 100174820.0,
-   "throughput": 8203.0
+   "throughput": 8203.0,
+   "revenue": 15319626.0,
+   "batches": 220,
+   "avg_batch_value": 69634.66,
+   "prime_cost_pct": 0.7377,
+   "shelf_life_risk": 0.2778
   },
   {
    "period": "2026-04",
@@ -387,7 +497,12 @@ window.CS_DATA = {
    "otif": 0.9452,
    "rejection": 0.0636,
    "inventory": 78093487.0,
-   "throughput": 8148.0
+   "throughput": 8148.0,
+   "revenue": 15269951.0,
+   "batches": 220,
+   "avg_batch_value": 69408.87,
+   "prime_cost_pct": 0.7289,
+   "shelf_life_risk": 0.2917
   },
   {
    "period": "2026-05",
@@ -399,7 +514,12 @@ window.CS_DATA = {
    "otif": 0.9535,
    "rejection": 0.05,
    "inventory": 71956075.0,
-   "throughput": 9222.0
+   "throughput": 9222.0,
+   "revenue": 16265441.0,
+   "batches": 220,
+   "avg_batch_value": 73933.82,
+   "prime_cost_pct": 0.7074,
+   "shelf_life_risk": 0.2361
   },
   {
    "period": "2026-06",
@@ -411,7 +531,12 @@ window.CS_DATA = {
    "otif": 0.9432,
    "rejection": 0.05,
    "inventory": 69140918.0,
-   "throughput": 9492.0
+   "throughput": 9492.0,
+   "revenue": 16733319.0,
+   "batches": 220,
+   "avg_batch_value": 76060.54,
+   "prime_cost_pct": 0.6898,
+   "shelf_life_risk": 0.1944
   },
   {
    "period": "2026-07",
@@ -423,7 +548,12 @@ window.CS_DATA = {
    "otif": 0.908,
    "rejection": 0.0409,
    "inventory": 84293820.0,
-   "throughput": 8854.0
+   "throughput": 8854.0,
+   "revenue": 16297362.0,
+   "batches": 220,
+   "avg_batch_value": 74078.92,
+   "prime_cost_pct": 0.6857,
+   "shelf_life_risk": 0.2639
   },
   {
    "period": "2026-08",
@@ -435,7 +565,12 @@ window.CS_DATA = {
    "otif": 0.9753,
    "rejection": 0.0273,
    "inventory": 87958629.0,
-   "throughput": 9066.0
+   "throughput": 9066.0,
+   "revenue": 17682902.0,
+   "batches": 220,
+   "avg_batch_value": 80376.83,
+   "prime_cost_pct": 0.6835,
+   "shelf_life_risk": 0.2917
   },
   {
    "period": "2026-09",
@@ -447,7 +582,12 @@ window.CS_DATA = {
    "otif": 0.9615,
    "rejection": 0.0636,
    "inventory": 83697245.0,
-   "throughput": 9610.0
+   "throughput": 9610.0,
+   "revenue": 17018482.0,
+   "batches": 220,
+   "avg_batch_value": 77356.73,
+   "prime_cost_pct": 0.7018,
+   "shelf_life_risk": 0.2222
   }
  ],
  "suppliers": [
@@ -648,11 +788,13 @@ window.CS_DATA = {
    "product_family": "Specialty",
    "yld": 0.8752,
    "rmc": 1639.091,
+   "convc": 557.1195,
    "rev": 7012367.41,
    "cost": 7419187.16,
    "rej": 0.0962,
    "vol": 2958.26,
    "formula_name": "SpecialtyBlend Z",
+   "price_per_tonne": 2620,
    "margin_pct": -0.058,
    "rm_var": 0.0238
   },
@@ -661,11 +803,13 @@ window.CS_DATA = {
    "product_family": "Agrochem",
    "yld": 0.9633,
    "rmc": 586.9032,
+   "convc": 227.6634,
    "rev": 6956143.01,
    "cost": 5061212.63,
    "rej": 0.0472,
    "vol": 6003.1,
    "formula_name": "AgriNute K25",
+   "price_per_tonne": 1235,
    "margin_pct": 0.2724,
    "rm_var": 0.0229
   },
@@ -674,11 +818,13 @@ window.CS_DATA = {
    "product_family": "Agrochem",
    "yld": 0.9565,
    "rmc": 554.5496,
+   "convc": 214.3137,
    "rev": 8053347.59,
    "cost": 5744224.57,
    "rej": 0.0354,
    "vol": 7151.73,
    "formula_name": "AgriNute N40",
+   "price_per_tonne": 1185,
    "margin_pct": 0.2867,
    "rm_var": 0.0255
   },
@@ -687,11 +833,13 @@ window.CS_DATA = {
    "product_family": "Coatings",
    "yld": 0.9385,
    "rmc": 1342.3518,
+   "convc": 510.2578,
    "rev": 7807851.33,
    "cost": 5478985.55,
    "rej": 0.0594,
    "vol": 2784.6,
    "formula_name": "CoatPrime TiO",
+   "price_per_tonne": 3010,
    "margin_pct": 0.2983,
    "rm_var": 0.0213
   },
@@ -700,11 +848,13 @@ window.CS_DATA = {
    "product_family": "Surfactants",
    "yld": 0.9687,
    "rmc": 1063.0414,
+   "convc": 404.2126,
    "rev": 9451932.68,
    "cost": 6456192.17,
    "rej": 0.0328,
    "vol": 4272.39,
    "formula_name": "SurfActa 900",
+   "price_per_tonne": 2310,
    "margin_pct": 0.3169,
    "rm_var": 0.0231
   },
@@ -713,11 +863,13 @@ window.CS_DATA = {
    "product_family": "Polymers",
    "yld": 0.9721,
    "rmc": 741.532,
+   "convc": 288.1979,
    "rev": 8191237.77,
    "cost": 5576240.97,
    "rej": 0.0642,
    "vol": 5289.99,
    "formula_name": "PolyFlex LD",
+   "price_per_tonne": 1665,
    "margin_pct": 0.3192,
    "rm_var": 0.0256
   },
@@ -726,11 +878,13 @@ window.CS_DATA = {
    "product_family": "Polymers",
    "yld": 0.9652,
    "rmc": 904.5391,
+   "convc": 343.4743,
    "rev": 8286745.03,
    "cost": 5520134.98,
    "rej": 0.0187,
    "vol": 4268.55,
    "formula_name": "PolyBond 400HD",
+   "price_per_tonne": 1995,
    "margin_pct": 0.3339,
    "rm_var": 0.023
   },
@@ -739,11 +893,13 @@ window.CS_DATA = {
    "product_family": "Coatings",
    "yld": 0.9447,
    "rmc": 1456.3768,
+   "convc": 558.7619,
    "rev": 9225475.39,
    "cost": 6127176.77,
    "rej": 0.0427,
    "vol": 2876.86,
    "formula_name": "EpoxSeal 7",
+   "price_per_tonne": 3380,
    "margin_pct": 0.3358,
    "rm_var": 0.0265
   },
@@ -752,11 +908,13 @@ window.CS_DATA = {
    "product_family": "Catalysts",
    "yld": 0.9183,
    "rmc": 15188.0521,
+   "convc": 5875.8222,
    "rev": 8188308.17,
    "cost": 5425208.27,
    "rej": 0.0531,
    "vol": 237.16,
    "formula_name": "CatalystPro Pt",
+   "price_per_tonne": 36500,
    "margin_pct": 0.3374,
    "rm_var": 0.0232
   },
@@ -765,11 +923,13 @@ window.CS_DATA = {
    "product_family": "Polymers",
    "yld": 0.9777,
    "rmc": 771.0542,
+   "convc": 293.8679,
    "rev": 8395932.58,
    "cost": 5477814.36,
    "rej": 0.0561,
    "vol": 5045.32,
    "formula_name": "PolyBond 200",
+   "price_per_tonne": 1760,
    "margin_pct": 0.3476,
    "rm_var": 0.0233
   },
@@ -778,11 +938,13 @@ window.CS_DATA = {
    "product_family": "Solvents",
    "yld": 0.9851,
    "rmc": 621.2254,
+   "convc": 238.476,
    "rev": 8019971.88,
    "cost": 5079547.93,
    "rej": 0.0377,
    "vol": 5835.18,
    "formula_name": "PureSolve 99",
+   "price_per_tonne": 1440,
    "margin_pct": 0.3666,
    "rm_var": 0.023
   },
@@ -791,11 +953,13 @@ window.CS_DATA = {
    "product_family": "Solvents",
    "yld": 0.9901,
    "rmc": 563.7554,
+   "convc": 214.8017,
    "rev": 9678144.34,
    "cost": 6015421.93,
    "rej": 0.0522,
    "vol": 7667.64,
    "formula_name": "SolvClear X",
+   "price_per_tonne": 1330,
    "margin_pct": 0.3785,
    "rm_var": 0.0263
   }
@@ -806,42 +970,48 @@ window.CS_DATA = {
    "value": 18739026.97,
    "risk": 0.25,
    "age": 99.6833,
-   "plant_name": "Houston Complex"
+   "plant_name": "Houston Complex",
+   "value_at_risk": 4684756.7425
   },
   {
    "plant_id": "PLT-05",
    "value": 18196234.81,
    "risk": 0.4167,
    "age": 137.125,
-   "plant_name": "Camacari Unit"
+   "plant_name": "Camacari Unit",
+   "value_at_risk": 7581764.5042
   },
   {
    "plant_id": "PLT-01",
    "value": 14270827.52,
    "risk": 0.1667,
    "age": 91.3667,
-   "plant_name": "Rotterdam Works"
+   "plant_name": "Rotterdam Works",
+   "value_at_risk": 2378471.2533
   },
   {
    "plant_id": "PLT-03",
    "value": 12017215.23,
    "risk": 0.1667,
    "age": 80.375,
-   "plant_name": "Jurong Island"
+   "plant_name": "Jurong Island",
+   "value_at_risk": 2002869.205
   },
   {
    "plant_id": "PLT-06",
    "value": 10311600.54,
    "risk": 0.1667,
    "age": 80.9083,
-   "plant_name": "Dahej Plant"
+   "plant_name": "Dahej Plant",
+   "value_at_risk": 1718600.09
   },
   {
    "plant_id": "PLT-04",
    "value": 10162339.6,
    "risk": 0.1667,
    "age": 85.525,
-   "plant_name": "Ludwigshafen Site"
+   "plant_name": "Ludwigshafen Site",
+   "value_at_risk": 1693723.2667
   }
  ],
  "agents": [
@@ -1048,5 +1218,1797 @@ window.CS_DATA = {
     "region": "EMEA"
    }
   ]
- }
+ },
+ "revenue_decomposition": {
+  "revenue_growth_pct": 0.05655909017213974,
+  "volume_effect_pct": 0.03912217300115712,
+  "price_effect_pct": 0.017436917170982686,
+  "volume_effect_dollars": 1888376.8775425032,
+  "price_effect_dollars": 841657.5224574986
+ },
+ "margin_bridge": {
+  "unit": "avg_dollars_per_month",
+  "baseline_margin_dollars": 3762698.0838888884,
+  "live_margin_dollars": 4981018.315000002,
+  "volume_effect": 313230.03062713245,
+  "price_mix_effect": 27888.503084691525,
+  "cost_efficiency_effect": 877201.69739929
+ },
+ "demand_forecast": {
+  "history": [
+   {
+    "period": "2025-10",
+    "idx": 12,
+    "cs_active": 0,
+    "oee": 0.8051,
+    "yield": 0.9171,
+    "margin": 0.1777,
+    "otif": 0.9036,
+    "rejection": 0.1318,
+    "inventory": 87476972.0,
+    "throughput": 8377.0,
+    "revenue": 14164982.0,
+    "batches": 220,
+    "avg_batch_value": 64386.28,
+    "prime_cost_pct": 0.8223,
+    "shelf_life_risk": 0.2778
+   },
+   {
+    "period": "2025-11",
+    "idx": 13,
+    "cs_active": 0,
+    "oee": 0.8153,
+    "yield": 0.9176,
+    "margin": 0.222,
+    "otif": 0.9368,
+    "rejection": 0.0818,
+    "inventory": 82437552.0,
+    "throughput": 8554.0,
+    "revenue": 15043274.0,
+    "batches": 220,
+    "avg_batch_value": 68378.52,
+    "prime_cost_pct": 0.778,
+    "shelf_life_risk": 0.2778
+   },
+   {
+    "period": "2025-12",
+    "idx": 14,
+    "cs_active": 0,
+    "oee": 0.8119,
+    "yield": 0.9161,
+    "margin": 0.2627,
+    "otif": 0.9146,
+    "rejection": 0.05,
+    "inventory": 94930645.0,
+    "throughput": 8002.0,
+    "revenue": 15279346.0,
+    "batches": 220,
+    "avg_batch_value": 69451.57,
+    "prime_cost_pct": 0.7373,
+    "shelf_life_risk": 0.3333
+   },
+   {
+    "period": "2026-01",
+    "idx": 15,
+    "cs_active": 0,
+    "oee": 0.8092,
+    "yield": 0.9161,
+    "margin": 0.2706,
+    "otif": 0.9186,
+    "rejection": 0.0364,
+    "inventory": 80141071.0,
+    "throughput": 8516.0,
+    "revenue": 15630407.0,
+    "batches": 220,
+    "avg_batch_value": 71047.3,
+    "prime_cost_pct": 0.7294,
+    "shelf_life_risk": 0.3472
+   },
+   {
+    "period": "2026-02",
+    "idx": 16,
+    "cs_active": 0,
+    "oee": 0.8009,
+    "yield": 0.9193,
+    "margin": 0.2536,
+    "otif": 0.9012,
+    "rejection": 0.0545,
+    "inventory": 95633334.0,
+    "throughput": 9201.0,
+    "revenue": 16041288.0,
+    "batches": 220,
+    "avg_batch_value": 72914.95,
+    "prime_cost_pct": 0.7464,
+    "shelf_life_risk": 0.2639
+   },
+   {
+    "period": "2026-03",
+    "idx": 17,
+    "cs_active": 0,
+    "oee": 0.799,
+    "yield": 0.9142,
+    "margin": 0.2623,
+    "otif": 0.8659,
+    "rejection": 0.0409,
+    "inventory": 100174820.0,
+    "throughput": 8203.0,
+    "revenue": 15319626.0,
+    "batches": 220,
+    "avg_batch_value": 69634.66,
+    "prime_cost_pct": 0.7377,
+    "shelf_life_risk": 0.2778
+   },
+   {
+    "period": "2026-04",
+    "idx": 18,
+    "cs_active": 1,
+    "oee": 0.8206,
+    "yield": 0.9354,
+    "margin": 0.2711,
+    "otif": 0.9452,
+    "rejection": 0.0636,
+    "inventory": 78093487.0,
+    "throughput": 8148.0,
+    "revenue": 15269951.0,
+    "batches": 220,
+    "avg_batch_value": 69408.87,
+    "prime_cost_pct": 0.7289,
+    "shelf_life_risk": 0.2917
+   },
+   {
+    "period": "2026-05",
+    "idx": 19,
+    "cs_active": 1,
+    "oee": 0.831,
+    "yield": 0.9584,
+    "margin": 0.2926,
+    "otif": 0.9535,
+    "rejection": 0.05,
+    "inventory": 71956075.0,
+    "throughput": 9222.0,
+    "revenue": 16265441.0,
+    "batches": 220,
+    "avg_batch_value": 73933.82,
+    "prime_cost_pct": 0.7074,
+    "shelf_life_risk": 0.2361
+   },
+   {
+    "period": "2026-06",
+    "idx": 20,
+    "cs_active": 1,
+    "oee": 0.8337,
+    "yield": 0.9729,
+    "margin": 0.3102,
+    "otif": 0.9432,
+    "rejection": 0.05,
+    "inventory": 69140918.0,
+    "throughput": 9492.0,
+    "revenue": 16733319.0,
+    "batches": 220,
+    "avg_batch_value": 76060.54,
+    "prime_cost_pct": 0.6898,
+    "shelf_life_risk": 0.1944
+   },
+   {
+    "period": "2026-07",
+    "idx": 21,
+    "cs_active": 1,
+    "oee": 0.8377,
+    "yield": 0.9714,
+    "margin": 0.3143,
+    "otif": 0.908,
+    "rejection": 0.0409,
+    "inventory": 84293820.0,
+    "throughput": 8854.0,
+    "revenue": 16297362.0,
+    "batches": 220,
+    "avg_batch_value": 74078.92,
+    "prime_cost_pct": 0.6857,
+    "shelf_life_risk": 0.2639
+   },
+   {
+    "period": "2026-08",
+    "idx": 22,
+    "cs_active": 1,
+    "oee": 0.8331,
+    "yield": 0.9698,
+    "margin": 0.3165,
+    "otif": 0.9753,
+    "rejection": 0.0273,
+    "inventory": 87958629.0,
+    "throughput": 9066.0,
+    "revenue": 17682902.0,
+    "batches": 220,
+    "avg_batch_value": 80376.83,
+    "prime_cost_pct": 0.6835,
+    "shelf_life_risk": 0.2917
+   },
+   {
+    "period": "2026-09",
+    "idx": 23,
+    "cs_active": 1,
+    "oee": 0.8342,
+    "yield": 0.9742,
+    "margin": 0.2982,
+    "otif": 0.9615,
+    "rejection": 0.0636,
+    "inventory": 83697245.0,
+    "throughput": 9610.0,
+    "revenue": 17018482.0,
+    "batches": 220,
+    "avg_batch_value": 77356.73,
+    "prime_cost_pct": 0.7018,
+    "shelf_life_risk": 0.2222
+   }
+  ],
+  "future_periods": [
+   "2026-10",
+   "2026-11",
+   "2026-12"
+  ],
+  "throughput": [
+   {
+    "forecast": 9430.03,
+    "low": 8906.77,
+    "high": 9953.29
+   },
+   {
+    "forecast": 9531.51,
+    "low": 8872.59,
+    "high": 10190.43
+   },
+   {
+    "forecast": 9632.99,
+    "low": 8838.4,
+    "high": 10427.57
+   }
+  ],
+  "revenue": [
+   {
+    "forecast": 17450272.76,
+    "low": 16873562.6,
+    "high": 18026982.92
+   },
+   {
+    "forecast": 17689463.69,
+    "low": 16963236.09,
+    "high": 18415691.3
+   },
+   {
+    "forecast": 17928654.63,
+    "low": 17052909.58,
+    "high": 18804399.69
+   }
+  ]
+ },
+ "shelf_life_forecast": {
+  "history": [
+   {
+    "period": "2025-10",
+    "risk": 0.2778
+   },
+   {
+    "period": "2025-11",
+    "risk": 0.2778
+   },
+   {
+    "period": "2025-12",
+    "risk": 0.3333
+   },
+   {
+    "period": "2026-01",
+    "risk": 0.3472
+   },
+   {
+    "period": "2026-02",
+    "risk": 0.2639
+   },
+   {
+    "period": "2026-03",
+    "risk": 0.2778
+   },
+   {
+    "period": "2026-04",
+    "risk": 0.2917
+   },
+   {
+    "period": "2026-05",
+    "risk": 0.2361
+   },
+   {
+    "period": "2026-06",
+    "risk": 0.1944
+   },
+   {
+    "period": "2026-07",
+    "risk": 0.2639
+   },
+   {
+    "period": "2026-08",
+    "risk": 0.2917
+   },
+   {
+    "period": "2026-09",
+    "risk": 0.2222
+   }
+  ],
+  "future_periods": [
+   "2026-10",
+   "2026-11",
+   "2026-12"
+  ],
+  "risk": [
+   {
+    "forecast": 0.23,
+    "low": 0.19,
+    "high": 0.28
+   },
+   {
+    "forecast": 0.23,
+    "low": 0.17,
+    "high": 0.28
+   },
+   {
+    "forecast": 0.22,
+    "low": 0.15,
+    "high": 0.29
+   }
+  ]
+ },
+ "margin_whatif": [
+  {
+   "formula_id": "FRM-09",
+   "formula_name": "SpecialtyBlend Z",
+   "product_family": "Specialty",
+   "price": 2620,
+   "rm_cost_per_t": 1639.091,
+   "conv_cost_per_t": 557.1195,
+   "yield_pct": 0.8752,
+   "margin_pct_baseline": -0.058,
+   "volume_t": 2958.26,
+   "revenue": 7012367.41
+  },
+  {
+   "formula_id": "FRM-10",
+   "formula_name": "AgriNute K25",
+   "product_family": "Agrochem",
+   "price": 1235,
+   "rm_cost_per_t": 586.9032,
+   "conv_cost_per_t": 227.6634,
+   "yield_pct": 0.9633,
+   "margin_pct_baseline": 0.2724,
+   "volume_t": 6003.1,
+   "revenue": 6956143.01
+  },
+  {
+   "formula_id": "FRM-04",
+   "formula_name": "AgriNute N40",
+   "product_family": "Agrochem",
+   "price": 1185,
+   "rm_cost_per_t": 554.5496,
+   "conv_cost_per_t": 214.3137,
+   "yield_pct": 0.9565,
+   "margin_pct_baseline": 0.2867,
+   "volume_t": 7151.73,
+   "revenue": 8053347.59
+  },
+  {
+   "formula_id": "FRM-05",
+   "formula_name": "CoatPrime TiO",
+   "product_family": "Coatings",
+   "price": 3010,
+   "rm_cost_per_t": 1342.3518,
+   "conv_cost_per_t": 510.2578,
+   "yield_pct": 0.9385,
+   "margin_pct_baseline": 0.2983,
+   "volume_t": 2784.6,
+   "revenue": 7807851.33
+  },
+  {
+   "formula_id": "FRM-08",
+   "formula_name": "SurfActa 900",
+   "product_family": "Surfactants",
+   "price": 2310,
+   "rm_cost_per_t": 1063.0414,
+   "conv_cost_per_t": 404.2126,
+   "yield_pct": 0.9687,
+   "margin_pct_baseline": 0.3169,
+   "volume_t": 4272.39,
+   "revenue": 9451932.68
+  },
+  {
+   "formula_id": "FRM-11",
+   "formula_name": "PolyFlex LD",
+   "product_family": "Polymers",
+   "price": 1665,
+   "rm_cost_per_t": 741.532,
+   "conv_cost_per_t": 288.1979,
+   "yield_pct": 0.9721,
+   "margin_pct_baseline": 0.3192,
+   "volume_t": 5289.99,
+   "revenue": 8191237.77
+  },
+  {
+   "formula_id": "FRM-02",
+   "formula_name": "PolyBond 400HD",
+   "product_family": "Polymers",
+   "price": 1995,
+   "rm_cost_per_t": 904.5391,
+   "conv_cost_per_t": 343.4743,
+   "yield_pct": 0.9652,
+   "margin_pct_baseline": 0.3339,
+   "volume_t": 4268.55,
+   "revenue": 8286745.03
+  },
+  {
+   "formula_id": "FRM-06",
+   "formula_name": "EpoxSeal 7",
+   "product_family": "Coatings",
+   "price": 3380,
+   "rm_cost_per_t": 1456.3768,
+   "conv_cost_per_t": 558.7619,
+   "yield_pct": 0.9447,
+   "margin_pct_baseline": 0.3358,
+   "volume_t": 2876.86,
+   "revenue": 9225475.39
+  },
+  {
+   "formula_id": "FRM-07",
+   "formula_name": "CatalystPro Pt",
+   "product_family": "Catalysts",
+   "price": 36500,
+   "rm_cost_per_t": 15188.0521,
+   "conv_cost_per_t": 5875.8222,
+   "yield_pct": 0.9183,
+   "margin_pct_baseline": 0.3374,
+   "volume_t": 237.16,
+   "revenue": 8188308.17
+  },
+  {
+   "formula_id": "FRM-01",
+   "formula_name": "PolyBond 200",
+   "product_family": "Polymers",
+   "price": 1760,
+   "rm_cost_per_t": 771.0542,
+   "conv_cost_per_t": 293.8679,
+   "yield_pct": 0.9777,
+   "margin_pct_baseline": 0.3476,
+   "volume_t": 5045.32,
+   "revenue": 8395932.58
+  },
+  {
+   "formula_id": "FRM-12",
+   "formula_name": "PureSolve 99",
+   "product_family": "Solvents",
+   "price": 1440,
+   "rm_cost_per_t": 621.2254,
+   "conv_cost_per_t": 238.476,
+   "yield_pct": 0.9851,
+   "margin_pct_baseline": 0.3666,
+   "volume_t": 5835.18,
+   "revenue": 8019971.88
+  },
+  {
+   "formula_id": "FRM-03",
+   "formula_name": "SolvClear X",
+   "product_family": "Solvents",
+   "price": 1330,
+   "rm_cost_per_t": 563.7554,
+   "conv_cost_per_t": 214.8017,
+   "yield_pct": 0.9901,
+   "margin_pct_baseline": 0.3785,
+   "volume_t": 7667.64,
+   "revenue": 9678144.34
+  }
+ ],
+ "supplier_concentration": [
+  {
+   "material_id": "RM-07",
+   "material_name": "Platinum Catalyst",
+   "total_spend": 181297193.0,
+   "supplier_count": 9,
+   "hhi": 1405.0,
+   "top_supplier_id": "SUP-04",
+   "top_supplier_name": "Rhine Solvents",
+   "top_supplier_share": 0.2436,
+   "concentrated": false
+  },
+  {
+   "material_id": "RM-09",
+   "material_name": "Acetone",
+   "total_spend": 4617474.0,
+   "supplier_count": 10,
+   "hhi": 1359.0,
+   "top_supplier_id": "SUP-09",
+   "top_supplier_name": "Lone Star Polymers",
+   "top_supplier_share": 0.2464,
+   "concentrated": false
+  },
+  {
+   "material_id": "RM-12",
+   "material_name": "Silica Filler",
+   "total_spend": 1722506.0,
+   "supplier_count": 10,
+   "hhi": 1288.0,
+   "top_supplier_id": "SUP-03",
+   "top_supplier_name": "Shandong Additives",
+   "top_supplier_share": 0.1785,
+   "concentrated": false
+  },
+  {
+   "material_id": "RM-04",
+   "material_name": "Caustic Soda",
+   "total_spend": 2292174.0,
+   "supplier_count": 10,
+   "hhi": 1243.0,
+   "top_supplier_id": "SUP-01",
+   "top_supplier_name": "Nordic Petrochem",
+   "top_supplier_share": 0.182,
+   "concentrated": false
+  },
+  {
+   "material_id": "RM-11",
+   "material_name": "Epoxy Resin Base",
+   "total_spend": 17251708.0,
+   "supplier_count": 10,
+   "hhi": 1237.0,
+   "top_supplier_id": "SUP-05",
+   "top_supplier_name": "Andes Minerals",
+   "top_supplier_share": 0.1878,
+   "concentrated": false
+  },
+  {
+   "material_id": "RM-18",
+   "material_name": "Antioxidant AO-7",
+   "total_spend": 16885576.0,
+   "supplier_count": 9,
+   "hhi": 1229.0,
+   "top_supplier_id": "SUP-10",
+   "top_supplier_name": "Atlas Pigments",
+   "top_supplier_share": 0.1647,
+   "concentrated": false
+  },
+  {
+   "material_id": "RM-08",
+   "material_name": "Toluene",
+   "total_spend": 5754048.0,
+   "supplier_count": 10,
+   "hhi": 1207.0,
+   "top_supplier_id": "SUP-08",
+   "top_supplier_name": "Bharat Speciality",
+   "top_supplier_share": 0.2062,
+   "concentrated": false
+  },
+  {
+   "material_id": "RM-06",
+   "material_name": "Titanium Dioxide",
+   "total_spend": 26959805.0,
+   "supplier_count": 10,
+   "hhi": 1204.0,
+   "top_supplier_id": "SUP-07",
+   "top_supplier_name": "Caspian Intermed",
+   "top_supplier_share": 0.1677,
+   "concentrated": false
+  },
+  {
+   "material_id": "RM-02",
+   "material_name": "Propylene",
+   "total_spend": 6433818.0,
+   "supplier_count": 10,
+   "hhi": 1184.0,
+   "top_supplier_id": "SUP-07",
+   "top_supplier_name": "Caspian Intermed",
+   "top_supplier_share": 0.1666,
+   "concentrated": false
+  },
+  {
+   "material_id": "RM-10",
+   "material_name": "Phenol",
+   "total_spend": 9968383.0,
+   "supplier_count": 10,
+   "hhi": 1166.0,
+   "top_supplier_id": "SUP-03",
+   "top_supplier_name": "Shandong Additives",
+   "top_supplier_share": 0.1855,
+   "concentrated": false
+  },
+  {
+   "material_id": "RM-20",
+   "material_name": "Specialty Surfactant",
+   "total_spend": 15765087.0,
+   "supplier_count": 10,
+   "hhi": 1155.0,
+   "top_supplier_id": "SUP-01",
+   "top_supplier_name": "Nordic Petrochem",
+   "top_supplier_share": 0.1506,
+   "concentrated": false
+  },
+  {
+   "material_id": "RM-05",
+   "material_name": "Sulphuric Acid",
+   "total_spend": 1504331.0,
+   "supplier_count": 10,
+   "hhi": 1143.0,
+   "top_supplier_id": "SUP-03",
+   "top_supplier_name": "Shandong Additives",
+   "top_supplier_share": 0.1433,
+   "concentrated": false
+  },
+  {
+   "material_id": "RM-15",
+   "material_name": "Butadiene",
+   "total_spend": 6272710.0,
+   "supplier_count": 10,
+   "hhi": 1143.0,
+   "top_supplier_id": "SUP-06",
+   "top_supplier_name": "Pacific Catalysts",
+   "top_supplier_share": 0.1689,
+   "concentrated": false
+  },
+  {
+   "material_id": "RM-14",
+   "material_name": "Ammonia",
+   "total_spend": 3080009.0,
+   "supplier_count": 10,
+   "hhi": 1118.0,
+   "top_supplier_id": "SUP-08",
+   "top_supplier_name": "Bharat Speciality",
+   "top_supplier_share": 0.1556,
+   "concentrated": false
+  },
+  {
+   "material_id": "RM-13",
+   "material_name": "Chlorine",
+   "total_spend": 3023612.0,
+   "supplier_count": 10,
+   "hhi": 1105.0,
+   "top_supplier_id": "SUP-05",
+   "top_supplier_name": "Andes Minerals",
+   "top_supplier_share": 0.1506,
+   "concentrated": false
+  },
+  {
+   "material_id": "RM-01",
+   "material_name": "Ethylene",
+   "total_spend": 6377654.0,
+   "supplier_count": 10,
+   "hhi": 1104.0,
+   "top_supplier_id": "SUP-10",
+   "top_supplier_name": "Atlas Pigments",
+   "top_supplier_share": 0.1383,
+   "concentrated": false
+  },
+  {
+   "material_id": "RM-03",
+   "material_name": "Benzene",
+   "total_spend": 7325911.0,
+   "supplier_count": 10,
+   "hhi": 1094.0,
+   "top_supplier_id": "SUP-01",
+   "top_supplier_name": "Nordic Petrochem",
+   "top_supplier_share": 0.1763,
+   "concentrated": false
+  },
+  {
+   "material_id": "RM-16",
+   "material_name": "Methanol",
+   "total_spend": 4270543.0,
+   "supplier_count": 10,
+   "hhi": 1087.0,
+   "top_supplier_id": "SUP-03",
+   "top_supplier_name": "Shandong Additives",
+   "top_supplier_share": 0.1421,
+   "concentrated": false
+  },
+  {
+   "material_id": "RM-19",
+   "material_name": "Urea",
+   "total_spend": 2270514.0,
+   "supplier_count": 10,
+   "hhi": 1068.0,
+   "top_supplier_id": "SUP-10",
+   "top_supplier_name": "Atlas Pigments",
+   "top_supplier_share": 0.1319,
+   "concentrated": false
+  },
+  {
+   "material_id": "RM-17",
+   "material_name": "Stabiliser Blend",
+   "total_spend": 15761147.0,
+   "supplier_count": 10,
+   "hhi": 1047.0,
+   "top_supplier_id": "SUP-03",
+   "top_supplier_name": "Shandong Additives",
+   "top_supplier_share": 0.1566,
+   "concentrated": false
+  }
+ ],
+ "recipe_detail": [
+  {
+   "formula_id": "FRM-01",
+   "formula_name": "PolyBond 200",
+   "material_id": "RM-17",
+   "material_name": "Stabiliser Blend",
+   "proportion": 0.4297,
+   "hazard_class": "Irritant",
+   "base_cost_per_tonne": 1650,
+   "cost_share": 0.7877
+  },
+  {
+   "formula_id": "FRM-01",
+   "formula_name": "PolyBond 200",
+   "material_id": "RM-13",
+   "material_name": "Chlorine",
+   "proportion": 0.3094,
+   "hazard_class": "Toxic Gas",
+   "base_cost_per_tonne": 340,
+   "cost_share": 0.1169
+  },
+  {
+   "formula_id": "FRM-01",
+   "formula_name": "PolyBond 200",
+   "material_id": "RM-04",
+   "material_name": "Caustic Soda",
+   "proportion": 0.1204,
+   "hazard_class": "Corrosive",
+   "base_cost_per_tonne": 410,
+   "cost_share": 0.0548
+  },
+  {
+   "formula_id": "FRM-01",
+   "formula_name": "PolyBond 200",
+   "material_id": "RM-12",
+   "material_name": "Silica Filler",
+   "proportion": 0.1406,
+   "hazard_class": "Inert",
+   "base_cost_per_tonne": 260,
+   "cost_share": 0.0406
+  },
+  {
+   "formula_id": "FRM-02",
+   "formula_name": "PolyBond 400HD",
+   "material_id": "RM-18",
+   "material_name": "Antioxidant AO-7",
+   "proportion": 0.5021,
+   "hazard_class": "Irritant",
+   "base_cost_per_tonne": 2400,
+   "cost_share": 0.6347
+  },
+  {
+   "formula_id": "FRM-02",
+   "formula_name": "PolyBond 400HD",
+   "material_id": "RM-11",
+   "material_name": "Epoxy Resin Base",
+   "proportion": 0.219,
+   "hazard_class": "Irritant",
+   "base_cost_per_tonne": 2250,
+   "cost_share": 0.2595
+  },
+  {
+   "formula_id": "FRM-02",
+   "formula_name": "PolyBond 400HD",
+   "material_id": "RM-08",
+   "material_name": "Toluene",
+   "proportion": 0.2789,
+   "hazard_class": "Flammable",
+   "base_cost_per_tonne": 720,
+   "cost_share": 0.1058
+  },
+  {
+   "formula_id": "FRM-03",
+   "formula_name": "SolvClear X",
+   "material_id": "RM-08",
+   "material_name": "Toluene",
+   "proportion": 0.5442,
+   "hazard_class": "Flammable",
+   "base_cost_per_tonne": 720,
+   "cost_share": 0.4964
+  },
+  {
+   "formula_id": "FRM-03",
+   "formula_name": "SolvClear X",
+   "material_id": "RM-01",
+   "material_name": "Ethylene",
+   "proportion": 0.287,
+   "hazard_class": "Flammable",
+   "base_cost_per_tonne": 820,
+   "cost_share": 0.2982
+  },
+  {
+   "formula_id": "FRM-03",
+   "formula_name": "SolvClear X",
+   "material_id": "RM-03",
+   "material_name": "Benzene",
+   "proportion": 0.1689,
+   "hazard_class": "Carcinogen",
+   "base_cost_per_tonne": 960,
+   "cost_share": 0.2054
+  },
+  {
+   "formula_id": "FRM-04",
+   "formula_name": "AgriNute N40",
+   "material_id": "RM-17",
+   "material_name": "Stabiliser Blend",
+   "proportion": 0.4898,
+   "hazard_class": "Irritant",
+   "base_cost_per_tonne": 1650,
+   "cost_share": 0.7147
+  },
+  {
+   "formula_id": "FRM-04",
+   "formula_name": "AgriNute N40",
+   "material_id": "RM-02",
+   "material_name": "Propylene",
+   "proportion": 0.3315,
+   "hazard_class": "Flammable",
+   "base_cost_per_tonne": 790,
+   "cost_share": 0.2316
+  },
+  {
+   "formula_id": "FRM-04",
+   "formula_name": "AgriNute N40",
+   "material_id": "RM-13",
+   "material_name": "Chlorine",
+   "proportion": 0.1787,
+   "hazard_class": "Toxic Gas",
+   "base_cost_per_tonne": 340,
+   "cost_share": 0.0537
+  },
+  {
+   "formula_id": "FRM-05",
+   "formula_name": "CoatPrime TiO",
+   "material_id": "RM-10",
+   "material_name": "Phenol",
+   "proportion": 0.4556,
+   "hazard_class": "Toxic",
+   "base_cost_per_tonne": 1180,
+   "cost_share": 0.4883
+  },
+  {
+   "formula_id": "FRM-05",
+   "formula_name": "CoatPrime TiO",
+   "material_id": "RM-06",
+   "material_name": "Titanium Dioxide",
+   "proportion": 0.1034,
+   "hazard_class": "Irritant",
+   "base_cost_per_tonne": 3100,
+   "cost_share": 0.2912
+  },
+  {
+   "formula_id": "FRM-05",
+   "formula_name": "CoatPrime TiO",
+   "material_id": "RM-08",
+   "material_name": "Toluene",
+   "proportion": 0.1832,
+   "hazard_class": "Flammable",
+   "base_cost_per_tonne": 720,
+   "cost_share": 0.1198
+  },
+  {
+   "formula_id": "FRM-05",
+   "formula_name": "CoatPrime TiO",
+   "material_id": "RM-16",
+   "material_name": "Methanol",
+   "proportion": 0.2578,
+   "hazard_class": "Flammable",
+   "base_cost_per_tonne": 430,
+   "cost_share": 0.1007
+  },
+  {
+   "formula_id": "FRM-06",
+   "formula_name": "EpoxSeal 7",
+   "material_id": "RM-06",
+   "material_name": "Titanium Dioxide",
+   "proportion": 0.1449,
+   "hazard_class": "Irritant",
+   "base_cost_per_tonne": 3100,
+   "cost_share": 0.3118
+  },
+  {
+   "formula_id": "FRM-06",
+   "formula_name": "EpoxSeal 7",
+   "material_id": "RM-10",
+   "material_name": "Phenol",
+   "proportion": 0.3793,
+   "hazard_class": "Toxic",
+   "base_cost_per_tonne": 1180,
+   "cost_share": 0.3107
+  },
+  {
+   "formula_id": "FRM-06",
+   "formula_name": "EpoxSeal 7",
+   "material_id": "RM-11",
+   "material_name": "Epoxy Resin Base",
+   "proportion": 0.1351,
+   "hazard_class": "Irritant",
+   "base_cost_per_tonne": 2250,
+   "cost_share": 0.211
+  },
+  {
+   "formula_id": "FRM-06",
+   "formula_name": "EpoxSeal 7",
+   "material_id": "RM-03",
+   "material_name": "Benzene",
+   "proportion": 0.1902,
+   "hazard_class": "Carcinogen",
+   "base_cost_per_tonne": 960,
+   "cost_share": 0.1268
+  },
+  {
+   "formula_id": "FRM-06",
+   "formula_name": "EpoxSeal 7",
+   "material_id": "RM-14",
+   "material_name": "Ammonia",
+   "proportion": 0.1505,
+   "hazard_class": "Toxic Gas",
+   "base_cost_per_tonne": 380,
+   "cost_share": 0.0397
+  },
+  {
+   "formula_id": "FRM-07",
+   "formula_name": "CatalystPro Pt",
+   "material_id": "RM-10",
+   "material_name": "Phenol",
+   "proportion": 0.3778,
+   "hazard_class": "Toxic",
+   "base_cost_per_tonne": 1180,
+   "cost_share": 0.406
+  },
+  {
+   "formula_id": "FRM-07",
+   "formula_name": "CatalystPro Pt",
+   "material_id": "RM-03",
+   "material_name": "Benzene",
+   "proportion": 0.2324,
+   "hazard_class": "Carcinogen",
+   "base_cost_per_tonne": 960,
+   "cost_share": 0.2032
+  },
+  {
+   "formula_id": "FRM-07",
+   "formula_name": "CatalystPro Pt",
+   "material_id": "RM-17",
+   "material_name": "Stabiliser Blend",
+   "proportion": 0.1343,
+   "hazard_class": "Irritant",
+   "base_cost_per_tonne": 1650,
+   "cost_share": 0.2018
+  },
+  {
+   "formula_id": "FRM-07",
+   "formula_name": "CatalystPro Pt",
+   "material_id": "RM-11",
+   "material_name": "Epoxy Resin Base",
+   "proportion": 0.0591,
+   "hazard_class": "Irritant",
+   "base_cost_per_tonne": 2250,
+   "cost_share": 0.1211
+  },
+  {
+   "formula_id": "FRM-07",
+   "formula_name": "CatalystPro Pt",
+   "material_id": "RM-14",
+   "material_name": "Ammonia",
+   "proportion": 0.1964,
+   "hazard_class": "Toxic Gas",
+   "base_cost_per_tonne": 380,
+   "cost_share": 0.068
+  },
+  {
+   "formula_id": "FRM-08",
+   "formula_name": "SurfActa 900",
+   "material_id": "RM-17",
+   "material_name": "Stabiliser Blend",
+   "proportion": 0.2717,
+   "hazard_class": "Irritant",
+   "base_cost_per_tonne": 1650,
+   "cost_share": 0.484
+  },
+  {
+   "formula_id": "FRM-08",
+   "formula_name": "SurfActa 900",
+   "material_id": "RM-02",
+   "material_name": "Propylene",
+   "proportion": 0.548,
+   "hazard_class": "Flammable",
+   "base_cost_per_tonne": 790,
+   "cost_share": 0.4674
+  },
+  {
+   "formula_id": "FRM-08",
+   "formula_name": "SurfActa 900",
+   "material_id": "RM-05",
+   "material_name": "Sulphuric Acid",
+   "proportion": 0.1258,
+   "hazard_class": "Corrosive",
+   "base_cost_per_tonne": 180,
+   "cost_share": 0.0244
+  },
+  {
+   "formula_id": "FRM-08",
+   "formula_name": "SurfActa 900",
+   "material_id": "RM-04",
+   "material_name": "Caustic Soda",
+   "proportion": 0.0545,
+   "hazard_class": "Corrosive",
+   "base_cost_per_tonne": 410,
+   "cost_share": 0.0241
+  },
+  {
+   "formula_id": "FRM-09",
+   "formula_name": "SpecialtyBlend Z",
+   "material_id": "RM-11",
+   "material_name": "Epoxy Resin Base",
+   "proportion": 0.2023,
+   "hazard_class": "Irritant",
+   "base_cost_per_tonne": 2250,
+   "cost_share": 0.3381
+  },
+  {
+   "formula_id": "FRM-09",
+   "formula_name": "SpecialtyBlend Z",
+   "material_id": "RM-18",
+   "material_name": "Antioxidant AO-7",
+   "proportion": 0.1535,
+   "hazard_class": "Irritant",
+   "base_cost_per_tonne": 2400,
+   "cost_share": 0.2737
+  },
+  {
+   "formula_id": "FRM-09",
+   "formula_name": "SpecialtyBlend Z",
+   "material_id": "RM-02",
+   "material_name": "Propylene",
+   "proportion": 0.3971,
+   "hazard_class": "Flammable",
+   "base_cost_per_tonne": 790,
+   "cost_share": 0.233
+  },
+  {
+   "formula_id": "FRM-09",
+   "formula_name": "SpecialtyBlend Z",
+   "material_id": "RM-01",
+   "material_name": "Ethylene",
+   "proportion": 0.1429,
+   "hazard_class": "Flammable",
+   "base_cost_per_tonne": 820,
+   "cost_share": 0.087
+  },
+  {
+   "formula_id": "FRM-09",
+   "formula_name": "SpecialtyBlend Z",
+   "material_id": "RM-15",
+   "material_name": "Butadiene",
+   "proportion": 0.1042,
+   "hazard_class": "Flammable",
+   "base_cost_per_tonne": 880,
+   "cost_share": 0.0681
+  },
+  {
+   "formula_id": "FRM-10",
+   "formula_name": "AgriNute K25",
+   "material_id": "RM-07",
+   "material_name": "Platinum Catalyst",
+   "proportion": 0.2889,
+   "hazard_class": "Oxidiser",
+   "base_cost_per_tonne": 28500,
+   "cost_share": 0.9279
+  },
+  {
+   "formula_id": "FRM-10",
+   "formula_name": "AgriNute K25",
+   "material_id": "RM-17",
+   "material_name": "Stabiliser Blend",
+   "proportion": 0.1218,
+   "hazard_class": "Irritant",
+   "base_cost_per_tonne": 1650,
+   "cost_share": 0.0226
+  },
+  {
+   "formula_id": "FRM-10",
+   "formula_name": "AgriNute K25",
+   "material_id": "RM-08",
+   "material_name": "Toluene",
+   "proportion": 0.2403,
+   "hazard_class": "Flammable",
+   "base_cost_per_tonne": 720,
+   "cost_share": 0.0195
+  },
+  {
+   "formula_id": "FRM-10",
+   "formula_name": "AgriNute K25",
+   "material_id": "RM-06",
+   "material_name": "Titanium Dioxide",
+   "proportion": 0.0435,
+   "hazard_class": "Irritant",
+   "base_cost_per_tonne": 3100,
+   "cost_share": 0.0152
+  },
+  {
+   "formula_id": "FRM-10",
+   "formula_name": "AgriNute K25",
+   "material_id": "RM-16",
+   "material_name": "Methanol",
+   "proportion": 0.3055,
+   "hazard_class": "Flammable",
+   "base_cost_per_tonne": 430,
+   "cost_share": 0.0148
+  },
+  {
+   "formula_id": "FRM-11",
+   "formula_name": "PolyFlex LD",
+   "material_id": "RM-17",
+   "material_name": "Stabiliser Blend",
+   "proportion": 0.3701,
+   "hazard_class": "Irritant",
+   "base_cost_per_tonne": 1650,
+   "cost_share": 0.5572
+  },
+  {
+   "formula_id": "FRM-11",
+   "formula_name": "PolyFlex LD",
+   "material_id": "RM-01",
+   "material_name": "Ethylene",
+   "proportion": 0.5497,
+   "hazard_class": "Flammable",
+   "base_cost_per_tonne": 820,
+   "cost_share": 0.4113
+  },
+  {
+   "formula_id": "FRM-11",
+   "formula_name": "PolyFlex LD",
+   "material_id": "RM-16",
+   "material_name": "Methanol",
+   "proportion": 0.0803,
+   "hazard_class": "Flammable",
+   "base_cost_per_tonne": 430,
+   "cost_share": 0.0315
+  },
+  {
+   "formula_id": "FRM-12",
+   "formula_name": "PureSolve 99",
+   "material_id": "RM-18",
+   "material_name": "Antioxidant AO-7",
+   "proportion": 0.5143,
+   "hazard_class": "Irritant",
+   "base_cost_per_tonne": 2400,
+   "cost_share": 0.8602
+  },
+  {
+   "formula_id": "FRM-12",
+   "formula_name": "PureSolve 99",
+   "material_id": "RM-16",
+   "material_name": "Methanol",
+   "proportion": 0.3199,
+   "hazard_class": "Flammable",
+   "base_cost_per_tonne": 430,
+   "cost_share": 0.0959
+  },
+  {
+   "formula_id": "FRM-12",
+   "formula_name": "PureSolve 99",
+   "material_id": "RM-14",
+   "material_name": "Ammonia",
+   "proportion": 0.1658,
+   "hazard_class": "Toxic Gas",
+   "base_cost_per_tonne": 380,
+   "cost_share": 0.0439
+  }
+ ],
+ "customers": [
+  {
+   "customer_id": "CUS-14",
+   "revenue": 4103445.72,
+   "shipment_ct": 50,
+   "otif": 0.92,
+   "qty": 2157.52,
+   "customer_name": "Pune Speciality",
+   "region": "APAC",
+   "segment": "Specialty",
+   "product_family": "Agrochem"
+  },
+  {
+   "customer_id": "CUS-04",
+   "revenue": 4042139.09,
+   "shipment_ct": 48,
+   "otif": 0.9583,
+   "qty": 2111.22,
+   "customer_name": "TotalPack Plastics",
+   "region": "EMEA",
+   "segment": "Packaging",
+   "product_family": "Polymers"
+  },
+  {
+   "customer_id": "CUS-05",
+   "revenue": 4008982.07,
+   "shipment_ct": 49,
+   "otif": 1.0,
+   "qty": 2117.61,
+   "customer_name": "Rio Agro Insumos",
+   "region": "LATAM",
+   "segment": "Agriculture",
+   "product_family": "Coatings"
+  },
+  {
+   "customer_id": "CUS-01",
+   "revenue": 3947083.16,
+   "shipment_ct": 47,
+   "otif": 0.9574,
+   "qty": 1915.98,
+   "customer_name": "Bayerische Coatings",
+   "region": "EMEA",
+   "segment": "Coatings",
+   "product_family": "Polymers"
+  },
+  {
+   "customer_id": "CUS-11",
+   "revenue": 3944165.5,
+   "shipment_ct": 50,
+   "otif": 0.96,
+   "qty": 2213.25,
+   "customer_name": "Iberia Solventes",
+   "region": "EMEA",
+   "segment": "Distribution",
+   "product_family": "Solvents"
+  },
+  {
+   "customer_id": "CUS-03",
+   "revenue": 3875283.55,
+   "shipment_ct": 51,
+   "otif": 0.9804,
+   "qty": 2193.53,
+   "customer_name": "Shenzhen Electronics",
+   "region": "APAC",
+   "segment": "Electronics",
+   "product_family": "Polymers"
+  },
+  {
+   "customer_id": "CUS-10",
+   "revenue": 3728851.72,
+   "shipment_ct": 50,
+   "otif": 0.96,
+   "qty": 1998.44,
+   "customer_name": "Osaka Chemicals KK",
+   "region": "APAC",
+   "segment": "Distribution",
+   "product_family": "Polymers"
+  },
+  {
+   "customer_id": "CUS-12",
+   "revenue": 3651881.28,
+   "shipment_ct": 49,
+   "otif": 0.8776,
+   "qty": 2052.69,
+   "customer_name": "Andina Pinturas",
+   "region": "LATAM",
+   "segment": "Coatings",
+   "product_family": "Polymers"
+  },
+  {
+   "customer_id": "CUS-02",
+   "revenue": 3587670.9,
+   "shipment_ct": 45,
+   "otif": 1.0,
+   "qty": 1659.01,
+   "customer_name": "Midwest AgriCorp",
+   "region": "AMER",
+   "segment": "Agriculture",
+   "product_family": "Coatings"
+  },
+  {
+   "customer_id": "CUS-13",
+   "revenue": 3560109.11,
+   "shipment_ct": 45,
+   "otif": 0.9778,
+   "qty": 1947.6,
+   "customer_name": "Great Lakes Auto",
+   "region": "AMER",
+   "segment": "Automotive",
+   "product_family": "Polymers"
+  },
+  {
+   "customer_id": "CUS-09",
+   "revenue": 3255395.46,
+   "shipment_ct": 43,
+   "otif": 0.907,
+   "qty": 1773.95,
+   "customer_name": "Gulf Industrial",
+   "region": "AMER",
+   "segment": "Industrial",
+   "product_family": "Coatings"
+  },
+  {
+   "customer_id": "CUS-07",
+   "revenue": 3245542.89,
+   "shipment_ct": 43,
+   "otif": 0.9535,
+   "qty": 1600.68,
+   "customer_name": "Tata Polymers",
+   "region": "APAC",
+   "segment": "Polymers",
+   "product_family": "Polymers"
+  },
+  {
+   "customer_id": "CUS-15",
+   "revenue": 3225144.39,
+   "shipment_ct": 43,
+   "otif": 0.9767,
+   "qty": 1633.34,
+   "customer_name": "Benelux Traders",
+   "region": "EMEA",
+   "segment": "Distribution",
+   "product_family": "Polymers"
+  },
+  {
+   "customer_id": "CUS-06",
+   "revenue": 3009838.76,
+   "shipment_ct": 42,
+   "otif": 0.9524,
+   "qty": 1578.08,
+   "customer_name": "Detroit AutoParts",
+   "region": "AMER",
+   "segment": "Automotive",
+   "product_family": "Polymers"
+  },
+  {
+   "customer_id": "CUS-08",
+   "revenue": 2997949.76,
+   "shipment_ct": 37,
+   "otif": 0.9189,
+   "qty": 1826.99,
+   "customer_name": "Nordic Paints AS",
+   "region": "EMEA",
+   "segment": "Coatings",
+   "product_family": "Agrochem"
+  }
+ ],
+ "customer_concentration": 0.37,
+ "family_mix": [
+  {
+   "product_family": "Polymers",
+   "revenue": 24873915.38,
+   "cost": 16574190.31,
+   "volume": 14603.86,
+   "rejection": 0.0464,
+   "margin_pct": 0.3337,
+   "revenue_share": 0.2506
+  },
+  {
+   "product_family": "Solvents",
+   "revenue": 17698116.22,
+   "cost": 11094969.86,
+   "volume": 13502.82,
+   "rejection": 0.0452,
+   "margin_pct": 0.3731,
+   "revenue_share": 0.1783
+  },
+  {
+   "product_family": "Coatings",
+   "revenue": 17033326.72,
+   "cost": 11606162.32,
+   "volume": 5661.46,
+   "rejection": 0.0505,
+   "margin_pct": 0.3186,
+   "revenue_share": 0.1716
+  },
+  {
+   "product_family": "Agrochem",
+   "revenue": 15009490.6,
+   "cost": 10805437.2,
+   "volume": 13154.83,
+   "rejection": 0.0411,
+   "margin_pct": 0.2801,
+   "revenue_share": 0.1512
+  },
+  {
+   "product_family": "Surfactants",
+   "revenue": 9451932.68,
+   "cost": 6456192.17,
+   "volume": 4272.39,
+   "rejection": 0.0328,
+   "margin_pct": 0.3169,
+   "revenue_share": 0.0952
+  },
+  {
+   "product_family": "Catalysts",
+   "revenue": 8188308.17,
+   "cost": 5425208.27,
+   "volume": 237.16,
+   "rejection": 0.0531,
+   "margin_pct": 0.3374,
+   "revenue_share": 0.0825
+  },
+  {
+   "product_family": "Specialty",
+   "revenue": 7012367.41,
+   "cost": 7419187.16,
+   "volume": 2958.26,
+   "rejection": 0.0962,
+   "margin_pct": -0.058,
+   "revenue_share": 0.0706
+  }
+ ],
+ "agent_rules": [
+  {
+   "agent": "Production Optimization Agent",
+   "domain": "Manufacturing",
+   "watches": "Plant OEE",
+   "threshold_key": "oee_floor",
+   "logic": "Fires when 6-month plant OEE falls below the floor."
+  },
+  {
+   "agent": "Formula Intelligence Agent",
+   "domain": "Formula",
+   "watches": "Formula margin % / RM cost variance",
+   "threshold_key": "margin_floor",
+   "logic": "Fires when margin % drops below the floor or RM cost variance exceeds its ceiling."
+  },
+  {
+   "agent": "Supplier Risk Agent",
+   "domain": "Supply Chain",
+   "watches": "Supplier risk score / OTIF",
+   "threshold_key": "risk_ceiling",
+   "logic": "Fires when the composite risk score exceeds the ceiling or OTIF drops below its floor."
+  },
+  {
+   "agent": "Compliance Agent",
+   "domain": "Quality",
+   "watches": "CAPA recurrence by product family",
+   "threshold_key": "capa_recur_ceiling",
+   "logic": "Fires when recurring-CAPA rate for a product family exceeds the ceiling."
+  },
+  {
+   "agent": "Inventory Intelligence Agent",
+   "domain": "Financial",
+   "watches": "Shelf-life risk by plant",
+   "threshold_key": "shelf_risk_ceiling",
+   "logic": "Fires when shelf-life risk share at a plant exceeds the ceiling."
+  },
+  {
+   "agent": "CFO Agent",
+   "domain": "Financial",
+   "watches": "Enterprise gross margin %",
+   "threshold_key": "margin_floor",
+   "logic": "Runs every period; escalates severity when margin % is below the floor."
+  }
+ ],
+ "data_lineage": [
+  {
+   "table": "fact_batch",
+   "rows": 5280,
+   "source": "JDE (Process Manufacturing) / MES",
+   "grain": "One row per production batch"
+  },
+  {
+   "table": "fact_purchase_order",
+   "rows": 1987,
+   "source": "JDE Procurement / OIC",
+   "grain": "One row per PO line"
+  },
+  {
+   "table": "fact_shipment",
+   "rows": 2719,
+   "source": "OTM (Oracle Transportation Management)",
+   "grain": "One row per outbound shipment"
+  },
+  {
+   "table": "fact_inventory",
+   "rows": 1728,
+   "source": "JDE Inventory / EPM",
+   "grain": "One row per plant x product x month snapshot"
+  },
+  {
+   "table": "fact_capa",
+   "rows": 209,
+   "source": "Quality/CAPA system (OCC)",
+   "grain": "One row per corrective action"
+  },
+  {
+   "table": "dim_plant",
+   "rows": 6,
+   "source": "JDE Master Data",
+   "grain": "One row per plant"
+  },
+  {
+   "table": "dim_supplier",
+   "rows": 10,
+   "source": "Sales Cloud / Supplier Master",
+   "grain": "One row per supplier"
+  },
+  {
+   "table": "dim_customer",
+   "rows": 15,
+   "source": "Sales Cloud / CPQ",
+   "grain": "One row per customer"
+  },
+  {
+   "table": "dim_formula",
+   "rows": 12,
+   "source": "JDE Formula Management",
+   "grain": "One row per formula"
+  },
+  {
+   "table": "bridge_recipe",
+   "rows": 47,
+   "source": "JDE Formula Management (BOM)",
+   "grain": "One row per formula x ingredient"
+  }
+ ],
+ "capa_recent": [
+  {
+   "capa_id": "CAPA-00007",
+   "batch_id": "BAT-005258",
+   "period": "2026-09",
+   "plant_name": "Jurong Island",
+   "formula_id": "FRM-12",
+   "product_family": "Solvents",
+   "root_cause": "Equipment calibration",
+   "recurring": 0,
+   "closed_on_time": 1
+  },
+  {
+   "capa_id": "CAPA-00011",
+   "batch_id": "BAT-005176",
+   "period": "2026-09",
+   "plant_name": "Dahej Plant",
+   "formula_id": "FRM-01",
+   "product_family": "Polymers",
+   "root_cause": "Process parameter drift",
+   "recurring": 0,
+   "closed_on_time": 1
+  },
+  {
+   "capa_id": "CAPA-00051",
+   "batch_id": "BAT-005138",
+   "period": "2026-09",
+   "plant_name": "Houston Complex",
+   "formula_id": "FRM-03",
+   "product_family": "Solvents",
+   "root_cause": "Raw material variance",
+   "recurring": 0,
+   "closed_on_time": 1
+  },
+  {
+   "capa_id": "CAPA-00046",
+   "batch_id": "BAT-005061",
+   "period": "2026-09",
+   "plant_name": "Dahej Plant",
+   "formula_id": "FRM-09",
+   "product_family": "Specialty",
+   "root_cause": "Equipment calibration",
+   "recurring": 0,
+   "closed_on_time": 1
+  },
+  {
+   "capa_id": "CAPA-00032",
+   "batch_id": "BAT-005135",
+   "period": "2026-09",
+   "plant_name": "Ludwigshafen Site",
+   "formula_id": "FRM-04",
+   "product_family": "Agrochem",
+   "root_cause": "Operator deviation",
+   "recurring": 1,
+   "closed_on_time": 1
+  },
+  {
+   "capa_id": "CAPA-00175",
+   "batch_id": "BAT-005140",
+   "period": "2026-09",
+   "plant_name": "Dahej Plant",
+   "formula_id": "FRM-04",
+   "product_family": "Agrochem",
+   "root_cause": "Process parameter drift",
+   "recurring": 1,
+   "closed_on_time": 1
+  },
+  {
+   "capa_id": "CAPA-00167",
+   "batch_id": "BAT-005263",
+   "period": "2026-09",
+   "plant_name": "Jurong Island",
+   "formula_id": "FRM-01",
+   "product_family": "Polymers",
+   "root_cause": "Operator deviation",
+   "recurring": 0,
+   "closed_on_time": 1
+  },
+  {
+   "capa_id": "CAPA-00114",
+   "batch_id": "BAT-005110",
+   "period": "2026-09",
+   "plant_name": "Camacari Unit",
+   "formula_id": "FRM-06",
+   "product_family": "Coatings",
+   "root_cause": "Contamination",
+   "recurring": 0,
+   "closed_on_time": 0
+  },
+  {
+   "capa_id": "CAPA-00082",
+   "batch_id": "BAT-005182",
+   "period": "2026-09",
+   "plant_name": "Houston Complex",
+   "formula_id": "FRM-07",
+   "product_family": "Catalysts",
+   "root_cause": "Operator deviation",
+   "recurring": 1,
+   "closed_on_time": 1
+  },
+  {
+   "capa_id": "CAPA-00200",
+   "batch_id": "BAT-005221",
+   "period": "2026-09",
+   "plant_name": "Dahej Plant",
+   "formula_id": "FRM-09",
+   "product_family": "Specialty",
+   "root_cause": "Operator deviation",
+   "recurring": 0,
+   "closed_on_time": 1
+  },
+  {
+   "capa_id": "CAPA-00148",
+   "batch_id": "BAT-005057",
+   "period": "2026-08",
+   "plant_name": "Rotterdam Works",
+   "formula_id": "FRM-05",
+   "product_family": "Coatings",
+   "root_cause": "Process parameter drift",
+   "recurring": 0,
+   "closed_on_time": 1
+  },
+  {
+   "capa_id": "CAPA-00203",
+   "batch_id": "BAT-004724",
+   "period": "2026-07",
+   "plant_name": "Jurong Island",
+   "formula_id": "FRM-10",
+   "product_family": "Agrochem",
+   "root_cause": "Process parameter drift",
+   "recurring": 0,
+   "closed_on_time": 0
+  },
+  {
+   "capa_id": "CAPA-00144",
+   "batch_id": "BAT-004656",
+   "period": "2026-07",
+   "plant_name": "Dahej Plant",
+   "formula_id": "FRM-09",
+   "product_family": "Specialty",
+   "root_cause": "Equipment calibration",
+   "recurring": 0,
+   "closed_on_time": 1
+  },
+  {
+   "capa_id": "CAPA-00042",
+   "batch_id": "BAT-004795",
+   "period": "2026-07",
+   "plant_name": "Jurong Island",
+   "formula_id": "FRM-07",
+   "product_family": "Catalysts",
+   "root_cause": "Operator deviation",
+   "recurring": 1,
+   "closed_on_time": 1
+  },
+  {
+   "capa_id": "CAPA-00074",
+   "batch_id": "BAT-004752",
+   "period": "2026-07",
+   "plant_name": "Houston Complex",
+   "formula_id": "FRM-04",
+   "product_family": "Agrochem",
+   "root_cause": "Contamination",
+   "recurring": 1,
+   "closed_on_time": 1
+  },
+  {
+   "capa_id": "CAPA-00045",
+   "batch_id": "BAT-004662",
+   "period": "2026-07",
+   "plant_name": "Dahej Plant",
+   "formula_id": "FRM-11",
+   "product_family": "Polymers",
+   "root_cause": "Process parameter drift",
+   "recurring": 0,
+   "closed_on_time": 1
+  },
+  {
+   "capa_id": "CAPA-00171",
+   "batch_id": "BAT-004759",
+   "period": "2026-07",
+   "plant_name": "Dahej Plant",
+   "formula_id": "FRM-01",
+   "product_family": "Polymers",
+   "root_cause": "Contamination",
+   "recurring": 0,
+   "closed_on_time": 1
+  },
+  {
+   "capa_id": "CAPA-00056",
+   "batch_id": "BAT-004505",
+   "period": "2026-06",
+   "plant_name": "Jurong Island",
+   "formula_id": "FRM-04",
+   "product_family": "Agrochem",
+   "root_cause": "Contamination",
+   "recurring": 0,
+   "closed_on_time": 1
+  },
+  {
+   "capa_id": "CAPA-00036",
+   "batch_id": "BAT-004561",
+   "period": "2026-06",
+   "plant_name": "Dahej Plant",
+   "formula_id": "FRM-11",
+   "product_family": "Polymers",
+   "root_cause": "Raw material variance",
+   "recurring": 0,
+   "closed_on_time": 1
+  },
+  {
+   "capa_id": "CAPA-00009",
+   "batch_id": "BAT-004436",
+   "period": "2026-06",
+   "plant_name": "Houston Complex",
+   "formula_id": "FRM-09",
+   "product_family": "Specialty",
+   "root_cause": "Equipment calibration",
+   "recurring": 0,
+   "closed_on_time": 1
+  },
+  {
+   "capa_id": "CAPA-00003",
+   "batch_id": "BAT-004509",
+   "period": "2026-06",
+   "plant_name": "Jurong Island",
+   "formula_id": "FRM-12",
+   "product_family": "Solvents",
+   "root_cause": "Contamination",
+   "recurring": 1,
+   "closed_on_time": 1
+  },
+  {
+   "capa_id": "CAPA-00088",
+   "batch_id": "BAT-004528",
+   "period": "2026-06",
+   "plant_name": "Jurong Island",
+   "formula_id": "FRM-03",
+   "product_family": "Solvents",
+   "root_cause": "Raw material variance",
+   "recurring": 1,
+   "closed_on_time": 1
+  },
+  {
+   "capa_id": "CAPA-00109",
+   "batch_id": "BAT-004419",
+   "period": "2026-06",
+   "plant_name": "Rotterdam Works",
+   "formula_id": "FRM-09",
+   "product_family": "Specialty",
+   "root_cause": "Contamination",
+   "recurring": 0,
+   "closed_on_time": 1
+  },
+  {
+   "capa_id": "CAPA-00108",
+   "batch_id": "BAT-004500",
+   "period": "2026-06",
+   "plant_name": "Jurong Island",
+   "formula_id": "FRM-10",
+   "product_family": "Agrochem",
+   "root_cause": "Process parameter drift",
+   "recurring": 0,
+   "closed_on_time": 1
+  },
+  {
+   "capa_id": "CAPA-00004",
+   "batch_id": "BAT-004503",
+   "period": "2026-06",
+   "plant_name": "Dahej Plant",
+   "formula_id": "FRM-05",
+   "product_family": "Coatings",
+   "root_cause": "Operator deviation",
+   "recurring": 0,
+   "closed_on_time": 1
+  }
+ ]
 };
