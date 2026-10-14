@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ChemicalSphere&trade; &mdash; Decision Intelligence Platform</title>
+<title>ChemicalSphere &mdash; Decision Intelligence Platform</title>
 <style>
 :root{
   --navy:#0B1E3D; --navy2:#122B52; --navy3:#1A3A6B; --oracle:#C74634; --maroon:#770107;
@@ -178,8 +178,8 @@ footer{text-align:center;color:var(--grey);font-size:11px;padding:22px;border-to
 <div class="shell">
   <nav class="sidebar" id="sidebar">
     <div class="brand-block">
-      <div class="brand">Chemical<span>Sphere</span>&trade;</div>
-      <div class="brand-sub">Decision intelligence on the Oracle AI Data Platform</div>
+      <div class="brand">Chemical<span>Sphere</span></div>
+      <div class="brand-sub">Decision Intelligence Platform for Chemical Enterprises</div>
     </div>
     <div id="navlist"></div>
   </nav>
@@ -209,7 +209,7 @@ const usd2=v=>'$'+v.toFixed(2);
 /* ---------- page registry ---------- */
 const PAGES = [
   {id:'overview', label:'Overview', group:null,
-   title:'Overview', sub:'What has ChemicalSphere™ changed since it went live?'},
+   title:'Overview', sub:'What has ChemicalSphere changed since it went live?'},
   {id:'exec', label:'Executive Command Center', group:'BUSINESS INTELLIGENCE',
    title:'Executive Command Center', sub:'How is the estate performing?', chips:['3','6','12'], defaultChip:'6'},
   {id:'plant', label:'Plant Performance', group:'BUSINESS INTELLIGENCE',
@@ -446,7 +446,7 @@ buildNav(); buildTopbars(); buildPageShells();
 <script>
 navigate('exec');
 document.getElementById('foot').innerHTML =
-  `ChemicalSphere&trade; &mdash; Sutherland's Oracle-powered Decision Intelligence Accelerator for Chemical Enterprises &middot; `+
+  `ChemicalSphere &mdash; Sutherland's Decision Intelligence Accelerator for Chemical Enterprises &middot; `+
   `Simulated data: ${num(D.meta.batches)} batches, ${num(D.meta.pos)} PO lines, ${num(D.meta.shipments)} shipments, ${num(D.meta.capa)} CAPA records across ${D.meta.months} months`;
 </script>
 </body>

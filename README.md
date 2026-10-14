@@ -1,4 +1,4 @@
-# ChemicalSphere(TM) - Decision Intelligence Platform
+# ChemicalSphere - Decision Intelligence Platform
 
 ## Run it
 Open `index.html` directly in a browser. No server, no CDN, no install.
