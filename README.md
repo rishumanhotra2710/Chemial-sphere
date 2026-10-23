@@ -17,6 +17,8 @@ Rewrites `data.js` (the platform reads this) and `csv/*.csv` (OTBI / modelling e
 | `generate_chemicalsphere_data.py` | Batch-spine star schema simulator + KPI layer + agent rule layer + forecasting/decomposition/concentration analytics |
 | `data.js` | Pre-computed payload consumed by the platform |
 | `csv/` | 13 tables - 8 dimensions, 1 bridge, 5 facts |
+| `chatbot.js` | Front-end chat widget (floating button + panel) that lets business users ask free-text questions |
+| `chatbot-worker/` | Cloudflare Worker backend for the chatbot - holds the Anthropic API key server-side; see its own README for deployment |
 
 ## Pages
 - **Overview** - headline KPIs, quick links, Outcome Tracker (baseline vs ChemicalSphere-active)
@@ -27,6 +29,19 @@ Interactive features that are actually wired up (not decorative): period-window 
 Executive Command Center's trend chart, region filters on Plant/Supply Chain/Customer pages, "Show workings" /
 "Open <entity>" drill-down on every agent insight card, and live sliders on Margin What-If (calibrated to
 reconcile exactly with the true baseline margin at zero delta).
+
+## Chatbot (ask-anything assistant)
+A floating chat button (bottom-right, on every page) lets business users ask free-text questions ("which
+plant has the worst OEE?", "summarize supplier risk", "give me a report on inventory risk") and get an
+AI-generated answer sourced only from the platform's own data.
+
+This needs a one-time backend deployment, since a static GitHub Pages site can't hold a secret API key:
+1. Follow `chatbot-worker/README.md` to deploy the Cloudflare Worker (holds your Anthropic API key) - a
+   few CLI commands, free tier is enough.
+2. Paste the resulting Worker URL into `CHATBOT_API_URL` at the top of `chatbot.js`.
+
+Until that's done, the chat button still works and clearly explains it isn't connected yet, rather than
+failing silently.
 
 ## Star schema (batch is the spine)
 Dimensions: plant, supplier, raw_material, formula, product, customer, carrier
