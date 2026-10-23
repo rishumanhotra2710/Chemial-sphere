@@ -1,4 +1,4 @@
-/* ChemicalSphere(TM) - per-page render logic. Depends on globals defined in index.html's inline script. */
+/* ChemicalSphere - per-page render logic. Depends on globals defined in index.html's inline script. */
 const PAGE_STATE = {};
 function bar(v,max,col){return `<div class="bar"><i style="width:${Math.min(100,v/max*100)}%;background:${col}"></i></div>`;}
 function kpiFlat(label,valueStr,sparkSeries){
@@ -40,7 +40,7 @@ function renderOverview(){
     <div class="sec"><div class="sechead"><h2>Where to go next</h2></div>
       <div class="qgrid">${qc.map(q=>`<div class="qcard" onclick="navigate('${q.id}')"><div class="qt">${q.t}</div><div class="qd">${q.d}</div><div class="qa">Open →</div></div>`).join('')}</div>
     </div>
-    <div class="sec"><div class="sechead"><h2>Outcome Tracker</h2><p>Baseline (months 1–18) vs ChemicalSphere™ active (months 19–24)</p></div>
+    <div class="sec"><div class="sechead"><h2>Outcome Tracker</h2><p>Baseline (months 1–18) vs ChemicalSphere active (months 19–24)</p></div>
       <div class="ogrid">${D.outcomes.map(o=>{
         const f=v=>o.unit==='$'?usd(v):o.unit==='%'?pct(v):o.unit==='days'?v.toFixed(0)+' d':o.unit==='x'?v.toFixed(1)+'x':v.toFixed(0);
         const g=o.delta_pct>0;
