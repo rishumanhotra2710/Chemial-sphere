@@ -1,7 +1,7 @@
 /**
  * ChemicalSphere chatbot Worker.
  *
- * Holds the OpenAI API key server-side (as a Cloudflare secret) and proxies
+ * Holds the Anthropic API key server-side (as a Cloudflare secret) and proxies
  * chat requests from the static front-end. On every request it fetches the
  * platform's live data.js payload (short in-memory cache) and includes it as
  * context, so the model answers from the same numbers the dashboard shows.
@@ -124,9 +124,9 @@ export default {
           .map((m) => ({ role: m.role, content: m.content.slice(0, 4000) }))
       : [];
 
-    if (!env.OPENAI_API_KEY) {
+    if (!env.ANTHROPIC_API_KEY) {
       return json(
-        { error: "Server not configured: the OPENAI_API_KEY secret is missing. See chatbot-worker/README.md." },
+        { error: "Server not configured: the ANTHROPIC_API_KEY secret is missing. See chatbot-worker/README.md." },
         500,
         headers
       );
@@ -139,21 +139,23 @@ export default {
       return json({ error: "Could not load platform data: " + e.message }, 502, headers);
     }
 
-    const model = env.OPENAI_MODEL || "gpt-4o-mini";
+    const model = env.ANTHROPIC_MODEL || "claude-haiku-4-5-20251001";
     const systemPrompt = buildSystemPrompt(platformData);
-    const messages = [{ role: "system", content: systemPrompt }, ...history, { role: "user", content: question }];
+    const messages = [...history, { role: "user", content: question }];
 
     let upstream;
     try {
-      upstream = await fetch("https://api.openai.com/v1/chat/completions", {
+      upstream = await fetch("https://api.anthropic.com/v1/messages", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${env.OPENAI_API_KEY}`,
+          "x-api-key": env.ANTHROPIC_API_KEY,
+          "anthropic-version": "2023-06-01",
         },
         body: JSON.stringify({
           model,
           max_tokens: 1024,
+          system: systemPrompt,
           messages,
         }),
       });
@@ -172,7 +174,9 @@ export default {
       return json({ error: data?.error?.message || `Upstream API error (HTTP ${upstream.status})` }, upstream.status, headers);
     }
 
-    const answer = (data.choices?.[0]?.message?.content || "").trim() || "I couldn't generate a response for that.";
+    const answer =
+      (Array.isArray(data.content) ? data.content.map((b) => b.text || "").join("") : "").trim() ||
+      "I couldn't generate a response for that.";
 
     return json({ answer }, 200, headers);
   },
