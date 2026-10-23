@@ -1,7 +1,7 @@
 # ChemicalSphere Chatbot — Backend
 
 A small Cloudflare Worker that lets business users ask free-text questions about
-the platform's data and get AI-generated answers/reports. It holds the Anthropic
+the platform's data and get AI-generated answers/reports. It holds the OpenAI
 API key server-side (Cloudflare Workers secrets are never exposed to the
 browser) and proxies chat requests from the static front-end.
 
@@ -12,9 +12,9 @@ new piece of infrastructure this feature needs.
 ## What you need before you start
 
 1. A free [Cloudflare account](https://dash.cloudflare.com/sign-up).
-2. An [Anthropic API key](https://console.anthropic.com/) (sign up, add a
-   payment method, create a key under **API Keys**). This is billed
-   pay-as-you-go by Anthropic directly — see **Cost** below.
+2. An [OpenAI API key](https://platform.openai.com/api-keys) (sign up, add a
+   payment method, create a key). This is billed pay-as-you-go by OpenAI
+   directly — see **Cost** below.
 3. Node.js installed locally (to run the `wrangler` CLI).
 
 ## Deploy it (one-time setup)
@@ -39,9 +39,9 @@ That last command prints something like:
 Copy the `id` value into `wrangler.toml`, replacing `REPLACE_WITH_YOUR_KV_NAMESPACE_ID`.
 
 ```bash
-# 3. Store your Anthropic API key as a secret (it will prompt you to paste it —
+# 3. Store your OpenAI API key as a secret (it will prompt you to paste it —
 #    it is NOT saved in any file in this repo, and is never sent to the browser)
-npx wrangler secret put ANTHROPIC_API_KEY
+npx wrangler secret put OPENAI_API_KEY
 
 # 4. Deploy
 npx wrangler deploy
@@ -95,14 +95,13 @@ Then re-run `npx wrangler deploy`.
 
 - **Cloudflare Workers:** free tier covers 100,000 requests/day — far more
   than a business chatbot like this will see.
-- **Anthropic API:** billed per token. With the default model
-  (`claude-haiku-4-5-20251001`) and the platform's current dataset size
-  (~70KB as context per question), a single question costs a small fraction
-  of a cent. A business team asking a few hundred questions a month will
-  likely spend well under $5/month. Check current pricing at
-  [anthropic.com/pricing](https://www.anthropic.com/pricing) — you can also
-  switch `ANTHROPIC_MODEL` in `wrangler.toml` to a larger model (e.g.
-  `claude-sonnet-5`) for more complex reasoning, at a higher per-token cost.
+- **OpenAI API:** billed per token. With the default model (`gpt-4o-mini`)
+  and the platform's current dataset size (~70KB as context per question), a
+  single question costs a small fraction of a cent. A business team asking a
+  few hundred questions a month will likely spend well under $5/month. Check
+  current pricing at [openai.com/pricing](https://openai.com/api/pricing/) —
+  you can also switch `OPENAI_MODEL` in `wrangler.toml` to a larger model
+  (e.g. `gpt-4o`) for more complex reasoning, at a higher per-token cost.
 
 ## Security notes
 
