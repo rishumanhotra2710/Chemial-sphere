@@ -18,7 +18,7 @@ Rewrites `data.js` (the platform reads this) and `csv/*.csv` (OTBI / modelling e
 | `data.js` | Pre-computed payload consumed by the platform |
 | `csv/` | 13 tables - 8 dimensions, 1 bridge, 5 facts |
 | `chatbot.js` | Front-end chat widget (floating button + panel) that lets business users ask free-text questions |
-| `chatbot-worker/` | Cloudflare Worker backend for the chatbot - holds the Anthropic API key server-side; see its own README for deployment |
+| `chatbot-worker/` | Cloudflare Worker backend for the chatbot - holds the OpenAI API key server-side; see its own README for deployment |
 
 ## Pages
 - **Overview** - headline KPIs, quick links, Outcome Tracker (baseline vs ChemicalSphere-active)
@@ -36,7 +36,7 @@ plant has the worst OEE?", "summarize supplier risk", "give me a report on inven
 AI-generated answer sourced only from the platform's own data.
 
 This needs a one-time backend deployment, since a static GitHub Pages site can't hold a secret API key:
-1. Follow `chatbot-worker/README.md` to deploy the Cloudflare Worker (holds your Anthropic API key) - a
+1. Follow `chatbot-worker/README.md` to deploy the Cloudflare Worker (holds your OpenAI API key) - a
    few CLI commands, free tier is enough.
 2. Paste the resulting Worker URL into `CHATBOT_API_URL` at the top of `chatbot.js`.
 

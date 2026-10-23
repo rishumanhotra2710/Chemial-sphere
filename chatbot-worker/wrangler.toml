@@ -2,10 +2,10 @@ name = "chemicalsphere-chatbot"
 main = "src/index.js"
 compatibility_date = "2024-11-01"
 
-# Non-secret configuration. ANTHROPIC_API_KEY is set separately as a secret
+# Non-secret configuration. OPENAI_API_KEY is set separately as a secret
 # (see README.md) — never put API keys in this file, it's committed to git.
 [vars]
-ANTHROPIC_MODEL = "claude-haiku-4-5-20251001"
+OPENAI_MODEL = "gpt-4o-mini"
 # Where the Worker fetches the platform's live data.js from, on every chat
 # request (with a short in-memory cache). Update this once the custom
 # domain (chemicalsphere.com) is live.
@@ -14,7 +14,7 @@ DATA_URL = "https://rishumanhotra2710.github.io/Chemial-sphere/data.js"
 ALLOWED_ORIGINS = "https://rishumanhotra2710.github.io,http://localhost:8000,http://127.0.0.1:8000"
 
 # Used for simple per-IP rate limiting so a stolen/public Worker URL can't be
-# used to run up your Anthropic bill. Create with:
+# used to run up your OpenAI bill. Create with:
 #   wrangler kv namespace create CHATBOT_KV
 # then paste the printed id below.
 [[kv_namespaces]]
