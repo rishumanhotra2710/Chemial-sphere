@@ -1,5 +1,5 @@
 /* ChemicalSphere chatbot widget — talks to the Cloudflare Worker in chatbot-worker/.
-   The Worker holds the OpenAI API key server-side; this file only ever
+   The Worker holds the Anthropic API key server-side; this file only ever
    sends plain-text questions and receives plain-text answers. */
 
 // Paste your deployed Cloudflare Worker URL here once you've followed
@@ -112,7 +112,7 @@ function cbRenderMarkdown(text) {
       addMsg("user", cbEscapeHtml(q));
       input.value = "";
       addMsg("bot", cbRenderMarkdown(
-        "This chatbot isn't connected to a backend yet. See **chatbot-worker/README.md** for the one-time setup (deploy the Worker, add your OpenAI API key, then paste the Worker URL into `CHATBOT_API_URL` at the top of `chatbot.js`)."
+        "This chatbot isn't connected to a backend yet. See **chatbot-worker/README.md** for the one-time setup (deploy the Worker, add your Anthropic API key, then paste the Worker URL into `CHATBOT_API_URL` at the top of `chatbot.js`)."
       ), true);
       return;
     }
