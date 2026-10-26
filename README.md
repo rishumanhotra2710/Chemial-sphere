@@ -17,8 +17,6 @@ Rewrites `data.js` (the platform reads this) and `csv/*.csv` (OTBI / modelling e
 | `generate_chemicalsphere_data.py` | Batch-spine star schema simulator + KPI layer + agent rule layer + forecasting/decomposition/concentration analytics |
 | `data.js` | Pre-computed payload consumed by the platform |
 | `csv/` | 13 tables - 8 dimensions, 1 bridge, 5 facts |
-| `chatbot.js` | Front-end chat widget (floating button + panel) that lets business users ask free-text questions |
-| `chatbot-worker/` | Cloudflare Worker backend for the chatbot - holds the Anthropic API key server-side; see its own README for deployment |
 
 ## Pages
 - **Overview** - headline KPIs, quick links, Outcome Tracker (baseline vs ChemicalSphere-active)
@@ -30,22 +28,6 @@ Executive Command Center's trend chart, region filters on Plant/Supply Chain/Cus
 "Open <entity>" drill-down on every agent insight card, and live sliders on Margin What-If (calibrated to
 reconcile exactly with the true baseline margin at zero delta).
 
-## Chatbot (ask-anything assistant)
-A floating chat button (bottom-right, on every page) lets business users ask questions like "which plant
-has the worst OEE?", "summarize supplier risk", or "give me a report on inventory risk". It runs in one
-of two modes:
-
-**Built-in mode (default, zero setup).** Answers come from `cbLocalAnswer()` in `chatbot.js`, which reads
-the same `data.js` payload the dashboards render from and replies with real figures and tables. No API
-key, no backend, no per-question cost - it works the moment the site is deployed. It covers plants,
-suppliers, formulas/margin, inventory, revenue, forecasts, compliance, customers, supply dependency, the
-platform's own recommendations, outcome tracking, and KPI definitions. It matches question intent by
-keyword, so genuinely open-ended phrasing may not land - it says so plainly rather than guessing.
-
-**AI mode (optional upgrade).** For true free-text answers, deploy the Cloudflare Worker in
-`chatbot-worker/` (it holds an Anthropic API key server-side, which a static GitHub Pages site cannot do
-safely) and paste its URL into `CHATBOT_API_URL` at the top of `chatbot.js`. The widget then routes
-questions to the LLM instead, and built-in mode becomes the fallback. See `chatbot-worker/README.md`.
 
 ## Star schema (batch is the spine)
 Dimensions: plant, supplier, raw_material, formula, product, customer, carrier
